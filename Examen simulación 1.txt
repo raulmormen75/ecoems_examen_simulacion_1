@@ -1,0 +1,3940 @@
+ÁREA TEMÁTICA: HABILIDAD MATEMÁTICA
+RANGO: REACTIVOS 1 AL 16
+
+REACTIVO 1
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Series de números
+Planteamiento del problema:
+¿Qué números continúan en la siguiente sucesión?
+72, 18, 64, 16, 56, 14, __, __
+
+Opciones:
+a) 48, 12
+b) 48, 13
+c) 50, 12
+d) 50, 13
+e) 46, 12
+
+Pista sin ofrecer la respuesta:
+Observa por separado los términos que ocupan lugar impar y los que ocupan lugar par.
+
+Respuesta correcta:
+a) 48, 12
+
+Argumento de la respuesta correcta:
+La sucesión tiene dos series intercaladas. En las posiciones impares va 72, 64, 56, 48, que disminuye de 8 en 8. En las posiciones pares va 18, 16, 14, 12, que disminuye de 2 en 2. Por eso los números que siguen son 48 y 12.
+
+Argumentos de las opciones incorrectas:
+b) 48, 13: el primer número sí respeta la serie impar, pero el segundo rompe la serie par, porque 18, 16, 14 debe continuar con 12.
+c) 50, 12: el segundo número sí funciona, pero 50 rompe la regla de restar 8 en la serie impar.
+d) 50, 13: ninguno de los dos números respeta las dos reglas simultáneas.
+e) 46, 12: el segundo número es correcto, pero 46 no corresponde a la serie 72, 64, 56, 48.
+
+REACTIVO 2
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Series de números
+Planteamiento del problema:
+El número que sigue en la sucesión 2, 4, 12, 14, 42, 44, __ es
+
+Opciones:
+a) 88
+b) 126
+c) 132
+d) 146
+e) 176
+
+Pista sin ofrecer la respuesta:
+Revisa si la sucesión alterna dos operaciones distintas.
+
+Respuesta correcta:
+c) 132
+
+Argumento de la respuesta correcta:
+La regla alterna sumar 2 y multiplicar por 3:
+2 + 2 = 4
+4 × 3 = 12
+12 + 2 = 14
+14 × 3 = 42
+42 + 2 = 44
+44 × 3 = 132
+Por eso el número siguiente es 132.
+
+Argumentos de las opciones incorrectas:
+a) 88: sale de duplicar 44, pero la operación que sigue no es multiplicar por 2, sino por 3.
+b) 126: toma como referencia 42 × 3, pero ignora que antes ya apareció el 44.
+d) 146: mezcla una suma con una multiplicación sin respetar el patrón real.
+e) 176: no corresponde a ninguna de las dos operaciones que se están alternando.
+
+REACTIVO 3
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Series con dos reglas que se turnan
+Planteamiento del problema:
+Encuentra los términos que continúan la sucesión:
+3, 15, 6, 13, 12, 11, __, __
+
+Opciones:
+a) 24, 9
+b) 18, 9
+c) 24, 8
+d) 21, 10
+e) 18, 8
+
+Pista sin ofrecer la respuesta:
+Separa la sucesión en dos grupos: posiciones impares y posiciones pares.
+
+Respuesta correcta:
+a) 24, 9
+
+Argumento de la respuesta correcta:
+En las posiciones impares aparece 3, 6, 12, 24, que va duplicándose. En las posiciones pares aparece 15, 13, 11, 9, que va disminuyendo de 2 en 2. Por eso los términos que siguen son 24 y 9.
+
+Argumentos de las opciones incorrectas:
+b) 18, 9: el segundo valor sí encaja, pero 18 no continúa la duplicación 3, 6, 12, 24.
+c) 24, 8: el primer valor sí funciona, pero la serie par no va a 8, sino a 9.
+d) 21, 10: ninguno de los dos números respeta las reglas de duplicar y restar 2.
+e) 18, 8: rompe las dos reglas al mismo tiempo.
+
+REACTIVO 4
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Series por ciclos
+Planteamiento del problema:
+¿Qué números completan la siguiente cadena?
+7, 14, 12, 24, 22, 44, __, __
+
+Opciones:
+a) 42, 84
+b) 42, 82
+c) 40, 80
+d) 44, 88
+e) 46, 92
+
+Pista sin ofrecer la respuesta:
+El patrón se repite cada dos movimientos.
+
+Respuesta correcta:
+a) 42, 84
+
+Argumento de la respuesta correcta:
+La secuencia sigue el ciclo:
+multiplicar por 2, restar 2, multiplicar por 2, restar 2.
+7 × 2 = 14
+14 - 2 = 12
+12 × 2 = 24
+24 - 2 = 22
+22 × 2 = 44
+44 - 2 = 42
+42 × 2 = 84
+Por eso los números que faltan son 42 y 84.
+
+Argumentos de las opciones incorrectas:
+b) 42, 82: el primer valor es correcto, pero después de 42 debe ir 84, no 82.
+c) 40, 80: empieza restando 4 en lugar de 2, así que rompe el ciclo.
+d) 44, 88: repite un valor ya usado y no aplica la resta de 2 donde corresponde.
+e) 46, 92: cambia la regla de la cadena y ya no respeta el patrón repetitivo.
+
+REACTIVO 5
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Tablas con números
+Planteamiento del problema:
+¿Cuál es el número que falta en el siguiente cuadro?
+
+3   5   11
+4   7   15
+6   9   __
+
+Opciones:
+a) 19
+b) 20
+c) 21
+d) 22
+e) 23
+
+Pista sin ofrecer la respuesta:
+En cada fila, el tercer número depende de los dos primeros.
+
+Respuesta correcta:
+c) 21
+
+Argumento de la respuesta correcta:
+La regla horizontal es:
+tercer número = 2 × primer número + segundo número
+Fila 1: 2 × 3 + 5 = 11
+Fila 2: 2 × 4 + 7 = 15
+Fila 3: 2 × 6 + 9 = 21
+Por eso el número faltante es 21.
+
+Argumentos de las opciones incorrectas:
+a) 19: queda corto y no cumple la regla 2 × 6 + 9.
+b) 20: tampoco coincide con la operación observada en las dos primeras filas.
+d) 22: se pasa por una unidad respecto del resultado correcto.
+e) 23: no mantiene la misma relación horizontal del cuadro.
+
+REACTIVO 6
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Tablas con números
+Planteamiento del problema:
+¿Cuál es el número que falta en el siguiente cuadro?
+
+3   4   15
+5   6   35
+7   8   __
+
+Opciones:
+a) 56
+b) 60
+c) 63
+d) 64
+e) 65
+
+Pista sin ofrecer la respuesta:
+Prueba multiplicar los dos primeros números y luego sumar uno de ellos.
+
+Respuesta correcta:
+c) 63
+
+Argumento de la respuesta correcta:
+La regla horizontal es:
+tercer número = primer número × segundo número + primer número
+Fila 1: 3 × 4 + 3 = 15
+Fila 2: 5 × 6 + 5 = 35
+Fila 3: 7 × 8 + 7 = 63
+Por eso el número faltante es 63.
+
+Argumentos de las opciones incorrectas:
+a) 56: solo toma la multiplicación 7 × 8 y deja fuera la suma adicional.
+b) 60: no sale de aplicar la misma regla de las filas anteriores.
+d) 64: se acerca al resultado, pero suma de más y rompe la regularidad.
+e) 65: no conserva la relación observada en las dos primeras filas.
+
+REACTIVO 7
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Figuras en secuencia
+Planteamiento del problema:
+¿Cuál es la figura que continúa en la siguiente serie?
+
+Figura 1        Figura 2        Figura 3
+● ○             ○ ●             ○ ○
+○ ○             ○ ○             ● ○
+
+Opciones:
+a)
+○ ○
+○ ●
+
+b)
+● ○
+○ ○
+
+c)
+○ ●
+○ ○
+
+d)
+○ ○
+● ○
+
+e)
+● ○
+● ○
+
+Pista sin ofrecer la respuesta:
+El círculo negro cambia de lugar, pero el tamaño del cuadro no cambia.
+
+Respuesta correcta:
+a)
+
+Argumento de la respuesta correcta:
+El círculo negro se mueve una posición en sentido de las manecillas del reloj dentro del cuadro 2 × 2. Va de arriba izquierda a arriba derecha, luego abajo izquierda y después abajo derecha. Por eso la siguiente figura es la opción a).
+
+Argumentos de las opciones incorrectas:
+b) Regresa a la primera posición de la serie, así que no es la continuación.
+c) Repite la segunda figura y detiene el movimiento.
+d) Repite la tercera figura, por lo que no avanza la secuencia.
+e) Agrega un círculo negro extra, y la serie siempre conserva solo uno.
+
+REACTIVO 8
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Figuras en secuencia
+Planteamiento del problema:
+¿Cuál es la figura que continúa en la siguiente serie?
+
+Figura 1: un cuadro con un triángulo arriba
+Figura 2: dos cuadros con un triángulo abajo
+Figura 3: tres cuadros con un triángulo arriba
+
+Opciones:
+a) cuatro cuadros con un triángulo abajo
+b) cuatro cuadros con un triángulo arriba
+c) tres cuadros con un triángulo abajo
+d) cinco cuadros con un triángulo abajo
+e) cuatro cuadros con un círculo al centro
+
+Pista sin ofrecer la respuesta:
+Observa dos cambios al mismo tiempo: cuántos cuadros hay y en qué posición aparece el triángulo.
+
+Respuesta correcta:
+a) cuatro cuadros con un triángulo abajo
+
+Argumento de la respuesta correcta:
+La serie crece de uno en uno en el número de cuadros: 1, 2, 3, 4. Además, el triángulo alterna arriba, abajo, arriba, abajo. Por eso la figura que sigue debe tener cuatro cuadros y el triángulo abajo.
+
+Argumentos de las opciones incorrectas:
+b) Tiene el número correcto de cuadros, pero no respeta la alternancia arriba, abajo, arriba, abajo.
+c) Mantiene tres cuadros y por eso no hay crecimiento en la serie.
+d) Se adelanta una figura, porque agrega cinco cuadros en vez de cuatro.
+e) Cambia el tipo de símbolo, y la serie siempre usa un triángulo.
+
+REACTIVO 9
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Giros de figuras
+Planteamiento del problema:
+Observa la figura y selecciona la opción que la representa después de ser girada 90° en el sentido de las manecillas del reloj.
+
+Figura original:
+■ □
+■ ●
+
+Opciones:
+a)
+■ ■
+● □
+
+b)
+□ ■
+● ■
+
+c)
+■ ●
+■ □
+
+d)
+● ■
+□ ■
+
+e)
+■ ■
+□ ●
+
+Pista sin ofrecer la respuesta:
+Al girar la figura completa, las piezas cambian de posición, pero no se modifican ni se intercambian entre sí.
+
+Respuesta correcta:
+a)
+
+Argumento de la respuesta correcta:
+Al girar 90° a la derecha, la columna izquierda de la figura original pasa a la fila superior. Por eso los dos cuadros negros quedan arriba. El punto que estaba abajo a la derecha pasa abajo a la izquierda, y el cuadro blanco queda abajo a la derecha. Esa disposición corresponde a la opción a).
+
+Argumentos de las opciones incorrectas:
+b) Cambia la ubicación del cuadro blanco y no respeta el giro completo.
+c) Parece una reorganización parcial, no una rotación de 90°.
+d) Coloca el punto en una esquina incorrecta respecto del giro horario.
+e) Mantiene los dos cuadros negros arriba, pero deja mal colocado el punto.
+
+REACTIVO 10
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Giros de figuras
+Planteamiento del problema:
+Selecciona la opción que representa la siguiente figura después de girarla 180°.
+
+Figura original:
+▲ ○ ●
+■ ■ ○
+
+Opciones:
+a)
+○ ■ ■
+● ○ ▲
+
+b)
+■ ■ ○
+▲ ○ ●
+
+c)
+● ○ ▲
+○ ■ ■
+
+d)
+○ ▲ ●
+■ ■ ○
+
+e)
+■ ○ ○
+● ■ ▲
+
+Pista sin ofrecer la respuesta:
+Un giro de 180° equivale a dejar arriba lo de abajo y, además, invertir izquierda y derecha.
+
+Respuesta correcta:
+a)
+
+Argumento de la respuesta correcta:
+Al girar 180°, la figura se invierte completamente. La segunda fila pasa a ser la primera, pero en orden contrario: ○ ■ ■. La primera fila pasa a ser la segunda, también en orden contrario: ● ○ ▲. Esa forma coincide con la opción a).
+
+Argumentos de las opciones incorrectas:
+b) Repite la figura original, así que no hay giro real.
+c) Cambia las filas, pero no conserva correctamente la posición de todas las piezas.
+d) Mezcla símbolos en posiciones que no resultan del giro de 180°.
+e) Modifica la distribución original y deja símbolos en lugares imposibles.
+
+REACTIVO 11
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Conteo visual
+Planteamiento del problema:
+¿Cuántos cuadrados hay en la siguiente figura?
+
+┌─┬─┬─┐
+│ │ │ │
+├─┼─┼─┤
+│ │ │ │
+└─┴─┴─┘
+
+Opciones:
+a) 6
+b) 7
+c) 8
+d) 9
+e) 10
+
+Pista sin ofrecer la respuesta:
+Cuenta primero los cuadrados pequeños y después los que se forman al unir cuatro pequeños.
+
+Respuesta correcta:
+c) 8
+
+Argumento de la respuesta correcta:
+La figura tiene 6 cuadrados pequeños, porque hay 2 filas por 3 columnas. Además, se forman 2 cuadrados grandes de tamaño 2 × 2: uno a la izquierda y otro a la derecha. En total hay 6 + 2 = 8 cuadrados.
+
+Argumentos de las opciones incorrectas:
+a) 6: solo cuenta los cuadrados pequeños y omite los dos cuadrados mayores.
+b) 7: reconoce que hay más que los pequeños, pero deja fuera uno de los cuadrados grandes.
+d) 9: agrega un cuadrado que no existe, porque la figura no tiene altura suficiente para uno aún mayor.
+e) 10: sobrecuenta regiones que son rectángulos, no cuadrados.
+
+REACTIVO 12
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Conteo visual
+Planteamiento del problema:
+Una figura está formada por un hexágono central rodeado por seis hexágonos iguales. Además, el contorno exterior de toda la figura forma un hexágono mayor. ¿Cuántos hexágonos hay en total?
+
+Opciones:
+a) 6
+b) 7
+c) 8
+d) 9
+e) 10
+
+Pista sin ofrecer la respuesta:
+No te detengas en los hexágonos pequeños; revisa si la unión completa forma uno adicional.
+
+Respuesta correcta:
+c) 8
+
+Argumento de la respuesta correcta:
+Hay 1 hexágono central y 6 hexágonos alrededor, lo que da 7 hexágonos pequeños. Además, todo el conjunto forma 1 hexágono grande exterior. Entonces el total es 7 + 1 = 8.
+
+Argumentos de las opciones incorrectas:
+a) 6: deja fuera el hexágono central y el grande exterior.
+b) 7: cuenta solo los hexágonos pequeños y omite el hexágono mayor.
+d) 9: agrega un hexágono extra que no se forma en la figura descrita.
+e) 10: sobrecuenta regiones que no tienen contorno hexagonal completo.
+
+REACTIVO 13
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Problemas de razonamiento
+Planteamiento del problema:
+Cuando un número se divide entre 4, el residuo es 3. Cuando se divide entre 5, el residuo es 4. Cuando se divide entre 3, el residuo es 0. ¿Cuál de los siguientes puede ser ese número?
+
+Opciones:
+a) 34
+b) 35
+c) 39
+d) 43
+e) 45
+
+Pista sin ofrecer la respuesta:
+Primero filtra los números que sí sean múltiplos de 3 y luego revisa los residuos.
+
+Respuesta correcta:
+c) 39
+
+Argumento de la respuesta correcta:
+39 es múltiplo de 3, así que cumple la tercera condición. Además:
+39 ÷ 4 deja residuo 3
+39 ÷ 5 deja residuo 4
+Como satisface las tres condiciones al mismo tiempo, 39 es el valor correcto.
+
+Argumentos de las opciones incorrectas:
+a) 34: al dividirlo entre 3 no deja residuo 0.
+b) 35: al dividirlo entre 4 no deja residuo 3.
+d) 43: al dividirlo entre 5 no deja residuo 4 y tampoco es múltiplo de 3.
+e) 45: sí es múltiplo de 3, pero al dividirlo entre 4 no deja residuo 3.
+
+REACTIVO 14
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Problemas con dos datos que se cruzan
+Planteamiento del problema:
+En una papelería, 2 cuadernos y 1 pluma cuestan 34 pesos. En esa misma papelería, 1 cuaderno y 2 plumas cuestan 26 pesos. ¿Cuánto cuesta una pluma?
+
+Opciones:
+a) 4 pesos
+b) 5 pesos
+c) 6 pesos
+d) 7 pesos
+e) 8 pesos
+
+Pista sin ofrecer la respuesta:
+Conviene comparar las dos compras para aislar el precio de un solo artículo.
+
+Respuesta correcta:
+c) 6 pesos
+
+Argumento de la respuesta correcta:
+Si duplicamos la segunda compra, obtenemos 2 cuadernos y 4 plumas por 52 pesos. Si a esa cantidad le restamos la primera compra, quedan 3 plumas por 18 pesos. Entonces cada pluma cuesta 6 pesos.
+
+Argumentos de las opciones incorrectas:
+a) 4 pesos: con ese valor, 2 cuadernos y 1 pluma no llegarían a 34 pesos manteniendo la segunda compra.
+b) 5 pesos: al sustituirlo, las dos compras dan resultados distintos a 34 y 26.
+d) 7 pesos: al probarlo, una de las dos condiciones falla.
+e) 8 pesos: hace que el precio del cuaderno resulte incompatible con la otra compra.
+
+REACTIVO 15
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Problemas de aplicación con razonamiento y proporciones
+Planteamiento del problema:
+Un autobús recorre 180 kilómetros con 15 litros de gasolina. A la misma razón, ¿cuántos litros necesita para recorrer 300 kilómetros?
+
+Opciones:
+a) 20 litros
+b) 22 litros
+c) 24 litros
+d) 25 litros
+e) 27 litros
+
+Pista sin ofrecer la respuesta:
+La cantidad de gasolina debe crecer en la misma proporción que la distancia recorrida.
+
+Respuesta correcta:
+d) 25 litros
+
+Argumento de la respuesta correcta:
+Si con 15 litros recorre 180 km, entonces avanza 12 km por cada litro. Para recorrer 300 km se necesita dividir 300 entre 12, lo que da 25. Por eso se requieren 25 litros.
+
+Argumentos de las opciones incorrectas:
+a) 20 litros: con esa cantidad solo alcanzaría para 240 km a la misma razón.
+b) 22 litros: no mantiene la proporción exacta entre kilómetros y litros.
+c) 24 litros: alcanzaría para 288 km, no para 300 km.
+e) 27 litros: excede lo necesario y rompe la razón original del problema.
+
+REACTIVO 16
+Área temática: Habilidad matemática
+Bloque que corresponde al área temática: Problemas de aplicación con razonamiento y proporciones
+Planteamiento del problema:
+Una impresora saca 84 páginas en 7 minutos. A esta misma razón, ¿cuántos minutos tardará en imprimir 144 páginas?
+
+Opciones:
+a) 10
+b) 11
+c) 12
+d) 13
+e) 14
+
+Pista sin ofrecer la respuesta:
+Primero encuentra cuántas páginas imprime por minuto.
+
+Respuesta correcta:
+c) 12
+
+Argumento de la respuesta correcta:
+Si imprime 84 páginas en 7 minutos, entonces su ritmo es de 12 páginas por minuto. Para imprimir 144 páginas se divide 144 entre 12, lo que da 12 minutos. Por eso la respuesta correcta es 12.
+
+Argumentos de las opciones incorrectas:
+a) 10: en 10 minutos imprimiría 120 páginas, que no son suficientes.
+b) 11: en 11 minutos imprimiría 132 páginas, todavía menos de 144.
+d) 13: en 13 minutos imprimiría 156 páginas, así que ya sería más tiempo del necesario.
+e) 14: corresponde a 168 páginas, no a 144.
+
+---
+---
+
+ÁREA TEMÁTICA: BIOLOGÍA
+RANGO: REACTIVOS 17 AL 28
+
+REACTIVO 17
+Área temática: Biología
+Bloque que corresponde al área temática: Seres vivos, características generales
+Planteamiento del problema:
+La capacidad de un ser vivo para mantener relativamente estables sus condiciones internas, como temperatura, agua y equilibrio químico, se llama
+
+Opciones:
+a) irritabilidad
+b) nutrición
+c) homeostasis
+d) reproducción
+e) adaptación
+
+Pista sin ofrecer la respuesta:
+No se refiere a responder a estímulos, sino a conservar equilibrio dentro del organismo.
+
+Respuesta correcta:
+c) homeostasis
+
+Argumento de la respuesta correcta:
+La homeostasis es la capacidad del organismo para regular su medio interno y conservar condiciones adecuadas para vivir, aunque cambie el ambiente exterior.
+
+Argumentos de las opciones incorrectas:
+a) irritabilidad: es la respuesta ante estímulos, no el equilibrio interno.
+b) nutrición: se relaciona con obtención y uso de alimento, no con regulación interna general.
+d) reproducción: es el proceso para originar nuevos individuos.
+e) adaptación: es un ajuste a largo plazo de una especie o un organismo al ambiente, no el control inmediato del medio interno.
+
+REACTIVO 18
+Área temática: Biología
+Bloque que corresponde al área temática: Evolución, selección natural
+Planteamiento del problema:
+En una población de insectos hay individuos verdes y cafés. Las aves detectan con mayor facilidad a los verdes, por lo que sobreviven más los cafés y con el tiempo éstos predominan. ¿Qué proceso explica mejor esta situación?
+
+Opciones:
+a) herencia de caracteres adquiridos
+b) selección natural
+c) generación espontánea
+d) reproducción asexual
+e) mutación dirigida
+
+Pista sin ofrecer la respuesta:
+Observa qué individuos sobreviven más y dejan más descendencia.
+
+Respuesta correcta:
+b) selección natural
+
+Argumento de la respuesta correcta:
+La selección natural ocurre cuando algunos individuos tienen características que les permiten sobrevivir y reproducirse más. En este caso, los insectos cafés son menos visibles y por eso terminan predominando.
+
+Argumentos de las opciones incorrectas:
+a) herencia de caracteres adquiridos: propone transmitir cambios obtenidos durante la vida, lo cual no explica este caso.
+c) generación espontánea: plantea origen de vida a partir de materia no viva, y no tiene relación aquí.
+d) reproducción asexual: describe una forma de reproducirse, no el proceso que cambia la frecuencia de rasgos en la población.
+e) mutación dirigida: supone cambios orientados por necesidad, lo cual no corresponde al ejemplo.
+
+REACTIVO 19
+Área temática: Biología
+Bloque que corresponde al área temática: Biodiversidad, causas de pérdida
+Planteamiento del problema:
+En una región se talan grandes extensiones de bosque para construir carreteras y zonas habitacionales. Esta situación afecta la biodiversidad principalmente porque
+
+Opciones:
+a) aumenta la cantidad de lluvia en la zona
+b) destruye el hábitat de muchas especies
+c) mejora la reproducción de todos los animales
+d) hace que las plantas produzcan más alimento
+e) evita la migración de especies invasoras
+
+Pista sin ofrecer la respuesta:
+Piensa en lo que necesitan los seres vivos para refugiarse, alimentarse y reproducirse.
+
+Respuesta correcta:
+b) destruye el hábitat de muchas especies
+
+Argumento de la respuesta correcta:
+Cuando se elimina el bosque, muchas especies pierden alimento, refugio y espacio para reproducirse. Eso reduce poblaciones y daña directamente la biodiversidad.
+
+Argumentos de las opciones incorrectas:
+a) aumenta la cantidad de lluvia en la zona: no es el efecto biológico principal del problema planteado.
+c) mejora la reproducción de todos los animales: ocurre lo contrario, pues muchas especies quedan en desventaja.
+d) hace que las plantas produzcan más alimento: la tala disminuye la vegetación disponible.
+e) evita la migración de especies invasoras: no es la consecuencia principal de la destrucción del bosque.
+
+REACTIVO 20
+Área temática: Biología
+Bloque que corresponde al área temática: Desarrollo sustentable
+Planteamiento del problema:
+Una comunidad decide captar agua de lluvia, reducir el uso de plásticos y reforestar sin detener sus actividades económicas. Estas acciones buscan favorecer el
+
+Opciones:
+a) crecimiento urbano desordenado
+b) desarrollo sustentable
+c) aislamiento ecológico
+d) aprovechamiento inmediato de los recursos
+e) aumento artificial de la población
+
+Pista sin ofrecer la respuesta:
+La idea central es satisfacer necesidades actuales sin dañar las del futuro.
+
+Respuesta correcta:
+b) desarrollo sustentable
+
+Argumento de la respuesta correcta:
+El desarrollo sustentable busca usar los recursos de manera responsable para atender las necesidades presentes sin comprometer las de las generaciones futuras.
+
+Argumentos de las opciones incorrectas:
+a) crecimiento urbano desordenado: implica expansión sin planeación, que no es lo que describen las acciones.
+c) aislamiento ecológico: no corresponde al objetivo de manejo responsable de recursos.
+d) aprovechamiento inmediato de los recursos: se enfoca en consumir rápido, no en conservar.
+e) aumento artificial de la población: no guarda relación con las medidas ambientales mencionadas.
+
+REACTIVO 21
+Área temática: Biología
+Bloque que corresponde al área temática: Ciencia y tecnología en alimentos, transgénicos
+Planteamiento del problema:
+La obtención de una planta capaz de resistir ciertas plagas mediante la inserción de genes específicos es un ejemplo de interacción entre
+
+Opciones:
+a) ciencia y tecnología
+b) conocimiento empírico y tradición
+c) nutrición y reproducción
+d) evolución y adaptación natural
+e) ecología y geografía
+
+Pista sin ofrecer la respuesta:
+Se trata de aplicar conocimientos científicos mediante técnicas concretas.
+
+Respuesta correcta:
+a) ciencia y tecnología
+
+Argumento de la respuesta correcta:
+La manipulación genética usa conocimientos científicos sobre genes y ADN, junto con técnicas tecnológicas para modificar características de un organismo.
+
+Argumentos de las opciones incorrectas:
+b) conocimiento empírico y tradición: no explican la modificación genética controlada en laboratorio.
+c) nutrición y reproducción: son procesos biológicos, pero no describen la base del procedimiento.
+d) evolución y adaptación natural: son procesos naturales, no intervención tecnológica directa.
+e) ecología y geografía: estudian relaciones con el ambiente y el espacio, no la inserción de genes.
+
+REACTIVO 22
+Área temática: Biología
+Bloque que corresponde al área temática: Fotosíntesis
+Planteamiento del problema:
+Durante la fotosíntesis, las plantas elaboran su alimento utilizando principalmente
+
+Opciones:
+a) oxígeno y proteínas
+b) dióxido de carbono, agua y luz solar
+c) glucosa y minerales
+d) nitrógeno y calor
+e) clorofila y oxígeno
+
+Pista sin ofrecer la respuesta:
+Busca los materiales de entrada del proceso, no los productos.
+
+Respuesta correcta:
+b) dióxido de carbono, agua y luz solar
+
+Argumento de la respuesta correcta:
+En la fotosíntesis, las plantas usan agua, dióxido de carbono y energía de la luz para producir glucosa y liberar oxígeno.
+
+Argumentos de las opciones incorrectas:
+a) oxígeno y proteínas: no son los insumos principales de la fotosíntesis.
+c) glucosa y minerales: la glucosa es producto del proceso, no material de entrada.
+d) nitrógeno y calor: no son los elementos básicos que explican este proceso.
+e) clorofila y oxígeno: la clorofila participa, pero el oxígeno es producto, no insumo.
+
+REACTIVO 23
+Área temática: Biología
+Bloque que corresponde al área temática: Nutrición, autótrofos y heterótrofos
+Planteamiento del problema:
+Los hongos se consideran organismos heterótrofos porque
+
+Opciones:
+a) producen su alimento a partir de la luz solar
+b) elaboran glucosa usando dióxido de carbono
+c) dependen de otros seres vivos o de sus restos para alimentarse
+d) únicamente viven dentro del agua
+e) no realizan ningún intercambio con el ambiente
+
+Pista sin ofrecer la respuesta:
+Los heterótrofos no fabrican su propio alimento.
+
+Respuesta correcta:
+c) dependen de otros seres vivos o de sus restos para alimentarse
+
+Argumento de la respuesta correcta:
+Los organismos heterótrofos obtienen materia orgánica de otros seres vivos o de restos de ellos. Los hongos se alimentan de esa forma y por eso pertenecen a este grupo.
+
+Argumentos de las opciones incorrectas:
+a) producen su alimento a partir de la luz solar: eso corresponde a organismos autótrofos.
+b) elaboran glucosa usando dióxido de carbono: también describe a organismos autótrofos fotosintéticos.
+d) únicamente viven dentro del agua: no define a los heterótrofos ni a los hongos.
+e) no realizan ningún intercambio con el ambiente: todos los seres vivos intercambian materia y energía con su entorno.
+
+REACTIVO 24
+Área temática: Biología
+Bloque que corresponde al área temática: Alimentación, alimentos con almidón
+Planteamiento del problema:
+¿Cuál de los siguientes alimentos es una fuente importante de almidón?
+
+Opciones:
+a) mantequilla
+b) tortilla de maíz
+c) queso
+d) huevo
+e) atún
+
+Pista sin ofrecer la respuesta:
+El almidón es un carbohidrato abundante en cereales y tubérculos.
+
+Respuesta correcta:
+b) tortilla de maíz
+
+Argumento de la respuesta correcta:
+La tortilla de maíz contiene almidón, que es una forma de almacenamiento de carbohidratos presente en muchos vegetales y granos.
+
+Argumentos de las opciones incorrectas:
+a) mantequilla: contiene sobre todo grasas.
+c) queso: aporta principalmente grasas y proteínas.
+d) huevo: es fuente importante de proteínas y grasas, no de almidón.
+e) atún: aporta proteínas, pero no es alimento rico en almidón.
+
+REACTIVO 25
+Área temática: Biología
+Bloque que corresponde al área temática: Salud respiratoria, prevención
+Planteamiento del problema:
+En días con alta contaminación del aire y bajas temperaturas, una medida adecuada para prevenir enfermedades respiratorias es
+
+Opciones:
+a) exponerse más tiempo al aire libre para acostumbrarse
+b) evitar la ventilación de las habitaciones todo el día
+c) abrigarse bien y evitar cambios bruscos de temperatura
+d) consumir únicamente alimentos fríos
+e) realizar ejercicio intenso en calles con mucho tráfico
+
+Pista sin ofrecer la respuesta:
+Busca la opción que reduzca el impacto del ambiente sobre las vías respiratorias.
+
+Respuesta correcta:
+c) abrigarse bien y evitar cambios bruscos de temperatura
+
+Argumento de la respuesta correcta:
+Protegerse del frío y evitar cambios bruscos de temperatura ayuda a disminuir irritación y riesgo de afectaciones respiratorias, sobre todo cuando el aire está contaminado.
+
+Argumentos de las opciones incorrectas:
+a) exponerse más tiempo al aire libre para acostumbrarse: aumenta la exposición a contaminantes.
+b) evitar la ventilación de las habitaciones todo el día: favorece acumulación de aire poco saludable.
+d) consumir únicamente alimentos fríos: no es una medida preventiva respiratoria adecuada.
+e) realizar ejercicio intenso en calles con mucho tráfico: incrementa la inhalación de contaminantes.
+
+REACTIVO 26
+Área temática: Biología
+Bloque que corresponde al área temática: Reproducción sexual y asexual
+Planteamiento del problema:
+La reproducción sexual se distingue de la asexual porque
+
+Opciones:
+a) produce descendientes exactamente iguales al progenitor
+b) no intervienen células sexuales
+c) requiere la unión de gametos y favorece la variación
+d) ocurre solamente en organismos unicelulares
+e) impide cualquier cambio hereditario
+
+Pista sin ofrecer la respuesta:
+La diferencia principal tiene que ver con las células reproductoras y la diversidad de los descendientes.
+
+Respuesta correcta:
+c) requiere la unión de gametos y favorece la variación
+
+Argumento de la respuesta correcta:
+En la reproducción sexual intervienen gametos, como óvulos y espermatozoides, y eso da lugar a descendientes con combinación de características de los progenitores.
+
+Argumentos de las opciones incorrectas:
+a) produce descendientes exactamente iguales al progenitor: eso describe mejor la reproducción asexual.
+b) no intervienen células sexuales: en la reproducción sexual sí intervienen.
+d) ocurre solamente en organismos unicelulares: es falso, pues ocurre en muchos organismos pluricelulares.
+e) impide cualquier cambio hereditario: ocurre lo contrario, porque favorece variación genética.
+
+REACTIVO 27
+Área temática: Biología
+Bloque que corresponde al área temática: Métodos anticonceptivos
+Planteamiento del problema:
+¿Cuál de los siguientes métodos anticonceptivos también ayuda a reducir el riesgo de infecciones de transmisión sexual?
+
+Opciones:
+a) método del ritmo
+b) coito interruptus
+c) condón
+d) calendario
+e) espermicida usado solo
+
+Pista sin ofrecer la respuesta:
+Busca el método que funciona como barrera física.
+
+Respuesta correcta:
+c) condón
+
+Argumento de la respuesta correcta:
+El condón actúa como barrera física y, además de ayudar a prevenir embarazos, disminuye el riesgo de transmisión de varias infecciones sexuales.
+
+Argumentos de las opciones incorrectas:
+a) método del ritmo: se basa en calcular días fértiles, pero no protege contra infecciones.
+b) coito interruptus: no ofrece protección segura frente a infecciones.
+d) calendario: solo intenta estimar fertilidad y no funciona como barrera.
+e) espermicida usado solo: puede reducir probabilidad de embarazo, pero no protege de forma adecuada contra infecciones.
+
+REACTIVO 28
+Área temática: Biología
+Bloque que corresponde al área temática: Manipulación genética
+Planteamiento del problema:
+Una característica de la manipulación genética es
+
+Opciones:
+a) modificar genes específicos para cambiar una característica de un organismo
+b) cruzar organismos sin importar sus rasgos hereditarios
+c) reproducir únicamente organismos asexuales
+d) impedir que las células se dividan
+e) eliminar todos los cromosomas de una especie
+
+Pista sin ofrecer la respuesta:
+Piensa en cambios dirigidos sobre el ADN, no en cruces al azar.
+
+Respuesta correcta:
+a) modificar genes específicos para cambiar una característica de un organismo
+
+Argumento de la respuesta correcta:
+La manipulación genética consiste en intervenir sobre genes concretos para introducir, eliminar o modificar rasgos en un organismo de manera controlada.
+
+Argumentos de las opciones incorrectas:
+b) cruzar organismos sin importar sus rasgos hereditarios: eso no describe modificación genética directa.
+c) reproducir únicamente organismos asexuales: no es la característica central del proceso.
+d) impedir que las células se dividan: eso no define la manipulación genética.
+e) eliminar todos los cromosomas de una especie: sería inviable y no corresponde al procedimiento real.
+
+---
+---
+
+ÁREA TEMÁTICA: ESPAÑOL
+RANGO: REACTIVOS 29 AL 40
+
+REACTIVO 29
+Área temática: Español
+Bloque que corresponde al área temática: Fichas para registrar fuentes
+Planteamiento del problema:
+La ficha que permite registrar los datos de un libro, autor, título, editorial, lugar y año de publicación para identificar una fuente consultada es la ficha
+
+Opciones:
+a) hemerográfica
+b) de resumen
+c) bibliográfica
+d) de comentario
+e) de paráfrasis
+
+Pista sin ofrecer la respuesta:
+Piensa en la ficha que sirve para identificar una obra completa y no solo una idea tomada de ella.
+
+Respuesta correcta:
+c) bibliográfica
+
+Argumento de la respuesta correcta:
+La ficha bibliográfica se utiliza para anotar los datos generales de una obra y poder identificarla o localizarla posteriormente. Su función principal es registrar la fuente consultada.
+
+Argumentos de las opciones incorrectas:
+a) hemerográfica: se usa para publicaciones periódicas, como revistas o periódicos, no para libros en general.
+b) de resumen: recoge contenido sintetizado de una obra, pero no se centra en registrar sus datos editoriales.
+d) de comentario: sirve para expresar una opinión o valoración sobre una lectura.
+e) de paráfrasis: reescribe una idea con otras palabras, pero no identifica formalmente la fuente completa.
+
+REACTIVO 30
+Área temática: Español
+Bloque que corresponde al área temática: Orden de párrafos
+Planteamiento del problema:
+Ordena cronológicamente los siguientes enunciados para formar un texto con sentido.
+
+I. Minutos después, todos los asistentes aplaudieron con entusiasmo al final de la presentación.
+II. Antes de comenzar, la maestra pidió silencio y recordó el tema que se expondría.
+III. Al terminar su explicación, el alumno respondió algunas preguntas de sus compañeros.
+IV. Luego, el expositor pasó al frente y comenzó a explicar apoyándose en una cartulina.
+
+Opciones:
+a) II, IV, III, I
+b) I, II, IV, III
+c) IV, II, III, I
+d) II, III, IV, I
+e) IV, III, II, I
+
+Pista sin ofrecer la respuesta:
+Primero debe aparecer la preparación del momento, después el inicio, luego el cierre del desarrollo y al final la reacción del público.
+
+Respuesta correcta:
+a) II, IV, III, I
+
+Argumento de la respuesta correcta:
+El orden lógico inicia con la indicación previa de la maestra, continúa con el momento en que el expositor pasa al frente, después sigue la atención a preguntas al terminar la explicación y finalmente aparece el aplauso de los asistentes.
+
+Argumentos de las opciones incorrectas:
+b) I, II, IV, III: empieza con el final del evento y rompe la secuencia temporal.
+c) IV, II, III, I: pone al expositor comenzando antes de la indicación previa de la maestra.
+d) II, III, IV, I: hace que las preguntas ocurran antes de la exposición.
+e) IV, III, II, I: desordena el inicio al colocar la instrucción de la maestra después de la explicación.
+
+REACTIVO 31
+Área temática: Español
+Bloque que corresponde al área temática: Recursos para desarrollar ideas
+Planteamiento del problema:
+Lee el siguiente fragmento.
+
+Muchos estudiantes desarrollan hábitos de estudio poco eficaces. Por ejemplo, algunos intentan memorizar todo una noche antes del examen, otros estudian con el celular en la mano y varios ni siquiera revisan sus apuntes con anticipación.
+
+En el texto, el recurso empleado para desarrollar el tema es
+
+Opciones:
+a) ejemplificación
+b) contradicción
+c) definición
+d) reiteración
+e) narración
+
+Pista sin ofrecer la respuesta:
+Después de presentar una idea general, el texto muestra varios casos concretos.
+
+Respuesta correcta:
+a) ejemplificación
+
+Argumento de la respuesta correcta:
+El fragmento menciona una idea general sobre hábitos de estudio poco eficaces y luego presenta casos específicos que la ilustran. Eso corresponde al recurso de ejemplificación.
+
+Argumentos de las opciones incorrectas:
+b) contradicción: no se oponen dos ideas entre sí.
+c) definición: no se explica el significado formal de un concepto.
+d) reiteración: no se repite la misma idea con insistencia como recurso principal.
+e) narración: no se relata una secuencia amplia de hechos, sino que se dan ejemplos.
+
+REACTIVO 32
+Área temática: Español
+Bloque que corresponde al área temática: Conectores
+Planteamiento del problema:
+Lee el siguiente enunciado.
+
+Muchos ríos están contaminados; por eso, varias comunidades han comenzado campañas de limpieza.
+
+La expresión subrayada cumple la función de
+
+Opciones:
+a) presentar una causa
+b) introducir una consecuencia
+c) indicar simultaneidad
+d) contradecir una idea
+e) ejemplificar una afirmación
+
+Pista sin ofrecer la respuesta:
+Primero se menciona un problema y luego lo que ocurre a partir de él.
+
+Respuesta correcta:
+b) introducir una consecuencia
+
+Argumento de la respuesta correcta:
+La expresión «por eso» enlaza la primera idea con un resultado derivado de ella. La contaminación de los ríos provoca como consecuencia el inicio de campañas de limpieza.
+
+Argumentos de las opciones incorrectas:
+a) presentar una causa: la causa ya apareció antes, no en el conector.
+c) indicar simultaneidad: no habla de acciones que ocurren al mismo tiempo.
+d) contradecir una idea: no existe oposición, sino relación de efecto.
+e) ejemplificar una afirmación: no se presenta un caso particular como ejemplo.
+
+REACTIVO 33
+Área temática: Español
+Bloque que corresponde al área temática: Conectores de tiempo
+Planteamiento del problema:
+Lee el siguiente fragmento.
+
+Primero sonó la alarma, después los alumnos salieron del salón y finalmente se concentraron en el patio.
+
+Las palabras destacadas son nexos que
+
+Opciones:
+a) presentan una causa
+b) ordenan temporalmente las acciones
+c) introducen una opinión
+d) expresan una condición
+e) señalan una comparación
+
+Pista sin ofrecer la respuesta:
+Las expresiones indican en qué orden ocurre cada acción.
+
+Respuesta correcta:
+b) ordenan temporalmente las acciones
+
+Argumento de la respuesta correcta:
+«Primero», «después» y «finalmente» son conectores temporales que permiten organizar los hechos siguiendo una secuencia.
+
+Argumentos de las opciones incorrectas:
+a) presentan una causa: no explican por qué ocurre algo, sino cuándo ocurre dentro de la secuencia.
+c) introducen una opinión: no muestran valoración personal.
+d) expresan una condición: no plantean una situación de tipo «si sucede esto».
+e) señalan una comparación: no relacionan semejanzas o diferencias entre elementos.
+
+REACTIVO 34
+Área temática: Español
+Bloque que corresponde al área temática: Conectores, contraste y jerarquía de información
+Planteamiento del problema:
+Lee el siguiente texto.
+
+El uso de bicicletas ha crecido en muchas ciudades; sin embargo, todavía faltan ciclovías seguras en varias zonas.
+
+La expresión destacada funciona principalmente para
+
+Opciones:
+a) introducir una consecuencia
+b) presentar una causa
+c) marcar un contraste entre ideas
+d) iniciar una enumeración
+e) indicar simultaneidad
+
+Pista sin ofrecer la respuesta:
+La segunda parte no continúa en el mismo sentido de la primera, sino que pone un límite o una oposición.
+
+Respuesta correcta:
+c) marcar un contraste entre ideas
+
+Argumento de la respuesta correcta:
+«Sin embargo» enlaza dos ideas relacionadas, pero con sentido opuesto: por un lado crece el uso de bicicletas y por otro todavía existen carencias en infraestructura.
+
+Argumentos de las opciones incorrectas:
+a) introducir una consecuencia: no señala resultado directo, sino contraste.
+b) presentar una causa: no explica el motivo de un hecho.
+d) iniciar una enumeración: no enumera elementos.
+e) indicar simultaneidad: no expresa acciones al mismo tiempo.
+
+REACTIVO 35
+Área temática: Español
+Bloque que corresponde al área temática: Puntuación para dar sentido
+Planteamiento del problema:
+Las oraciones que conforman el siguiente texto deben estar separadas por
+
+En la feria vendían tamales__ atole__ pan dulce y frutas de temporada.
+
+Opciones:
+a) punto y coma
+b) comas
+c) punto y seguido
+d) dos puntos
+e) punto y aparte
+
+Pista sin ofrecer la respuesta:
+Se trata de elementos de una misma enumeración dentro de una sola oración.
+
+Respuesta correcta:
+b) comas
+
+Argumento de la respuesta correcta:
+Las comas se usan para separar elementos de una enumeración sencilla dentro de una misma oración. Aquí se están enlistando productos vendidos en la feria.
+
+Argumentos de las opciones incorrectas:
+a) punto y coma: suele separar oraciones más complejas o enumeraciones que ya contienen comas internas.
+c) punto y seguido: dividiría el enunciado en varias oraciones sin necesidad.
+d) dos puntos: se usan para anunciar una enumeración, no para separar cada elemento de ella.
+e) punto y aparte: separa párrafos, no palabras dentro de una lista.
+
+REACTIVO 36
+Área temática: Español
+Bloque que corresponde al área temática: Puntuación para dar sentido
+Planteamiento del problema:
+El signo de puntuación que se utiliza para introducir una definición, anunciar una enumeración o presentar una cita textual es
+
+Opciones:
+a) coma
+b) punto y coma
+c) dos puntos
+d) punto final
+e) signos de admiración
+
+Pista sin ofrecer la respuesta:
+Busca el signo que suele abrir una explicación o una lista.
+
+Respuesta correcta:
+c) dos puntos
+
+Argumento de la respuesta correcta:
+Los dos puntos se emplean para introducir definiciones, explicaciones, enumeraciones y citas textuales. Su función es anunciar que a continuación viene una ampliación de lo anterior.
+
+Argumentos de las opciones incorrectas:
+a) coma: separa elementos o incisos, pero no introduce formalmente estos casos.
+b) punto y coma: une o separa oraciones con mayor pausa que la coma, pero no cumple esa función principal.
+d) punto final: cierra un enunciado, no lo desarrolla.
+e) signos de admiración: expresan énfasis o emoción, no introducen definiciones ni listas.
+
+REACTIVO 37
+Área temática: Español
+Bloque que corresponde al área temática: Gramática en contexto, adjetivos
+Planteamiento del problema:
+Lee el siguiente fragmento.
+
+La vieja casona tenía muros altos, ventanas angostas y un patio silencioso.
+
+Las palabras subrayadas pertenecen a la categoría de
+
+Opciones:
+a) sustantivos
+b) verbos
+c) adjetivos
+d) adverbios
+e) pronombres
+
+Pista sin ofrecer la respuesta:
+Son palabras que describen características de los sustantivos.
+
+Respuesta correcta:
+c) adjetivos
+
+Argumento de la respuesta correcta:
+«Vieja», «altos», «angostas» y «silencioso» expresan cualidades o características de los sustantivos a los que acompañan. Por eso son adjetivos.
+
+Argumentos de las opciones incorrectas:
+a) sustantivos: los sustantivos son «casona», «muros», «ventanas» y «patio», no las palabras que los califican.
+b) verbos: no expresan acciones ni estados verbales.
+d) adverbios: no modifican verbos, adjetivos u otros adverbios.
+e) pronombres: no sustituyen nombres, sino que describen cómo son.
+
+REACTIVO 38
+Área temática: Español
+Bloque que corresponde al área temática: Tipos de texto, narración
+Planteamiento del problema:
+El fragmento pertenece a una narración porque
+
+A las seis de la tarde, Julia cerró la tienda, guardó el dinero en una caja metálica y caminó deprisa hacia la parada del autobús. Mientras esperaba, recordó la llamada que había recibido por la mañana.
+
+Opciones:
+a) define un concepto de manera objetiva
+b) expresa una opinión sobre un tema social
+c) presenta una secuencia de acciones y hechos
+d) enumera características de un objeto
+e) explica instrucciones paso a paso
+
+Pista sin ofrecer la respuesta:
+Observa si el texto cuenta lo que hizo un personaje en determinado momento.
+
+Respuesta correcta:
+c) presenta una secuencia de acciones y hechos
+
+Argumento de la respuesta correcta:
+Una narración relata acontecimientos en un orden temporal. En el fragmento se cuentan acciones de un personaje: cerrar, guardar, caminar, esperar y recordar.
+
+Argumentos de las opciones incorrectas:
+a) define un concepto de manera objetiva: no se está explicando el significado de algo.
+b) expresa una opinión sobre un tema social: no predomina una postura argumentativa.
+d) enumera características de un objeto: el texto no se concentra en describir rasgos.
+e) explica instrucciones paso a paso: no da indicaciones al lector.
+
+REACTIVO 39
+Área temática: Español
+Bloque que corresponde al área temática: Publicidad, eslogan e intención del mensaje
+Planteamiento del problema:
+Señala el eslogan que pretende modificar la conducta del receptor.
+
+Opciones:
+a) «El sabor que acompaña a tu familia»
+b) «La tienda que siempre prefieres»
+c) «Usa el cinturón, tu vida va primero»
+d) «La frescura que se nota»
+e) «Calidad que inspira confianza»
+
+Pista sin ofrecer la respuesta:
+No busca vender solo una imagen de producto, sino lograr que la persona haga o deje de hacer algo.
+
+Respuesta correcta:
+c) «Usa el cinturón, tu vida va primero»
+
+Argumento de la respuesta correcta:
+Ese eslogan intenta influir en la conducta del receptor, ya que promueve una acción concreta de prevención y seguridad.
+
+Argumentos de las opciones incorrectas:
+a) resalta una cualidad afectiva del producto, pero no busca cambio directo de conducta.
+b) intenta posicionar una preferencia comercial, no una acción preventiva específica.
+d) destaca una cualidad del producto, no una conducta a modificar.
+e) construye imagen de marca, pero no da una instrucción de comportamiento.
+
+REACTIVO 40
+Área temática: Español
+Bloque que corresponde al área temática: Publicidad, exageración de cualidades
+Planteamiento del problema:
+Selecciona el ejemplo de texto publicitario donde se exageran las cualidades de un producto.
+
+Opciones:
+a) «Con este jabón, tu ropa queda limpia»
+b) «El pan recién hecho de cada mañana»
+c) «El café que despierta hasta a los sueños»
+d) «Jugo de naranja con vitamina C»
+e) «Crema para manos de uso diario»
+
+Pista sin ofrecer la respuesta:
+Busca la frase que atribuye al producto un efecto imposible o claramente exagerado.
+
+Respuesta correcta:
+c) «El café que despierta hasta a los sueños»
+
+Argumento de la respuesta correcta:
+La frase exagera el efecto del producto al atribuirle una acción imposible en sentido literal. Esa exageración es un recurso común de la publicidad.
+
+Argumentos de las opciones incorrectas:
+a) describe un resultado esperado, pero no exagerado.
+b) menciona una característica sencilla del producto, no una exageración.
+d) presenta información directa sobre el contenido del producto.
+e) enuncia un uso cotidiano sin exagerar cualidades.
+
+---
+---
+
+ÁREA TEMÁTICA: QUÍMICA
+RANGO: REACTIVOS 41 AL 52
+
+REACTIVO 41
+Área temática: Química
+Bloque que corresponde al área temática: Materia y estados, propiedades de gases
+Planteamiento del problema:
+¿Cuál de las siguientes opciones menciona dos propiedades físicas de los gases?
+
+Opciones:
+a) forma definida y volumen propio
+b) volumen fijo y dureza
+c) forma indefinida y volumen indefinido
+d) maleabilidad y brillo
+e) elasticidad y fragilidad
+
+Pista sin ofrecer la respuesta:
+Piensa en cómo se comporta un gas dentro de un recipiente.
+
+Respuesta correcta:
+c) forma indefinida y volumen indefinido
+
+Argumento de la respuesta correcta:
+Los gases no tienen forma propia ni volumen fijo. Se expanden y ocupan todo el espacio disponible del recipiente que los contiene.
+
+Argumentos de las opciones incorrectas:
+a) forma definida y volumen propio: esas características no corresponden a los gases.
+b) volumen fijo y dureza: un gas no tiene volumen fijo ni es duro.
+d) maleabilidad y brillo: son propiedades más asociadas a sólidos metálicos.
+e) elasticidad y fragilidad: no describen de manera adecuada el comportamiento general de los gases.
+
+REACTIVO 42
+Área temática: Química
+Bloque que corresponde al área temática: Propiedades físicas, masa y volumen
+Planteamiento del problema:
+Las propiedades físicas que permiten medir la cantidad de materia de una sustancia son
+
+Opciones:
+a) masa y volumen
+b) color y olor
+c) dureza y brillo
+d) solubilidad y fusión
+e) temperatura y presión
+
+Pista sin ofrecer la respuesta:
+Una indica cuánta materia hay y la otra cuánto espacio ocupa.
+
+Respuesta correcta:
+a) masa y volumen
+
+Argumento de la respuesta correcta:
+La masa permite cuantificar la cantidad de materia y el volumen indica el espacio que ocupa una sustancia. Por eso ambas se usan para medir cantidad física de materia.
+
+Argumentos de las opciones incorrectas:
+b) color y olor: ayudan a describir una sustancia, pero no a medir directamente cuánta hay.
+c) dureza y brillo: son propiedades descriptivas, no de cantidad.
+d) solubilidad y fusión: son propiedades físicas, pero no se usan para medir la cantidad de materia.
+e) temperatura y presión: son variables físicas, pero no expresan por sí mismas cantidad de sustancia.
+
+REACTIVO 43
+Área temática: Química
+Bloque que corresponde al área temática: Cambios físicos, cambios de estado
+Planteamiento del problema:
+Si una cierta cantidad de cera pasa del estado sólido al estado líquido, permanece constante su
+
+Opciones:
+a) forma
+b) volumen
+c) masa
+d) densidad
+e) temperatura
+
+Pista sin ofrecer la respuesta:
+En un cambio físico, la sustancia sigue siendo la misma, aunque cambie su estado.
+
+Respuesta correcta:
+c) masa
+
+Argumento de la respuesta correcta:
+Cuando una sustancia cambia de estado físico, su masa se conserva porque no cambia la cantidad de materia presente. Solo cambia su forma de agregación.
+
+Argumentos de las opciones incorrectas:
+a) forma: cambia al pasar de sólido a líquido.
+b) volumen: puede variar según el estado físico.
+d) densidad: suele cambiar entre sólido y líquido.
+e) temperatura: puede cambiar durante el proceso o mantenerse solo en condiciones específicas, no es la respuesta general más adecuada.
+
+REACTIVO 44
+Área temática: Química
+Bloque que corresponde al área temática: Sustancias puras y mezclas
+Planteamiento del problema:
+Si en un modelo de partículas se observa que X está formado por un solo tipo de átomo, Q por partículas iguales hechas de dos átomos distintos unidos y Z por varias partículas diferentes mezcladas entre sí, se puede afirmar que X es ________, Q es ________ y Z es ________.
+
+Opciones:
+a) mezcla, compuesto, elemento
+b) elemento, compuesto, mezcla
+c) compuesto, elemento, mezcla
+d) mezcla, elemento, compuesto
+e) compuesto, mezcla, elemento
+
+Pista sin ofrecer la respuesta:
+Distingue entre un solo tipo de átomo, una sustancia unida químicamente y una combinación física de partículas.
+
+Respuesta correcta:
+b) elemento, compuesto, mezcla
+
+Argumento de la respuesta correcta:
+Un elemento está formado por un solo tipo de átomo. Un compuesto está formado por átomos distintos unidos químicamente en proporción definida. Una mezcla contiene distintas sustancias sin unión química fija entre todas sus partículas.
+
+Argumentos de las opciones incorrectas:
+a) mezcla, compuesto, elemento: confunde el modelo del elemento con el de la mezcla.
+c) compuesto, elemento, mezcla: invierte elemento y compuesto.
+d) mezcla, elemento, compuesto: clasifica mal los tres modelos.
+e) compuesto, mezcla, elemento: no respeta la descripción de cada conjunto de partículas.
+
+REACTIVO 45
+Área temática: Química
+Bloque que corresponde al área temática: Estructura del átomo
+Planteamiento del problema:
+Los ________ tienen carga ________ y se localizan en el núcleo del átomo.
+
+Opciones:
+a) electrones, negativa
+b) protones, positiva
+c) electrones, positiva
+d) neutrones, negativa
+e) protones, neutra
+
+Pista sin ofrecer la respuesta:
+Busca la partícula del núcleo que sí tiene carga eléctrica distinta de cero.
+
+Respuesta correcta:
+b) protones, positiva
+
+Argumento de la respuesta correcta:
+Los protones se encuentran en el núcleo atómico y poseen carga positiva. Son una de las partículas fundamentales del átomo.
+
+Argumentos de las opciones incorrectas:
+a) electrones, negativa: los electrones tienen carga negativa, pero se ubican alrededor del núcleo.
+c) electrones, positiva: mezcla mal la carga y la ubicación.
+d) neutrones, negativa: los neutrones están en el núcleo, pero no tienen carga negativa.
+e) protones, neutra: los protones no son neutros, sino positivos.
+
+REACTIVO 46
+Área temática: Química
+Bloque que corresponde al área temática: Número de masa
+Planteamiento del problema:
+El número de masa de un átomo que tiene 16 protones y 18 neutrones es
+
+Opciones:
+a) 16
+b) 18
+c) 32
+d) 34
+e) 36
+
+Pista sin ofrecer la respuesta:
+El número de masa se obtiene sumando protones y neutrones.
+
+Respuesta correcta:
+d) 34
+
+Argumento de la respuesta correcta:
+El número de masa se calcula así:
+protones + neutrones = 16 + 18 = 34.
+Por eso el número de masa del átomo es 34.
+
+Argumentos de las opciones incorrectas:
+a) 16: solo considera los protones.
+b) 18: solo considera los neutrones.
+c) 32: corresponde a una suma incorrecta.
+e) 36: agrega partículas de más y rompe la definición de número de masa.
+
+REACTIVO 47
+Área temática: Química
+Bloque que corresponde al área temática: Fórmulas químicas, átomos y moléculas
+Planteamiento del problema:
+En la fórmula del dióxido de carbono, CO₂, hay
+
+Opciones:
+a) 1 molécula de carbono y 2 moléculas de oxígeno
+b) 1 átomo de carbono y 2 átomos de oxígeno
+c) 2 átomos de carbono y 1 átomo de oxígeno
+d) 2 moléculas de carbono y 1 molécula de oxígeno
+e) 1 átomo de carbono y 1 molécula de oxígeno
+
+Pista sin ofrecer la respuesta:
+El subíndice indica cuántos átomos hay del elemento que lo lleva.
+
+Respuesta correcta:
+b) 1 átomo de carbono y 2 átomos de oxígeno
+
+Argumento de la respuesta correcta:
+En CO₂, la ausencia de subíndice en C indica 1 átomo de carbono. El subíndice 2 en O indica 2 átomos de oxígeno dentro de la misma molécula.
+
+Argumentos de las opciones incorrectas:
+a) 1 molécula de carbono y 2 moléculas de oxígeno: confunde átomos con moléculas.
+c) 2 átomos de carbono y 1 átomo de oxígeno: invierte la composición real.
+d) 2 moléculas de carbono y 1 molécula de oxígeno: no interpreta bien la fórmula.
+e) 1 átomo de carbono y 1 molécula de oxígeno: el oxígeno aquí está representado por átomos dentro de la molécula, no por una molécula aparte.
+
+REACTIVO 48
+Área temática: Química
+Bloque que corresponde al área temática: Tabla periódica
+Planteamiento del problema:
+En la tabla periódica moderna, los elementos químicos están ordenados de acuerdo con su
+
+Opciones:
+a) volumen atómico
+b) masa molecular
+c) número atómico creciente
+d) densidad creciente
+e) número de neutrones decreciente
+
+Pista sin ofrecer la respuesta:
+El criterio de organización depende de la cantidad de protones en el átomo.
+
+Respuesta correcta:
+c) número atómico creciente
+
+Argumento de la respuesta correcta:
+La tabla periódica moderna organiza los elementos según su número atómico, es decir, según la cantidad de protones de sus átomos.
+
+Argumentos de las opciones incorrectas:
+a) volumen atómico: no es el criterio general de ordenamiento.
+b) masa molecular: la tabla clasifica elementos, no moléculas.
+d) densidad creciente: la densidad varía, pero no define el orden principal.
+e) número de neutrones decreciente: los neutrones no son la base del arreglo periódico.
+
+REACTIVO 49
+Área temática: Química
+Bloque que corresponde al área temática: Enlace químico
+Planteamiento del problema:
+Los enlaces químicos se forman por fuerzas de naturaleza ________ que mantienen unidos a los átomos.
+
+Opciones:
+a) gravitacional
+b) mecánica
+c) eléctrica
+d) térmica
+e) sonora
+
+Pista sin ofrecer la respuesta:
+Piensa en la atracción entre cargas de las partículas del átomo.
+
+Respuesta correcta:
+c) eléctrica
+
+Argumento de la respuesta correcta:
+Los enlaces químicos dependen de interacciones eléctricas entre cargas, principalmente entre núcleos y electrones o entre iones con cargas opuestas.
+
+Argumentos de las opciones incorrectas:
+a) gravitacional: esa fuerza es despreciable a escala atómica frente a la eléctrica.
+b) mecánica: no explica la unión entre átomos.
+d) térmica: el calor puede afectar enlaces, pero no es la fuerza que los forma.
+e) sonora: no tiene relación con la unión química de partículas.
+
+REACTIVO 50
+Área temática: Química
+Bloque que corresponde al área temática: Cambios físicos y cambios químicos
+Planteamiento del problema:
+¿Cuál de los siguientes casos representa un fenómeno químico?
+
+Opciones:
+a) derretir hielo
+b) evaporar alcohol
+c) quemar madera
+d) triturar sal
+e) disolver azúcar en agua
+
+Pista sin ofrecer la respuesta:
+Busca el caso donde se formen sustancias nuevas.
+
+Respuesta correcta:
+c) quemar madera
+
+Argumento de la respuesta correcta:
+Al quemar madera ocurre una combustión y se forman sustancias distintas, como cenizas, gases y vapor. Por eso es un cambio químico.
+
+Argumentos de las opciones incorrectas:
+a) derretir hielo: solo cambia el estado físico del agua.
+b) evaporar alcohol: sigue siendo la misma sustancia en otro estado.
+d) triturar sal: solo cambia el tamaño de las partículas visibles.
+e) disolver azúcar en agua: no se forman sustancias nuevas, aunque cambie la apariencia de la mezcla.
+
+REACTIVO 51
+Área temática: Química
+Bloque que corresponde al área temática: Ecuaciones químicas
+Planteamiento del problema:
+Interpreta la siguiente ecuación química:
+
+2H₂ + O₂ → 2H₂O
+
+Opciones:
+a) 2 moléculas de hidrógeno más 1 molécula de oxígeno forman 2 moléculas de agua
+b) 1 molécula de hidrógeno más 2 moléculas de oxígeno forman 2 moléculas de agua
+c) 2 átomos de hidrógeno más 1 átomo de oxígeno forman 2 átomos de agua
+d) 2 moléculas de agua forman 2 moléculas de hidrógeno y 1 molécula de oxígeno
+e) 1 molécula de hidrógeno más 1 molécula de oxígeno forman 1 molécula de agua
+
+Pista sin ofrecer la respuesta:
+Los coeficientes indican cuántas moléculas participan en la reacción.
+
+Respuesta correcta:
+a) 2 moléculas de hidrógeno más 1 molécula de oxígeno forman 2 moléculas de agua
+
+Argumento de la respuesta correcta:
+La ecuación indica que 2 moléculas de H₂ reaccionan con 1 molécula de O₂ para formar 2 moléculas de H₂O. Esa es la lectura correcta de los coeficientes.
+
+Argumentos de las opciones incorrectas:
+b) altera la proporción real de las moléculas reactivas.
+c) confunde átomos con moléculas y además usa una expresión incorrecta para el producto.
+d) invierte el sentido de la reacción mostrada.
+e) cambia los coeficientes y deja de representar la ecuación dada.
+
+REACTIVO 52
+Área temática: Química
+Bloque que corresponde al área temática: Óxido-reducción
+Planteamiento del problema:
+¿Cuál conjunto contiene únicamente ejemplos de procesos de óxido-reducción?
+
+Opciones:
+a) oxidación de una manzana, corrosión de un clavo y combustión de papel
+b) evaporación del agua, fusión del hielo y condensación del vapor
+c) triturar una roca, disolver sal y sublimar yodo
+d) mezclar arena con agua, filtrar café y cortar madera
+e) hervir agua, romper vidrio y congelar aceite
+
+Pista sin ofrecer la respuesta:
+Busca procesos donde haya cambio químico relacionado con pérdida o ganancia de electrones.
+
+Respuesta correcta:
+a) oxidación de una manzana, corrosión de un clavo y combustión de papel
+
+Argumento de la respuesta correcta:
+La oxidación de una manzana, la corrosión de un clavo y la combustión son cambios químicos donde intervienen procesos de oxidación y reducción. Por eso pertenecen a reacciones de óxido-reducción.
+
+Argumentos de las opciones incorrectas:
+b) evaporación del agua, fusión del hielo y condensación del vapor: son cambios físicos de estado.
+c) triturar una roca, disolver sal y sublimar yodo: son procesos físicos, no de óxido-reducción.
+d) mezclar arena con agua, filtrar café y cortar madera: no implican reacción redox.
+e) hervir agua, romper vidrio y congelar aceite: son cambios físicos o mecánicos, no reacciones químicas de oxidación y reducción.
+
+---
+---
+
+ÁREA TEMÁTICA: HISTORIA
+RANGO: REACTIVOS 53 AL 64
+
+REACTIVO 53
+Área temática: Historia
+Bloque que corresponde al área temática: Constantinopla, rutas y comercio
+Planteamiento del problema:
+A finales de la Edad Media, varios reinos europeos buscaron nuevas rutas comerciales hacia Asia principalmente porque
+
+Opciones:
+a) comenzó la Revolución Industrial en Inglaterra
+b) Constantinopla fue tomada por los turcos otomanos
+c) España perdió todas sus colonias americanas
+d) se prohibió la navegación en el océano Atlántico
+e) desaparecieron los puertos del mar Mediterráneo
+
+Pista sin ofrecer la respuesta:
+Piensa en el hecho que dificultó el comercio europeo con Oriente por las rutas tradicionales.
+
+Respuesta correcta:
+b) Constantinopla fue tomada por los turcos otomanos
+
+Argumento de la respuesta correcta:
+La toma de Constantinopla en 1453 afectó rutas comerciales entre Europa y Asia. Eso impulsó la búsqueda de rutas alternas por mar para llegar al Oriente.
+
+Argumentos de las opciones incorrectas:
+a) comenzó la Revolución Industrial en Inglaterra: ocurrió siglos después y no explica ese cambio inicial de rutas.
+c) España perdió todas sus colonias americanas: eso pertenece a otra etapa histórica.
+d) se prohibió la navegación en el océano Atlántico: no fue el motivo real de las exploraciones.
+e) desaparecieron los puertos del mar Mediterráneo: los puertos no desaparecieron; el problema fue el control de rutas.
+
+REACTIVO 54
+Área temática: Historia
+Bloque que corresponde al área temática: Revolución Francesa e influencia en América
+Planteamiento del problema:
+Uno de los principios difundidos por la Revolución Francesa que influyó en los movimientos de independencia en América fue
+
+Opciones:
+a) el derecho divino de los reyes
+b) la soberanía popular
+c) la obediencia al absolutismo
+d) el privilegio de la nobleza
+e) la desigualdad legal entre grupos
+
+Pista sin ofrecer la respuesta:
+Busca la idea que sostiene que el poder político proviene del pueblo.
+
+Respuesta correcta:
+b) la soberanía popular
+
+Argumento de la respuesta correcta:
+La Revolución Francesa difundió ideas como libertad, igualdad y soberanía popular. Esta última afirma que la autoridad debe emanar del pueblo y no de un monarca absoluto.
+
+Argumentos de las opciones incorrectas:
+a) el derecho divino de los reyes: justifica monarquías absolutas, no movimientos de independencia.
+c) la obediencia al absolutismo: se opone a los ideales revolucionarios franceses.
+d) el privilegio de la nobleza: fue precisamente algo cuestionado por la revolución.
+e) la desigualdad legal entre grupos: contradice el principio de igualdad ante la ley.
+
+REACTIVO 55
+Área temática: Historia
+Bloque que corresponde al área temática: Primera Guerra Mundial, características
+Planteamiento del problema:
+Una de las características militares más representativas de la Primera Guerra Mundial fue
+
+Opciones:
+a) el uso prolongado de trincheras
+b) la guerra con misiles nucleares
+c) el combate exclusivo en territorio americano
+d) la desaparición total de la artillería
+e) el uso único de ejércitos mercenarios
+
+Pista sin ofrecer la respuesta:
+Piensa en la forma de combate estático que se volvió común en el frente occidental.
+
+Respuesta correcta:
+a) el uso prolongado de trincheras
+
+Argumento de la respuesta correcta:
+La Primera Guerra Mundial se distinguió por la guerra de trincheras, especialmente en Europa occidental, donde los ejércitos permanecieron durante largos periodos en posiciones fijas.
+
+Argumentos de las opciones incorrectas:
+b) la guerra con misiles nucleares: las armas nucleares no se usaron en esa guerra.
+c) el combate exclusivo en territorio americano: el conflicto se desarrolló sobre todo en Europa y otras regiones.
+d) la desaparición total de la artillería: la artillería fue muy importante en ese conflicto.
+e) el uso único de ejércitos mercenarios: no fue la característica principal de la guerra.
+
+REACTIVO 56
+Área temática: Historia
+Bloque que corresponde al área temática: Primera Guerra Mundial, consecuencias
+Planteamiento del problema:
+Una consecuencia política de la Primera Guerra Mundial fue
+
+Opciones:
+a) el fortalecimiento del feudalismo europeo
+b) la formación de nuevos Estados tras la caída de imperios
+c) la restauración inmediata del poder zarista en Rusia
+d) la desaparición de toda rivalidad entre potencias
+e) la unión política de toda Europa en un solo país
+
+Pista sin ofrecer la respuesta:
+Observa qué ocurrió con imperios como el austrohúngaro y el otomano.
+
+Respuesta correcta:
+b) la formación de nuevos Estados tras la caída de imperios
+
+Argumento de la respuesta correcta:
+Después de la Primera Guerra Mundial se desintegraron varios imperios y surgieron nuevos Estados nacionales en Europa y otras zonas.
+
+Argumentos de las opciones incorrectas:
+a) el fortalecimiento del feudalismo europeo: el feudalismo no fue una consecuencia de ese conflicto.
+c) la restauración inmediata del poder zarista en Rusia: ocurrió lo contrario, pues el zarismo cayó.
+d) la desaparición de toda rivalidad entre potencias: las tensiones internacionales continuaron.
+e) la unión política de toda Europa en un solo país: eso no ocurrió tras la guerra.
+
+REACTIVO 57
+Área temática: Historia
+Bloque que corresponde al área temática: Guerra Fría
+Planteamiento del problema:
+La Guerra Fría se caracterizó principalmente por
+
+Opciones:
+a) una alianza militar permanente entre Estados Unidos y la Unión Soviética
+b) una rivalidad ideológica y política sin guerra frontal directa entre ambas potencias
+c) una guerra colonial entre España y Portugal en América
+d) un conflicto religioso entre el Vaticano y la Iglesia ortodoxa
+e) una invasión directa de Europa por parte de Japón
+
+Pista sin ofrecer la respuesta:
+No fue una guerra abierta entre los dos bloques, sino una confrontación indirecta.
+
+Respuesta correcta:
+b) una rivalidad ideológica y política sin guerra frontal directa entre ambas potencias
+
+Argumento de la respuesta correcta:
+La Guerra Fría enfrentó a Estados Unidos y a la Unión Soviética en lo ideológico, político, militar y económico, pero sin combate directo a gran escala entre ambos.
+
+Argumentos de las opciones incorrectas:
+a) una alianza militar permanente entre Estados Unidos y la Unión Soviética: ocurrió lo contrario, fueron bloques rivales.
+c) una guerra colonial entre España y Portugal en América: no corresponde a ese periodo.
+d) un conflicto religioso entre el Vaticano y la Iglesia ortodoxa: no define la Guerra Fría.
+e) una invasión directa de Europa por parte de Japón: no fue el eje de ese enfrentamiento.
+
+REACTIVO 58
+Área temática: Historia
+Bloque que corresponde al área temática: Guerra del Golfo
+Planteamiento del problema:
+La Guerra del Golfo de 1990 a 1991 comenzó cuando
+
+Opciones:
+a) Iraq invadió Kuwait
+b) Irán ocupó Arabia Saudita
+c) Turquía invadió Siria
+d) Egipto ocupó Jordania
+e) Israel invadió Líbano
+
+Pista sin ofrecer la respuesta:
+Recuerda el conflicto por la ocupación de un territorio con importancia petrolera.
+
+Respuesta correcta:
+a) Iraq invadió Kuwait
+
+Argumento de la respuesta correcta:
+La Guerra del Golfo se desencadenó cuando Iraq invadió Kuwait, lo que provocó la intervención de una coalición internacional encabezada por Estados Unidos.
+
+Argumentos de las opciones incorrectas:
+b) Irán ocupó Arabia Saudita: no fue el hecho que inició esa guerra.
+c) Turquía invadió Siria: no corresponde al origen del conflicto.
+d) Egipto ocupó Jordania: no fue el acontecimiento detonante.
+e) Israel invadió Líbano: pertenece a otros conflictos de la región.
+
+REACTIVO 59
+Área temática: Historia
+Bloque que corresponde al área temática: Santo Oficio en Nueva España
+Planteamiento del problema:
+La institución novohispana encargada de vigilar la ortodoxia religiosa y perseguir herejías fue
+
+Opciones:
+a) el Ayuntamiento
+b) el Tribunal del Santo Oficio
+c) la Casa de Contratación
+d) la Audiencia de México
+e) el Consulado de Comerciantes
+
+Pista sin ofrecer la respuesta:
+Busca la institución relacionada con el control ideológico y religioso.
+
+Respuesta correcta:
+b) el Tribunal del Santo Oficio
+
+Argumento de la respuesta correcta:
+El Tribunal del Santo Oficio de la Inquisición fue el órgano encargado de vigilar las creencias y castigar conductas consideradas contrarias a la fe católica en la Nueva España.
+
+Argumentos de las opciones incorrectas:
+a) el Ayuntamiento: se vinculaba al gobierno local, no al control de la ortodoxia religiosa.
+c) la Casa de Contratación: regulaba asuntos comerciales y de navegación con América.
+d) la Audiencia de México: tenía funciones judiciales y administrativas, no ese papel específico.
+e) el Consulado de Comerciantes: agrupaba intereses mercantiles, no religiosos.
+
+REACTIVO 60
+Área temática: Historia
+Bloque que corresponde al área temática: Nueva España, economía minera
+Planteamiento del problema:
+La actividad económica que sostuvo gran parte de la riqueza de la Nueva España fue la
+
+Opciones:
+a) extracción de metales preciosos
+b) pesca comercial en el Pacífico
+c) producción masiva de café
+d) industria automotriz colonial
+e) exportación de caucho natural
+
+Pista sin ofrecer la respuesta:
+Piensa en la actividad que dio fama a regiones como Zacatecas y Guanajuato.
+
+Respuesta correcta:
+a) extracción de metales preciosos
+
+Argumento de la respuesta correcta:
+La minería, especialmente de plata, fue base de la economía novohispana y generó gran parte de la riqueza y del comercio colonial.
+
+Argumentos de las opciones incorrectas:
+b) pesca comercial en el Pacífico: no fue la base principal de la economía colonial.
+c) producción masiva de café: corresponde a otra etapa y no fue el eje económico novohispano.
+d) industria automotriz colonial: es anacrónica y no existía en ese periodo.
+e) exportación de caucho natural: no fue la actividad central de la Nueva España.
+
+REACTIVO 61
+Área temática: Historia
+Bloque que corresponde al área temática: Guerra entre México y Estados Unidos de 1846 a 1847
+Planteamiento del problema:
+Uno de los factores que favoreció la guerra entre México y Estados Unidos de América de 1846 a 1847 fue
+
+Opciones:
+a) la anexión de Texas por Estados Unidos y su política expansionista
+b) la invasión francesa a Veracruz y la caída del Segundo Imperio
+c) la pérdida de Cuba por parte de España
+d) la independencia de Brasil y su expansión territorial
+e) la unificación alemana y el reparto colonial europeo
+
+Pista sin ofrecer la respuesta:
+Busca el conflicto relacionado con el territorio texano y la idea de expandirse hacia el oeste.
+
+Respuesta correcta:
+a) la anexión de Texas por Estados Unidos y su política expansionista
+
+Argumento de la respuesta correcta:
+La anexión de Texas y el expansionismo estadounidense fueron factores directos que llevaron al conflicto armado con México.
+
+Argumentos de las opciones incorrectas:
+b) la invasión francesa a Veracruz y la caída del Segundo Imperio: corresponde a otro proceso histórico.
+c) la pérdida de Cuba por parte de España: no explica la guerra entre México y Estados Unidos.
+d) la independencia de Brasil y su expansión territorial: no se relaciona con ese conflicto.
+e) la unificación alemana y el reparto colonial europeo: pertenecen a otro contexto histórico.
+
+REACTIVO 62
+Área temática: Historia
+Bloque que corresponde al área temática: Constitución de 1917, artículo 27
+Planteamiento del problema:
+El artículo 27 de la Constitución de 1917 fue muy importante porque estableció que
+
+Opciones:
+a) la propiedad de tierras y recursos naturales corresponde originariamente a la Nación
+b) todos los cargos públicos serían hereditarios
+c) la Iglesia controlaría la educación nacional
+d) los extranjeros tendrían prioridad sobre los mexicanos en el campo
+e) las haciendas conservarían todos sus privilegios coloniales
+
+Pista sin ofrecer la respuesta:
+Se relaciona con el control de la tierra, el subsuelo y otros recursos del país.
+
+Respuesta correcta:
+a) la propiedad de tierras y recursos naturales corresponde originariamente a la Nación
+
+Argumento de la respuesta correcta:
+El artículo 27 reconoció que la Nación tiene dominio original sobre tierras, aguas y recursos naturales, lo cual permitió regular su aprovechamiento y la propiedad.
+
+Argumentos de las opciones incorrectas:
+b) todos los cargos públicos serían hereditarios: eso contradice el marco constitucional moderno.
+c) la Iglesia controlaría la educación nacional: no es el contenido de ese artículo.
+d) los extranjeros tendrían prioridad sobre los mexicanos en el campo: no fue su propósito.
+e) las haciendas conservarían todos sus privilegios coloniales: el artículo fue contrario a esos privilegios.
+
+REACTIVO 63
+Área temática: Historia
+Bloque que corresponde al área temática: Modernismo en México
+Planteamiento del problema:
+Uno de los autores mexicanos más representativos del Modernismo literario fue
+
+Opciones:
+a) Manuel Gutiérrez Nájera
+b) José Joaquín Fernández de Lizardi
+c) Ignacio Manuel Altamirano
+d) Lucas Alamán
+e) Sor Juana Inés de la Cruz
+
+Pista sin ofrecer la respuesta:
+Busca al escritor vinculado con la renovación estética y el cuidado formal del lenguaje a fines del siglo XIX.
+
+Respuesta correcta:
+a) Manuel Gutiérrez Nájera
+
+Argumento de la respuesta correcta:
+Manuel Gutiérrez Nájera es reconocido como uno de los autores mexicanos representativos y precursores del Modernismo literario.
+
+Argumentos de las opciones incorrectas:
+b) José Joaquín Fernández de Lizardi: pertenece a una etapa literaria anterior.
+c) Ignacio Manuel Altamirano: fue importante en la literatura mexicana, pero no es la respuesta más representativa aquí.
+d) Lucas Alamán: destacó en la vida política e histórica, no como autor modernista.
+e) Sor Juana Inés de la Cruz: pertenece al periodo virreinal y a otra corriente literaria.
+
+REACTIVO 64
+Área temática: Historia
+Bloque que corresponde al área temática: México contemporáneo
+Planteamiento del problema:
+Después de la crisis de legitimidad electoral de 1988, se creó en México la institución encargada de organizar las elecciones federales llamada
+
+Opciones:
+a) Instituto Federal Electoral
+b) Comisión Nacional de los Derechos Humanos
+c) Instituto Nacional de Estadística y Geografía
+d) Instituto Federal de Telecomunicaciones
+e) Tribunal de Justicia Administrativa
+
+Pista sin ofrecer la respuesta:
+Busca la institución electoral creada antes del actual INE.
+
+Respuesta correcta:
+a) Instituto Federal Electoral
+
+Argumento de la respuesta correcta:
+El Instituto Federal Electoral fue creado para fortalecer la organización de las elecciones y recuperar confianza en los procesos electorales federales.
+
+Argumentos de las opciones incorrectas:
+b) Comisión Nacional de los Derechos Humanos: atiende temas de derechos humanos, no la organización electoral.
+c) Instituto Nacional de Estadística y Geografía: produce información estadística y geográfica.
+d) Instituto Federal de Telecomunicaciones: regula el sector de telecomunicaciones y radiodifusión.
+e) Tribunal de Justicia Administrativa: resuelve asuntos administrativos, no organiza elecciones.
+
+---
+---
+
+ÁREA TEMÁTICA: MATEMÁTICAS
+RANGO: REACTIVOS 65 AL 76
+
+REACTIVO 65
+Área temática: Matemáticas
+Bloque que corresponde al área temática: Operaciones con números con signo
+Planteamiento del problema:
+Resultado de realizar la siguiente operación:
+
+(-24) ÷ 3 + (5)(-2) - (-6)
+
+Opciones:
+a) -24
+b) -12
+c) -4
+d) 4
+e) 12
+
+Pista sin ofrecer la respuesta:
+Primero resuelve división y multiplicación; después suma y resta de izquierda a derecha.
+
+Respuesta correcta:
+b) -12
+
+Argumento de la respuesta correcta:
+Primero:
+(-24) ÷ 3 = -8
+(5)(-2) = -10
+Entonces la expresión queda:
+-8 + (-10) - (-6)
+Ahora:
+-8 - 10 + 6 = -18 + 6 = -12
+Por eso el resultado correcto es -12.
+
+Argumentos de las opciones incorrectas:
+a) -24: no corresponde al resultado de operar todos los términos.
+c) -4: aparece si se cometen errores con los signos al final.
+d) 4: resulta de tratar mal la resta de un número negativo.
+e) 12: ignora que los dos primeros resultados parciales son negativos.
+
+REACTIVO 66
+Área temática: Matemáticas
+Bloque que corresponde al área temática: Jerarquía de operaciones
+Planteamiento del problema:
+Agrega paréntesis para indicar el orden correcto de las operaciones en la expresión:
+
+8 + 12 ÷ 3 - 2 × 4
+
+Opciones:
+a) (8 + 12) ÷ (3 - 2) × 4
+b) 8 + (12 ÷ 3) - (2 × 4)
+c) (8 + 12) ÷ 3 - (2 × 4)
+d) 8 + 12 ÷ (3 - 2) × 4
+e) (8 + 12 ÷ 3 - 2) × 4
+
+Pista sin ofrecer la respuesta:
+La jerarquía normal resuelve primero división y multiplicación, no las sumas iniciales.
+
+Respuesta correcta:
+b) 8 + (12 ÷ 3) - (2 × 4)
+
+Argumento de la respuesta correcta:
+En la expresión original, primero se resuelven la división y la multiplicación:
+12 ÷ 3 y 2 × 4
+Después se hace:
+8 + resultado - resultado
+La opción b) respeta exactamente ese orden sin alterar la expresión.
+
+Argumentos de las opciones incorrectas:
+a) obliga a sumar y restar antes de tiempo, cambiando por completo la operación original.
+c) hace primero 8 + 12, lo cual rompe la jerarquía correcta.
+d) convierte 3 - 2 en una operación previa que no existía como prioridad.
+e) agrupa casi toda la expresión y modifica el orden natural de cálculo.
+
+REACTIVO 67
+Área temática: Matemáticas
+Bloque que corresponde al área temática: Porcentajes
+Planteamiento del problema:
+Una mochila cuesta 480 pesos y tiene un descuento del 25%. ¿Cuál es su precio final?
+
+Opciones:
+a) 120 pesos
+b) 360 pesos
+c) 400 pesos
+d) 420 pesos
+e) 455 pesos
+
+Pista sin ofrecer la respuesta:
+Primero calcula cuánto representa el 25% de 480 y luego réstalo del precio original.
+
+Respuesta correcta:
+b) 360 pesos
+
+Argumento de la respuesta correcta:
+El 25% de 480 es:
+480 × 0.25 = 120
+Ese es el descuento. Entonces el precio final es:
+480 - 120 = 360
+Por eso la respuesta correcta es 360 pesos.
+
+Argumentos de las opciones incorrectas:
+a) 120 pesos: es el valor del descuento, no el precio final.
+c) 400 pesos: no corresponde al 25% de descuento aplicado correctamente.
+d) 420 pesos: deja un descuento menor al indicado.
+e) 455 pesos: casi no reduce el precio y no respeta el porcentaje dado.
+
+REACTIVO 68
+Área temática: Matemáticas
+Bloque que corresponde al área temática: Álgebra básica
+Planteamiento del problema:
+Simplifica la siguiente expresión algebraica:
+
+4x - 3 + 2x + 5
+
+Opciones:
+a) 6x + 2
+b) 6x - 2
+c) 8x + 2
+d) 2x + 8
+e) 4x + 7
+
+Pista sin ofrecer la respuesta:
+Junta términos semejantes: las x con las x y los números con los números.
+
+Respuesta correcta:
+a) 6x + 2
+
+Argumento de la respuesta correcta:
+Se suman los términos con x:
+4x + 2x = 6x
+Luego los números:
+-3 + 5 = 2
+Por tanto, la expresión simplificada es:
+6x + 2
+
+Argumentos de las opciones incorrectas:
+b) 6x - 2: suma mal los términos independientes.
+c) 8x + 2: suma de forma incorrecta los coeficientes de x.
+d) 2x + 8: altera tanto el término literal como el independiente.
+e) 4x + 7: no combina correctamente los términos semejantes.
+
+REACTIVO 69
+Área temática: Matemáticas
+Bloque que corresponde al área temática: Ecuaciones de primer grado
+Planteamiento del problema:
+Al doble de un número se le suman 7 y se obtiene 25. ¿Cuál es ese número?
+
+Opciones:
+a) 7
+b) 8
+c) 9
+d) 10
+e) 11
+
+Pista sin ofrecer la respuesta:
+Primero resta 7 al resultado total y después divide entre 2.
+
+Respuesta correcta:
+c) 9
+
+Argumento de la respuesta correcta:
+Sea x el número.
+La ecuación es:
+2x + 7 = 25
+Restando 7 en ambos lados:
+2x = 18
+Dividiendo entre 2:
+x = 9
+Por eso el número correcto es 9.
+
+Argumentos de las opciones incorrectas:
+a) 7: si se sustituye, da 14 + 7 = 21, no 25.
+b) 8: al sustituirlo, resulta 16 + 7 = 23.
+d) 10: al sustituirlo, resulta 20 + 7 = 27.
+e) 11: al sustituirlo, resulta 22 + 7 = 29.
+
+REACTIVO 70
+Área temática: Matemáticas
+Bloque que corresponde al área temática: Sistemas de 2 × 2
+Planteamiento del problema:
+Resuelve el siguiente sistema de ecuaciones:
+
+2x + y = 11
+x - y = 1
+
+Opciones:
+a) x = 3, y = 5
+b) x = 4, y = 3
+c) x = 5, y = 1
+d) x = 6, y = -1
+e) x = 2, y = 7
+
+Pista sin ofrecer la respuesta:
+Puedes sumar ambas ecuaciones para eliminar una variable rápidamente.
+
+Respuesta correcta:
+b) x = 4, y = 3
+
+Argumento de la respuesta correcta:
+Si sumamos las ecuaciones:
+2x + y = 11
+x - y = 1
+Se obtiene:
+3x = 12
+Entonces:
+x = 4
+Sustituyendo en la segunda:
+4 - y = 1
+y = 3
+Por eso la solución es x = 4, y = 3.
+
+Argumentos de las opciones incorrectas:
+a) x = 3, y = 5: cumple la primera, pero no la segunda.
+c) x = 5, y = 1: cumple 2x + y = 11, pero no x - y = 1.
+d) x = 6, y = -1: no satisface ambas ecuaciones al mismo tiempo.
+e) x = 2, y = 7: cumple la primera, pero falla en la segunda.
+
+REACTIVO 71
+Área temática: Matemáticas
+Bloque que corresponde al área temática: Ecuación cuadrática
+Planteamiento del problema:
+Selecciona los valores de x que satisfacen la ecuación:
+
+x² - 7x + 12 = 0
+
+Opciones:
+a) 2 y 6
+b) 3 y 4
+c) -3 y -4
+d) 1 y 12
+e) -2 y 6
+
+Pista sin ofrecer la respuesta:
+Busca dos números que multiplicados den 12 y sumados den 7.
+
+Respuesta correcta:
+b) 3 y 4
+
+Argumento de la respuesta correcta:
+La ecuación se puede factorizar así:
+x² - 7x + 12 = (x - 3)(x - 4)
+Entonces:
+x - 3 = 0  o  x - 4 = 0
+Por lo tanto:
+x = 3  y  x = 4
+Esa es la opción correcta.
+
+Argumentos de las opciones incorrectas:
+a) 2 y 6: multiplican 12, pero suman 8, no 7.
+c) -3 y -4: sus signos no corresponden a la factorización de la ecuación.
+d) 1 y 12: multiplican 12, pero suman 13.
+e) -2 y 6: multiplican -12, no 12.
+
+REACTIVO 72
+Área temática: Matemáticas
+Bloque que corresponde al área temática: Lectura de tablas y datos
+Planteamiento del problema:
+La siguiente tabla muestra las ventas de una papelería durante tres días.
+
+Producto      Lunes   Martes   Miércoles
+Cuadernos       8       12         10
+Plumas         15        9         11
+Colores         6        7          8
+
+¿Cuál producto tuvo la mayor venta total en los tres días?
+
+Opciones:
+a) Cuadernos
+b) Plumas
+c) Colores
+d) Cuadernos y colores
+e) Todos vendieron lo mismo
+
+Pista sin ofrecer la respuesta:
+Suma las ventas de cada renglón y luego compara los totales.
+
+Respuesta correcta:
+b) Plumas
+
+Argumento de la respuesta correcta:
+Sumando por producto:
+Cuadernos: 8 + 12 + 10 = 30
+Plumas: 15 + 9 + 11 = 35
+Colores: 6 + 7 + 8 = 21
+El total más alto es 35, correspondiente a plumas.
+
+Argumentos de las opciones incorrectas:
+a) Cuadernos: su total es 30, menor que 35.
+c) Colores: su total es 21, el menor de los tres.
+d) Cuadernos y colores: sus totales no coinciden y ninguno supera a plumas.
+e) Todos vendieron lo mismo: los datos muestran totales diferentes.
+
+REACTIVO 73
+Área temática: Matemáticas
+Bloque que corresponde al área temática: Promedio
+Planteamiento del problema:
+Las calificaciones de Andrea en cinco materias fueron:
+8, 7, 9, 6 y 10
+
+La media aritmética es
+
+Opciones:
+a) 7
+b) 7.5
+c) 8
+d) 8.5
+e) 9
+
+Pista sin ofrecer la respuesta:
+Suma todas las calificaciones y divide entre el número total de materias.
+
+Respuesta correcta:
+c) 8
+
+Argumento de la respuesta correcta:
+Primero se suman las calificaciones:
+8 + 7 + 9 + 6 + 10 = 40
+Luego se divide entre 5:
+40 ÷ 5 = 8
+Por eso la media aritmética es 8.
+
+Argumentos de las opciones incorrectas:
+a) 7: queda por debajo del promedio real.
+b) 7.5: resulta de una división incorrecta.
+d) 8.5: está por encima del valor correcto.
+e) 9: sería demasiado alto para el conjunto dado.
+
+REACTIVO 74
+Área temática: Matemáticas
+Bloque que corresponde al área temática: Geometría, ángulos alternos internos
+Planteamiento del problema:
+Dos rectas paralelas son cortadas por una transversal. En la intersección superior los ángulos se numeran así:
+1 arriba a la izquierda, 2 arriba a la derecha, 3 abajo a la derecha y 4 abajo a la izquierda.
+En la intersección inferior:
+5 arriba a la izquierda, 6 arriba a la derecha, 7 abajo a la derecha y 8 abajo a la izquierda.
+
+¿Cuál de los siguientes pares forma ángulos alternos internos?
+
+Opciones:
+a) 4 y 6
+b) 4 y 5
+c) 3 y 6
+d) 1 y 8
+e) 2 y 7
+
+Pista sin ofrecer la respuesta:
+Los alternos internos están dentro de las paralelas y en lados opuestos de la transversal.
+
+Respuesta correcta:
+a) 4 y 6
+
+Argumento de la respuesta correcta:
+Los ángulos interiores son 3, 4, 5 y 6. Los alternos internos son los que están dentro de las paralelas y a lados contrarios de la transversal. Uno de esos pares es 4 y 6.
+
+Argumentos de las opciones incorrectas:
+b) 4 y 5: son interiores, pero están del mismo lado de la transversal.
+c) 3 y 6: también son interiores del mismo lado.
+d) 1 y 8: son exteriores, no interiores.
+e) 2 y 7: son exteriores, por eso no forman un par alterno interno.
+
+REACTIVO 75
+Área temática: Matemáticas
+Bloque que corresponde al área temática: Medición, área
+Planteamiento del problema:
+Determina el área de un rectángulo que mide 12.5 cm de largo y 4.8 cm de ancho.
+
+Opciones:
+a) 55 cm²
+b) 60 cm²
+c) 62.5 cm²
+d) 17.3 cm²
+e) 30 cm²
+
+Pista sin ofrecer la respuesta:
+El área del rectángulo se obtiene multiplicando largo por ancho.
+
+Respuesta correcta:
+b) 60 cm²
+
+Argumento de la respuesta correcta:
+El área de un rectángulo se calcula así:
+Área = largo × ancho
+Entonces:
+12.5 × 4.8 = 60
+Por lo tanto, el área correcta es 60 cm².
+
+Argumentos de las opciones incorrectas:
+a) 55 cm²: resulta de una multiplicación incorrecta.
+c) 62.5 cm²: corresponde a usar mal uno de los datos.
+d) 17.3 cm²: es demasiado pequeño para esas medidas.
+e) 30 cm²: representa solo la mitad del área correcta.
+
+REACTIVO 76
+Área temática: Matemáticas
+Bloque que corresponde al área temática: Medición, volumen
+Planteamiento del problema:
+¿Cuál es el volumen de un prisma rectangular de 6 cm de largo, 4 cm de ancho y 5 cm de alto?
+
+Opciones:
+a) 60 cm³
+b) 90 cm³
+c) 120 cm³
+d) 150 cm³
+e) 200 cm³
+
+Pista sin ofrecer la respuesta:
+Multiplica las tres dimensiones del prisma.
+
+Respuesta correcta:
+c) 120 cm³
+
+Argumento de la respuesta correcta:
+El volumen de un prisma rectangular se obtiene multiplicando largo × ancho × alto:
+6 × 4 × 5 = 120
+Por eso el volumen correcto es 120 cm³.
+
+Argumentos de las opciones incorrectas:
+a) 60 cm³: toma solo parte de las dimensiones y deja una fuera.
+b) 90 cm³: no corresponde al producto real de 6, 4 y 5.
+d) 150 cm³: aumenta de más el resultado correcto.
+e) 200 cm³: no guarda relación con la multiplicación de los datos dados.
+
+---
+---
+
+ÁREA TEMÁTICA: HABILIDAD VERBAL
+RANGO: REACTIVOS 77 AL 92
+
+TEXTO BASE PARA LOS REACTIVOS 77 AL 80
+
+Las profundidades marinas siguen siendo una de las regiones menos conocidas del planeta. Aunque los océanos cubren gran parte de la superficie terrestre, durante siglos la exploración humana se limitó a sus capas más cercanas. En las últimas décadas, el desarrollo de submarinos, sensores y robots de alta presión ha permitido obtener imágenes, muestras y registros que antes eran imposibles. Gracias a ello, hoy se conocen mejor algunas fosas oceánicas, volcanes submarinos y comunidades de organismos que viven sin luz solar.
+
+Sin embargo, la investigación del fondo marino aún enfrenta grandes obstáculos. La presión extrema, la oscuridad permanente y el alto costo de las expediciones limitan el estudio directo de muchas zonas. Por esa razón, todavía no se sabe con precisión cuántas especies habitan en las mayores profundidades ni qué procesos químicos ocurren en todos esos ambientes. Algunos especialistas consideran posible que en esos lugares existan organismos aún desconocidos, capaces de aportar información valiosa sobre el origen de la vida o sobre nuevas sustancias útiles para la medicina.
+
+REACTIVO 77
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Comprensión lectora, sentido global
+Planteamiento del problema:
+Según el sentido global del texto, los avances en la exploración de las profundidades marinas han sido
+
+Opciones:
+a) inexistentes
+b) irrelevantes
+c) notables
+d) definitivos
+e) exagerados
+
+Pista sin ofrecer la respuesta:
+El texto reconoce avances importantes, pero también deja claro que todavía hay mucho por conocer.
+
+Respuesta correcta:
+c) notables
+
+Argumento de la respuesta correcta:
+El texto afirma que en las últimas décadas se han obtenido imágenes, muestras y registros que antes eran imposibles. Eso indica que los avances sí han sido importantes o notables, aunque no definitivos.
+
+Argumentos de las opciones incorrectas:
+a) inexistentes: es falsa porque el texto sí menciona logros recientes.
+b) irrelevantes: contradice la idea de que ahora se conocen mejor varias zonas y organismos.
+d) definitivos: no, porque el texto insiste en que aún hay muchas limitaciones y preguntas abiertas.
+e) exagerados: el texto no los presenta como inflados, sino como reales pero todavía insuficientes.
+
+REACTIVO 78
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Comprensión lectora, idea secundaria
+Planteamiento del problema:
+Las profundidades marinas siguen guardando muchos misterios para el ser humano debido principalmente a
+
+Opciones:
+a) la falta de interés de los científicos
+b) la desaparición de los océanos más profundos
+c) las limitaciones tecnológicas y materiales para explorarlas
+d) la ausencia total de vida en esas regiones
+e) la prohibición mundial de investigar el fondo oceánico
+
+Pista sin ofrecer la respuesta:
+El segundo párrafo menciona presión, oscuridad y costos elevados.
+
+Respuesta correcta:
+c) las limitaciones tecnológicas y materiales para explorarlas
+
+Argumento de la respuesta correcta:
+El texto explica que la presión extrema, la oscuridad permanente y el alto costo de las expediciones dificultan el estudio directo. Esas son limitaciones técnicas y materiales que frenan el conocimiento completo de esas zonas.
+
+Argumentos de las opciones incorrectas:
+a) la falta de interés de los científicos: el texto muestra lo contrario, pues sí existe investigación constante.
+b) la desaparición de los océanos más profundos: eso no aparece en el texto.
+d) la ausencia total de vida en esas regiones: también es falsa, ya que se mencionan comunidades de organismos.
+e) la prohibición mundial de investigar el fondo oceánico: no se menciona ninguna prohibición de ese tipo.
+
+REACTIVO 79
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Comprensión lectora, hipótesis
+Planteamiento del problema:
+¿Cuál de los siguientes enunciados funciona como una hipótesis dentro del texto?
+
+Opciones:
+a) Los océanos cubren gran parte de la superficie terrestre.
+b) Los robots de alta presión han permitido obtener registros antes imposibles.
+c) La presión extrema y la oscuridad dificultan las expediciones.
+d) Podrían existir organismos aún desconocidos con utilidad para la medicina.
+e) Ya se conocen con precisión todas las especies del fondo marino.
+
+Pista sin ofrecer la respuesta:
+Una hipótesis plantea una posibilidad, no un hecho ya comprobado.
+
+Respuesta correcta:
+d) Podrían existir organismos aún desconocidos con utilidad para la medicina.
+
+Argumento de la respuesta correcta:
+Ese enunciado expresa una posibilidad planteada por especialistas, no una certeza demostrada. Por eso funciona como hipótesis dentro del texto.
+
+Argumentos de las opciones incorrectas:
+a) es un dato general presentado como hecho.
+b) describe un avance ya logrado, no una suposición.
+c) menciona obstáculos actuales confirmados en el texto.
+e) contradice directamente el contenido, porque el texto dice que todavía no se sabe con precisión cuántas especies existen.
+
+REACTIVO 80
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Comprensión lectora, tema
+Planteamiento del problema:
+¿Cuál es el tema central del texto?
+
+Opciones:
+a) La pesca comercial en mares profundos
+b) La exploración científica de las profundidades marinas
+c) Los viajes turísticos en submarinos
+d) La historia completa de todos los océanos
+e) La contaminación de los puertos industriales
+
+Pista sin ofrecer la respuesta:
+El texto se concentra en lo que se ha podido estudiar del fondo marino y en lo que aún falta por conocer.
+
+Respuesta correcta:
+b) La exploración científica de las profundidades marinas
+
+Argumento de la respuesta correcta:
+Todo el texto gira alrededor del estudio del fondo marino, los avances recientes y las limitaciones que aún existen para conocerlo mejor. Ese es el tema central.
+
+Argumentos de las opciones incorrectas:
+a) La pesca comercial en mares profundos: no es el asunto principal del texto.
+c) Los viajes turísticos en submarinos: no se menciona turismo.
+d) La historia completa de todos los océanos: el texto no pretende abarcar todo eso.
+e) La contaminación de los puertos industriales: ese tema no aparece en la lectura.
+
+TEXTO BASE PARA LOS REACTIVOS 81 AL 83
+
+El cuervo y el gorrión
+
+En un verano muy seco, un cuervo y un gorrión encontraron una jarra con un poco de agua en el fondo. El gorrión, desesperado, intentó volcarla de inmediato, pero solo consiguió moverla un poco y derramar unas gotas. El cuervo observó con calma, recogió pequeñas piedras y comenzó a dejarlas caer dentro de la jarra. Poco a poco, el nivel del agua subió hasta que pudo beber. El gorrión, avergonzado, preguntó cómo lo había logrado. El cuervo respondió: «Quien se deja dominar por la prisa pierde lo que la paciencia y la reflexión pueden alcanzar».
+
+REACTIVO 81
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Lectura aplicada, comprensión de fábula
+Planteamiento del problema:
+En la narración, el gorrión no logró beber agua porque
+
+Opciones:
+a) la jarra estaba completamente vacía
+b) el cuervo le quitó toda el agua
+c) actuó con desesperación y sin pensar
+d) las piedras absorbieron el agua de la jarra
+e) el verano no era realmente seco
+
+Pista sin ofrecer la respuesta:
+Observa la diferencia entre la conducta del gorrión y la del cuervo.
+
+Respuesta correcta:
+c) actuó con desesperación y sin pensar
+
+Argumento de la respuesta correcta:
+El gorrión quiso resolver el problema con prisa, sin analizar otra forma de hacerlo. Esa desesperación lo llevó a fallar.
+
+Argumentos de las opciones incorrectas:
+a) la jarra estaba completamente vacía: el texto dice que sí tenía agua en el fondo.
+b) el cuervo le quitó toda el agua: el cuervo resolvió el problema con ingenio, no por despojo.
+d) las piedras absorbieron el agua de la jarra: las piedras elevaron el nivel, no la absorbieron.
+e) el verano no era realmente seco: el texto sí presenta un ambiente de sequía y eso no explica el fracaso del gorrión.
+
+REACTIVO 82
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Lectura aplicada, tipo de texto
+Planteamiento del problema:
+Los animales hablan en el texto porque se trata de una
+
+Opciones:
+a) noticia periodística
+b) biografía
+c) fábula
+d) crónica deportiva
+e) descripción científica
+
+Pista sin ofrecer la respuesta:
+Es un texto breve con animales que actúan como personas y deja una enseñanza.
+
+Respuesta correcta:
+c) fábula
+
+Argumento de la respuesta correcta:
+La fábula es un texto narrativo breve en el que suelen intervenir animales con rasgos humanos y que termina dejando una enseñanza o moraleja.
+
+Argumentos de las opciones incorrectas:
+a) noticia periodística: no informa un hecho real y verificable.
+b) biografía: no cuenta la vida real de una persona.
+d) crónica deportiva: no relata un evento deportivo.
+e) descripción científica: no explica objetivamente características de una especie.
+
+REACTIVO 83
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Lectura aplicada, moraleja
+Planteamiento del problema:
+La moraleja del texto es que
+
+Opciones:
+a) la fuerza siempre vale más que la inteligencia
+b) la paciencia y la reflexión permiten resolver mejor los problemas
+c) los animales no deben compartir el agua
+d) quien actúa primero siempre obtiene la recompensa
+e) la vergüenza impide aprender de los errores
+
+Pista sin ofrecer la respuesta:
+La respuesta está casi expresada en la frase final del cuervo.
+
+Respuesta correcta:
+b) la paciencia y la reflexión permiten resolver mejor los problemas
+
+Argumento de la respuesta correcta:
+El cuervo resuelve el problema con calma e ingenio, mientras el gorrión fracasa por actuar con prisa. La enseñanza es que pensar y mantener paciencia ayuda a encontrar soluciones.
+
+Argumentos de las opciones incorrectas:
+a) la fuerza siempre vale más que la inteligencia: el texto demuestra lo contrario.
+c) los animales no deben compartir el agua: ese no es el mensaje central.
+d) quien actúa primero siempre obtiene la recompensa: el gorrión actúa primero y falla.
+e) la vergüenza impide aprender de los errores: la vergüenza aparece, pero no es la enseñanza principal.
+
+REACTIVO 84
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Analogías
+Planteamiento del problema:
+Selecciona la opción con el par de palabras que muestra una relación análoga a la de LEALTAD – VIRTUD.
+
+Opciones:
+a) engaño – mentira
+b) avaricia – defecto
+c) amistad – persona
+d) valor – valentía
+e) trabajo – empleo
+
+Pista sin ofrecer la respuesta:
+La primera palabra pertenece a una categoría más amplia expresada en la segunda.
+
+Respuesta correcta:
+b) avaricia – defecto
+
+Argumento de la respuesta correcta:
+La relación es de pertenencia a una categoría: la lealtad es una virtud; de manera semejante, la avaricia es un defecto.
+
+Argumentos de las opciones incorrectas:
+a) engaño – mentira: son términos cercanos, pero no relación de categoría como la del modelo.
+c) amistad – persona: una amistad no es un tipo de persona.
+d) valor – valentía: son términos próximos, no una relación clara de especie y categoría.
+e) trabajo – empleo: se relacionan, pero no con la misma lógica de clasificación moral.
+
+REACTIVO 85
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Analogías
+Planteamiento del problema:
+Selecciona la opción con el par de palabras que muestra una relación análoga a la de HUMO – FUEGO.
+
+Opciones:
+a) semilla – árbol
+b) vapor – ebullición
+c) lluvia – nube
+d) golpe – mano
+e) sombra – lámpara
+
+Pista sin ofrecer la respuesta:
+Busca una relación donde el primer elemento sea un efecto o resultado del segundo.
+
+Respuesta correcta:
+b) vapor – ebullición
+
+Argumento de la respuesta correcta:
+El humo es producto del fuego; de manera semejante, el vapor es producto de la ebullición. En ambos casos, el primer término resulta del segundo.
+
+Argumentos de las opciones incorrectas:
+a) semilla – árbol: la relación va en otro sentido y no expresa resultado inmediato.
+c) lluvia – nube: está relacionada, pero no con la misma precisión causal del modelo.
+d) golpe – mano: una mano puede producir un golpe, pero la relación es menos exacta y más amplia.
+e) sombra – lámpara: una lámpara normalmente produce luz, no sombra de manera directa.
+
+REACTIVO 86
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Analogías
+Planteamiento del problema:
+Selecciona la opción con el par de palabras que muestra una relación análoga a la de OVEJA – REBAÑO.
+
+Opciones:
+a) pez – cardumen
+b) árbol – bosquejo
+c) pájaro – nido
+d) perro – ladrido
+e) abeja – miel
+
+Pista sin ofrecer la respuesta:
+La segunda palabra nombra al conjunto o agrupación de la primera.
+
+Respuesta correcta:
+a) pez – cardumen
+
+Argumento de la respuesta correcta:
+La relación es individuo – conjunto. Una oveja forma parte de un rebaño; de modo semejante, un pez forma parte de un cardumen.
+
+Argumentos de las opciones incorrectas:
+b) árbol – bosquejo: «bosquejo» no es conjunto de árboles.
+c) pájaro – nido: el nido es lugar donde habita o pone huevos, no agrupación.
+d) perro – ladrido: es animal y sonido, no individuo y conjunto.
+e) abeja – miel: se relacionan, pero no como miembro y colectividad.
+
+REACTIVO 87
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Antónimos en contexto
+Planteamiento del problema:
+Selecciona la opción que sustituya con un antónimo la palabra en mayúsculas.
+
+La comisión APROBÓ el reglamento por unanimidad.
+
+Opciones:
+a) aceptó
+b) rechazó
+c) confirmó
+d) avaló
+e) respaldó
+
+Pista sin ofrecer la respuesta:
+Busca la palabra que exprese la idea contraria a dar autorización o visto bueno.
+
+Respuesta correcta:
+b) rechazó
+
+Argumento de la respuesta correcta:
+«Aprobó» significa aceptar o autorizar. Su antónimo en este contexto es «rechazó», que expresa negar o no aceptar.
+
+Argumentos de las opciones incorrectas:
+a) aceptó: es casi equivalente, no opuesto.
+c) confirmó: mantiene una idea cercana de validación.
+d) avaló: también significa dar apoyo o aprobación.
+e) respaldó: expresa apoyo, no oposición.
+
+REACTIVO 88
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Antónimos en contexto
+Planteamiento del problema:
+Selecciona la opción que sustituya con un antónimo la palabra en mayúsculas.
+
+En esa región es FRECUENTE la niebla por la mañana.
+
+Opciones:
+a) habitual
+b) constante
+c) rara
+d) temprana
+e) visible
+
+Pista sin ofrecer la respuesta:
+No busques una característica de la niebla, sino la idea contraria a que ocurra muchas veces.
+
+Respuesta correcta:
+c) rara
+
+Argumento de la respuesta correcta:
+«Frecuente» significa que algo ocurre a menudo. Su antónimo es «rara», que indica poca repetición o escasa aparición.
+
+Argumentos de las opciones incorrectas:
+a) habitual: es sinónimo, no antónimo.
+b) constante: refuerza la idea de frecuencia.
+d) temprana: habla de horario, no de frecuencia.
+e) visible: describe otra cualidad distinta.
+
+REACTIVO 89
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Antónimos
+Planteamiento del problema:
+Selecciona la opción que exprese la idea opuesta al significado de AUSTERIDAD.
+
+Opciones:
+a) moderación
+b) prudencia
+c) sencillez
+d) ahorro
+e) derroche
+
+Pista sin ofrecer la respuesta:
+Austeridad implica mesura en el gasto.
+
+Respuesta correcta:
+e) derroche
+
+Argumento de la respuesta correcta:
+La austeridad se relaciona con sobriedad y control en el uso de recursos. La idea opuesta es el derroche, que implica gasto excesivo y sin medida.
+
+Argumentos de las opciones incorrectas:
+a) moderación: se relaciona con la misma idea de contención.
+b) prudencia: no es opuesta, sino compatible con austeridad.
+c) sencillez: también es cercana en sentido.
+d) ahorro: es una noción asociada a la austeridad, no su contraria.
+
+REACTIVO 90
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Sinónimos
+Planteamiento del problema:
+Elige la opción que contenga un par de sinónimos.
+
+Opciones:
+a) cauteloso – precavido
+b) duda – certeza
+c) ruido – silencio
+d) ligero – pesado
+e) inicio – final
+
+Pista sin ofrecer la respuesta:
+Busca dos palabras con significado semejante, no contrario.
+
+Respuesta correcta:
+a) cauteloso – precavido
+
+Argumento de la respuesta correcta:
+«Cauteloso» y «precavido» comparten la idea de actuar con cuidado y prevención, por eso funcionan como sinónimos.
+
+Argumentos de las opciones incorrectas:
+b) duda – certeza: expresan ideas opuestas.
+c) ruido – silencio: son contrarios.
+d) ligero – pesado: también son antónimos.
+e) inicio – final: representan extremos opuestos.
+
+REACTIVO 91
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Sinónimos en contexto
+Planteamiento del problema:
+Selecciona la opción que sustituya con un sinónimo la palabra en mayúsculas.
+
+El mensaje del director fue AMBIGUO y dejó dudas entre los asistentes.
+
+Opciones:
+a) confuso
+b) brillante
+c) directo
+d) agradable
+e) extenso
+
+Pista sin ofrecer la respuesta:
+El contexto señala que el mensaje no fue claro.
+
+Respuesta correcta:
+a) confuso
+
+Argumento de la respuesta correcta:
+«Ambiguo» significa que puede entenderse de varias maneras o que no es claro. En este contexto, «confuso» es el sinónimo más adecuado.
+
+Argumentos de las opciones incorrectas:
+b) brillante: alude a calidad positiva, no a falta de claridad.
+c) directo: expresa casi la idea contraria.
+d) agradable: habla de impresión emocional, no de precisión del mensaje.
+e) extenso: se refiere a longitud, no a ambigüedad.
+
+REACTIVO 92
+Área temática: Habilidad verbal
+Bloque que corresponde al área temática: Sinónimos en contexto
+Planteamiento del problema:
+Selecciona la opción que sustituya con un sinónimo la palabra en mayúsculas.
+
+La noticia causó ASOMBRO entre los asistentes.
+
+Opciones:
+a) enojo
+b) sorpresa
+c) cansancio
+d) indiferencia
+e) duda
+
+Pista sin ofrecer la respuesta:
+Busca la palabra que exprese una reacción de admiración o impresión inesperada.
+
+Respuesta correcta:
+b) sorpresa
+
+Argumento de la respuesta correcta:
+«Asombro» se relaciona con una reacción de sorpresa, admiración o impresión intensa ante algo inesperado.
+
+Argumentos de las opciones incorrectas:
+a) enojo: expresa molestia, no asombro.
+c) cansancio: alude a fatiga, no a impresión.
+d) indiferencia: es casi lo contrario de sorprenderse.
+e) duda: expresa incertidumbre, no admiración o impresión.
+
+---
+---
+
+ÁREA TEMÁTICA: GEOGRAFÍA
+RANGO: REACTIVOS 93 AL 104
+
+REACTIVO 93
+Área temática: Geografía
+Bloque que corresponde al área temática: Espacio geográfico, componentes
+Planteamiento del problema:
+Los componentes del espacio geográfico que se relacionan con la producción, distribución, transporte, comercialización y consumo de bienes y servicios son los componentes
+
+Opciones:
+a) físicos
+b) culturales
+c) económicos
+d) políticos
+e) naturales
+
+Pista sin ofrecer la respuesta:
+Piensa en las actividades humanas vinculadas con trabajo, intercambio y mercado.
+
+Respuesta correcta:
+c) económicos
+
+Argumento de la respuesta correcta:
+Los componentes económicos del espacio geográfico incluyen las actividades relacionadas con producir, transportar, vender y consumir bienes y servicios.
+
+Argumentos de las opciones incorrectas:
+a) físicos: se refieren al relieve, clima, agua, suelo y otros elementos naturales.
+b) culturales: se asocian con costumbres, tradiciones y formas de vida.
+d) políticos: se relacionan con fronteras, gobierno y organización del territorio.
+e) naturales: abarcan elementos del medio físico, no las actividades de producción y comercio.
+
+REACTIVO 94
+Área temática: Geografía
+Bloque que corresponde al área temática: Coordenadas geográficas
+Planteamiento del problema:
+Un punto del planeta se localiza a 20° al norte del ecuador y a 40° al oeste del meridiano de Greenwich. ¿Cuál es su coordenada correcta?
+
+Opciones:
+a) 20° N, 40° O
+b) 20° S, 40° O
+c) 40° N, 20° O
+d) 20° N, 40° E
+e) 40° S, 20° E
+
+Pista sin ofrecer la respuesta:
+La latitud se mide al norte o al sur del ecuador; la longitud al este o al oeste del meridiano de Greenwich.
+
+Respuesta correcta:
+a) 20° N, 40° O
+
+Argumento de la respuesta correcta:
+El punto está al norte del ecuador, por eso su latitud es 20° N. Además, está al oeste del meridiano de Greenwich, así que su longitud es 40° O.
+
+Argumentos de las opciones incorrectas:
+b) 20° S, 40° O: cambia la latitud de norte a sur.
+c) 40° N, 20° O: invierte los valores de latitud y longitud.
+d) 20° N, 40° E: cambia la longitud de oeste a este.
+e) 40° S, 20° E: altera tanto dirección como medida de las coordenadas.
+
+REACTIVO 95
+Área temática: Geografía
+Bloque que corresponde al área temática: Sismos y placas tectónicas
+Planteamiento del problema:
+Las zonas de mayor sismicidad en el planeta se relacionan principalmente con
+
+Opciones:
+a) grandes llanuras interiores
+b) límites convergentes de placas
+c) zonas de baja presión atmosférica
+d) cuencas alejadas de los océanos
+e) regiones con poca lluvia anual
+
+Pista sin ofrecer la respuesta:
+Busca la opción vinculada con el choque o contacto entre placas tectónicas.
+
+Respuesta correcta:
+b) límites convergentes de placas
+
+Argumento de la respuesta correcta:
+En los límites convergentes de placas ocurre choque, subducción y liberación de energía, por eso ahí se concentran muchas zonas sísmicas.
+
+Argumentos de las opciones incorrectas:
+a) grandes llanuras interiores: no son, por sí mismas, áreas de fuerte actividad sísmica.
+c) zonas de baja presión atmosférica: la presión del aire no explica la sismicidad tectónica.
+d) cuencas alejadas de los océanos: no representan el principal patrón sísmico mundial.
+e) regiones con poca lluvia anual: la precipitación no determina directamente los terremotos.
+
+REACTIVO 96
+Área temática: Geografía
+Bloque que corresponde al área temática: Agua, ciclo hidrológico
+Planteamiento del problema:
+La parte del ciclo del agua relacionada de manera directa con el paso del agua hacia el subsuelo es la
+
+Opciones:
+a) evaporación
+b) condensación
+c) infiltración
+d) transpiración
+e) precipitación
+
+Pista sin ofrecer la respuesta:
+Se trata del proceso mediante el cual el agua penetra en el suelo.
+
+Respuesta correcta:
+c) infiltración
+
+Argumento de la respuesta correcta:
+La infiltración es el proceso por el cual el agua entra al suelo y puede alimentar mantos acuíferos o aguas subterráneas.
+
+Argumentos de las opciones incorrectas:
+a) evaporación: lleva el agua hacia la atmósfera.
+b) condensación: forma gotas a partir del vapor.
+d) transpiración: ocurre en las plantas al liberar vapor de agua.
+e) precipitación: corresponde a la caída del agua desde la atmósfera, no a su entrada al subsuelo.
+
+REACTIVO 97
+Área temática: Geografía
+Bloque que corresponde al área temática: Combustibles alternativos
+Planteamiento del problema:
+Una forma de reducir parte del uso de combustibles derivados del petróleo es producir biocombustibles a partir de
+
+Opciones:
+a) minerales metálicos
+b) rocas calizas
+c) aceites vegetales
+d) aguas termales
+e) arena sílica
+
+Pista sin ofrecer la respuesta:
+Piensa en materias primas de origen biológico y renovable.
+
+Respuesta correcta:
+c) aceites vegetales
+
+Argumento de la respuesta correcta:
+Los aceites vegetales pueden utilizarse como materia prima para elaborar biocombustibles, lo que representa una alternativa parcial frente a combustibles fósiles.
+
+Argumentos de las opciones incorrectas:
+a) minerales metálicos: no se emplean para producir biocombustibles.
+b) rocas calizas: se usan en otros procesos industriales, no para ese fin.
+d) aguas termales: son fuente de energía geotérmica, no base para biocombustibles.
+e) arena sílica: no sirve como materia prima biológica para ese tipo de combustible.
+
+REACTIVO 98
+Área temática: Geografía
+Bloque que corresponde al área temática: Riesgos regionales en México
+Planteamiento del problema:
+El principal factor de riesgo natural para la población que vive en la península de Yucatán es
+
+Opciones:
+a) huracanes
+b) erupciones volcánicas
+c) nevadas intensas
+d) tornados polares
+e) avalanchas
+
+Pista sin ofrecer la respuesta:
+Es un fenómeno atmosférico tropical que afecta con frecuencia las costas del Caribe y del golfo.
+
+Respuesta correcta:
+a) huracanes
+
+Argumento de la respuesta correcta:
+La península de Yucatán se encuentra en una zona expuesta al paso de huracanes, que pueden provocar inundaciones, vientos intensos y daños materiales.
+
+Argumentos de las opciones incorrectas:
+b) erupciones volcánicas: no representan el riesgo principal de esa región.
+c) nevadas intensas: no son características del clima de la península.
+d) tornados polares: no corresponden al tipo de fenómeno dominante en esa zona.
+e) avalanchas: requieren condiciones de relieve y nieve que no son propias de Yucatán.
+
+REACTIVO 99
+Área temática: Geografía
+Bloque que corresponde al área temática: Hidrocarburos en México
+Planteamiento del problema:
+Dos ciudades de México que destacan por su relación con la extracción y actividad petrolera son
+
+Opciones:
+a) Puebla y Toluca
+b) Coatzacoalcos y Poza Rica
+c) Morelia y Pachuca
+d) Oaxaca y Cuernavaca
+e) Querétaro y León
+
+Pista sin ofrecer la respuesta:
+Busca ciudades asociadas históricamente con la actividad de hidrocarburos en la zona del golfo.
+
+Respuesta correcta:
+b) Coatzacoalcos y Poza Rica
+
+Argumento de la respuesta correcta:
+Coatzacoalcos y Poza Rica son ciudades vinculadas con la industria petrolera y de hidrocarburos en México, especialmente en la región del golfo.
+
+Argumentos de las opciones incorrectas:
+a) Puebla y Toluca: son ciudades importantes, pero no destacan por extracción petrolera.
+c) Morelia y Pachuca: no forman el par más asociado con hidrocarburos.
+d) Oaxaca y Cuernavaca: no son referencia principal de extracción petrolera.
+e) Querétaro y León: se relacionan más con otras actividades económicas e industriales.
+
+REACTIVO 100
+Área temática: Geografía
+Bloque que corresponde al área temática: Transporte marítimo
+Planteamiento del problema:
+El transporte que se aprovecha para mover grandes cantidades de petróleo entre puertos de distintos países es el transporte
+
+Opciones:
+a) lacustre
+b) ferroviario
+c) marítimo
+d) aéreo
+e) peatonal
+
+Pista sin ofrecer la respuesta:
+Se realiza por mar y conecta puertos nacionales e internacionales.
+
+Respuesta correcta:
+c) marítimo
+
+Argumento de la respuesta correcta:
+El transporte marítimo permite mover grandes volúmenes de petróleo y otros productos a largas distancias entre puertos.
+
+Argumentos de las opciones incorrectas:
+a) lacustre: se desarrolla en lagos, no en rutas oceánicas internacionales.
+b) ferroviario: se usa en tierra, no entre puertos de distintos países por mar.
+d) aéreo: no es el medio apropiado para trasladar grandes cantidades de petróleo.
+e) peatonal: no tiene relación con transporte de carga de ese tipo.
+
+REACTIVO 101
+Área temática: Geografía
+Bloque que corresponde al área temática: Organismos internacionales
+Planteamiento del problema:
+La institución internacional que busca favorecer la estabilidad financiera mundial y apoyar el comercio y el empleo es el
+
+Opciones:
+a) Fondo Monetario Internacional
+b) Comité Olímpico Internacional
+c) Tratado de Libre Comercio
+d) Instituto Panamericano de Geografía
+e) Banco Central Europeo
+
+Pista sin ofrecer la respuesta:
+Busca un organismo internacional de alcance mundial, no regional ni deportivo.
+
+Respuesta correcta:
+a) Fondo Monetario Internacional
+
+Argumento de la respuesta correcta:
+El Fondo Monetario Internacional es un organismo que promueve la estabilidad financiera, la cooperación monetaria y el funcionamiento de la economía mundial.
+
+Argumentos de las opciones incorrectas:
+b) Comité Olímpico Internacional: organiza actividades deportivas, no estabilidad financiera.
+c) Tratado de Libre Comercio: es un acuerdo comercial, no una institución global de esa naturaleza.
+d) Instituto Panamericano de Geografía: no cumple esa función financiera internacional.
+e) Banco Central Europeo: tiene alcance regional y no desempeña el papel global descrito.
+
+REACTIVO 102
+Área temática: Geografía
+Bloque que corresponde al área temática: Cambios geopolíticos
+Planteamiento del problema:
+El país africano que se independizó en julio de 2011 después de un conflicto interno, modificando el mapa político del continente, fue
+
+Opciones:
+a) Eritrea
+b) Sudán del Sur
+c) Namibia
+d) Kosovo
+e) Somalia
+
+Pista sin ofrecer la respuesta:
+Surgió a partir de la separación de una parte del territorio sudanés.
+
+Respuesta correcta:
+b) Sudán del Sur
+
+Argumento de la respuesta correcta:
+Sudán del Sur se convirtió en país independiente en 2011, tras un largo conflicto, y eso representó un cambio importante en las fronteras políticas de África.
+
+Argumentos de las opciones incorrectas:
+a) Eritrea: se independizó en otra etapa histórica.
+c) Namibia: obtuvo independencia antes de 2011.
+d) Kosovo: no pertenece a África.
+e) Somalia: ya existía como Estado y no corresponde al caso descrito.
+
+REACTIVO 103
+Área temática: Geografía
+Bloque que corresponde al área temática: Patrimonio cultural en México
+Planteamiento del problema:
+Relaciona los sitios considerados patrimonio cultural con la entidad donde se localizan.
+
+Entidad:
+I. Querétaro
+II. Veracruz
+III. Oaxaca
+IV. Chihuahua
+
+Patrimonio:
+a. Zona arqueológica de Paquimé
+b. Misiones Franciscanas de la Sierra Gorda
+c. Monumentos históricos de Tlacotalpan
+d. Zona arqueológica de Monte Albán
+
+Opciones:
+a) I: b, II: c, III: d, IV: a
+b) I: d, II: a, III: c, IV: b
+c) I: c, II: b, III: a, IV: d
+d) I: a, II: d, III: b, IV: c
+e) I: b, II: d, III: a, IV: c
+
+Pista sin ofrecer la respuesta:
+Querétaro se relaciona con la Sierra Gorda, Oaxaca con Monte Albán y Chihuahua con Paquimé.
+
+Respuesta correcta:
+a) I: b, II: c, III: d, IV: a
+
+Argumento de la respuesta correcta:
+Las Misiones Franciscanas de la Sierra Gorda corresponden a Querétaro, Tlacotalpan a Veracruz, Monte Albán a Oaxaca y Paquimé a Chihuahua.
+
+Argumentos de las opciones incorrectas:
+b) I: d, II: a, III: c, IV: b: ubica mal varios sitios, como Monte Albán y Paquimé.
+c) I: c, II: b, III: a, IV: d: intercambia entidades y patrimonios de manera incorrecta.
+d) I: a, II: d, III: b, IV: c: casi todos los emparejamientos están mal asignados.
+e) I: b, II: d, III: a, IV: c: solo conserva bien Querétaro, pero altera las otras relaciones.
+
+REACTIVO 104
+Área temática: Geografía
+Bloque que corresponde al área temática: Mar territorial
+Planteamiento del problema:
+La franja del mar adyacente a las costas de un país, con anchura de 12 millas náuticas y sobre la cual el Estado ejerce plena soberanía, se llama
+
+Opciones:
+a) mar patrimonial
+b) mar territorial
+c) plataforma continental
+d) zona económica especial
+e) región insular
+
+Pista sin ofrecer la respuesta:
+Se trata de la zona marítima inmediata a la costa donde el Estado tiene soberanía directa.
+
+Respuesta correcta:
+b) mar territorial
+
+Argumento de la respuesta correcta:
+El mar territorial es la franja adyacente a las costas de un Estado, con extensión de 12 millas náuticas, donde ejerce soberanía plena.
+
+Argumentos de las opciones incorrectas:
+a) mar patrimonial: no corresponde exactamente a la franja soberana de 12 millas.
+c) plataforma continental: se refiere al relieve submarino y a derechos sobre el subsuelo, no a esa franja específica.
+d) zona económica especial: no es la denominación correcta en este caso.
+e) región insular: alude a territorios de islas, no a la franja marítima soberana.
+
+---
+---
+
+ÁREA TEMÁTICA: FÍSICA
+RANGO: REACTIVOS 105 AL 116
+
+REACTIVO 105
+Área temática: Física
+Bloque que corresponde al área temática: Rapidez y velocidad
+Planteamiento del problema:
+¿Cuál es la diferencia entre rapidez y velocidad?
+
+Opciones:
+a) La rapidez es una magnitud escalar y la velocidad es una magnitud vectorial.
+b) La rapidez siempre es negativa y la velocidad siempre es positiva.
+c) La rapidez mide aceleración y la velocidad mide fuerza.
+d) La rapidez solo se usa en caída libre y la velocidad en movimiento circular.
+e) La rapidez depende de la masa y la velocidad del volumen.
+
+Pista sin ofrecer la respuesta:
+Una de ellas solo indica cuánto avanza por unidad de tiempo y la otra también considera dirección.
+
+Respuesta correcta:
+a) La rapidez es una magnitud escalar y la velocidad es una magnitud vectorial.
+
+Argumento de la respuesta correcta:
+La rapidez solo indica cuánto se recorre en cierto tiempo. La velocidad, además de ese valor, incluye dirección y sentido del movimiento. Por eso rapidez es escalar y velocidad es vectorial.
+
+Argumentos de las opciones incorrectas:
+b) La rapidez siempre es negativa y la velocidad siempre es positiva: es falso, porque la rapidez no se maneja con signo y la velocidad puede representarse con dirección.
+c) La rapidez mide aceleración y la velocidad mide fuerza: mezcla magnitudes distintas.
+d) La rapidez solo se usa en caída libre y la velocidad en movimiento circular: ambas se usan en muchos tipos de movimiento.
+e) La rapidez depende de la masa y la velocidad del volumen: no existe esa relación como definición física.
+
+REACTIVO 106
+Área temática: Física
+Bloque que corresponde al área temática: Tablas y gráficas, lectura de movimiento
+Planteamiento del problema:
+La siguiente tabla muestra la distancia recorrida por un móvil.
+
+Tiempo (s):      0   2   4   6
+Distancia (m):   0  10  20  30
+
+Con base en los datos, se puede afirmar que el móvil
+
+Opciones:
+a) permaneció en reposo durante todo el recorrido.
+b) llevó una rapidez constante de 5 m/s.
+c) aumentó su rapidez en cada intervalo.
+d) regresó al punto de partida al final.
+e) se movió con rapidez constante de 10 m/s.
+
+Pista sin ofrecer la respuesta:
+Compara cuánto avanza en cada intervalo de tiempo y divide distancia entre tiempo.
+
+Respuesta correcta:
+b) llevó una rapidez constante de 5 m/s.
+
+Argumento de la respuesta correcta:
+Entre 0 y 2 s recorre 10 m, entre 2 y 4 s recorre otros 10 m y entre 4 y 6 s vuelve a recorrer 10 m. Eso muestra un cambio uniforme. La rapidez es:
+10 ÷ 2 = 5 m/s
+Por eso el movimiento es uniforme con rapidez constante de 5 m/s.
+
+Argumentos de las opciones incorrectas:
+a) permaneció en reposo durante todo el recorrido: es falso porque la distancia sí cambia.
+c) aumentó su rapidez en cada intervalo: no, porque avanza lo mismo en tiempos iguales.
+d) regresó al punto de partida al final: la distancia aumenta, no disminuye.
+e) se movió con rapidez constante de 10 m/s: dividir 10 m entre 2 s da 5 m/s, no 10 m/s.
+
+REACTIVO 107
+Área temática: Física
+Bloque que corresponde al área temática: Tablas y gráficas, interpretación del movimiento
+Planteamiento del problema:
+La siguiente tabla muestra la velocidad de un automóvil a lo largo de cuatro horas.
+
+Tiempo (h):          0   1   2   3   4
+Velocidad (km/h):    0  60  60  30   0
+
+¿Cuál opción describe mejor el recorrido?
+
+Opciones:
+a) El automóvil inició en reposo, alcanzó 60 km/h en la primera hora, mantuvo esa velocidad una hora más, luego disminuyó y al final se detuvo.
+b) El automóvil inició a 60 km/h, se detuvo en la segunda hora y después aceleró hasta 90 km/h.
+c) El automóvil permaneció detenido dos horas y después alcanzó 60 km/h.
+d) El automóvil llevó velocidad constante de 30 km/h durante las cuatro horas.
+e) El automóvil avanzó y regresó de inmediato al punto de origen en la segunda hora.
+
+Pista sin ofrecer la respuesta:
+Lee la tabla de izquierda a derecha y observa cómo cambia la velocidad con el tiempo.
+
+Respuesta correcta:
+a) El automóvil inició en reposo, alcanzó 60 km/h en la primera hora, mantuvo esa velocidad una hora más, luego disminuyó y al final se detuvo.
+
+Argumento de la respuesta correcta:
+La tabla marca que el automóvil parte de 0 km/h, luego llega a 60 km/h, mantiene 60 km/h una hora adicional, después baja a 30 km/h y finalmente termina en 0 km/h. Esa descripción coincide exactamente con la opción a).
+
+Argumentos de las opciones incorrectas:
+b) El automóvil inició a 60 km/h, se detuvo en la segunda hora y después aceleró hasta 90 km/h: no coincide con los datos iniciales ni finales.
+c) El automóvil permaneció detenido dos horas y después alcanzó 60 km/h: la tabla muestra movimiento desde la primera hora.
+d) El automóvil llevó velocidad constante de 30 km/h durante las cuatro horas: los valores cambian varias veces.
+e) El automóvil avanzó y regresó de inmediato al punto de origen en la segunda hora: la tabla habla de velocidad, no de regreso inmediato.
+
+REACTIVO 108
+Área temática: Física
+Bloque que corresponde al área temática: Fuerza y aceleración, uso de F = ma
+Planteamiento del problema:
+Si sobre un cuerpo de masa 3 kg se aplica una fuerza de 18 N, su aceleración será de
+
+Opciones:
+a) 3 m/s²
+b) 6 m/s²
+c) 9 m/s²
+d) 12 m/s²
+e) 15 m/s²
+
+Pista sin ofrecer la respuesta:
+Usa la relación entre fuerza, masa y aceleración:
+F = ma
+
+Respuesta correcta:
+b) 6 m/s²
+
+Argumento de la respuesta correcta:
+De la fórmula:
+F = ma
+Despejando:
+a = F ÷ m
+Sustituyendo:
+a = 18 ÷ 3 = 6
+Por eso la aceleración del cuerpo es 6 m/s².
+
+Argumentos de las opciones incorrectas:
+a) 3 m/s²: sale de dividir mal o de usar solo parte de los datos.
+c) 9 m/s²: no corresponde a la razón entre 18 y 3.
+d) 12 m/s²: es un valor mayor al correcto sin sustento en la operación.
+e) 15 m/s²: también resulta de operar incorrectamente los datos del problema.
+
+REACTIVO 109
+Área temática: Física
+Bloque que corresponde al área temática: Equilibrio
+Planteamiento del problema:
+La resultante de las fuerzas que actúan sobre un objeto que permanece en equilibrio es
+
+Opciones:
+a) menor que cero.
+b) igual a cero.
+c) igual a la masa del objeto.
+d) mayor que la aceleración.
+e) siempre de 9.8 N.
+
+Pista sin ofrecer la respuesta:
+Si el objeto no cambia su estado de movimiento, no hay fuerza neta que lo acelere.
+
+Respuesta correcta:
+b) igual a cero.
+
+Argumento de la respuesta correcta:
+Cuando un objeto está en equilibrio, las fuerzas que actúan sobre él se compensan. Eso significa que la suma vectorial de todas ellas es cero.
+
+Argumentos de las opciones incorrectas:
+a) menor que cero: la resultante no se clasifica así en este contexto.
+c) igual a la masa del objeto: masa y fuerza resultante son magnitudes distintas.
+d) mayor que la aceleración: no expresa una condición física correcta de equilibrio.
+e) siempre de 9.8 N: ese valor no corresponde a la resultante general de todo objeto en equilibrio.
+
+REACTIVO 110
+Área temática: Física
+Bloque que corresponde al área temática: Electricidad estática
+Planteamiento del problema:
+Cuando una persona camina sobre una alfombra usando ropa sintética y después siente una descarga al tocar una puerta metálica, adquirió carga eléctrica principalmente por
+
+Opciones:
+a) conducción.
+b) refracción.
+c) frotamiento.
+d) inducción.
+e) gravitación.
+
+Pista sin ofrecer la respuesta:
+La carga apareció por el roce entre superficies.
+
+Respuesta correcta:
+c) frotamiento.
+
+Argumento de la respuesta correcta:
+El roce entre la suela, la alfombra y ciertos materiales favorece transferencia de electrones. Ese proceso corresponde a electrización por frotamiento.
+
+Argumentos de las opciones incorrectas:
+a) conducción: ocurre cuando la carga pasa por contacto directo entre materiales conductores, no como origen principal del caso.
+b) refracción: es un fenómeno óptico.
+d) inducción: puede redistribuir carga, pero no es la causa principal planteada.
+e) gravitación: se relaciona con masa y atracción gravitatoria, no con electricidad estática.
+
+REACTIVO 111
+Área temática: Física
+Bloque que corresponde al área temática: Magnetismo, brújula y campo terrestre
+Planteamiento del problema:
+La aguja de una brújula apunta aproximadamente hacia el norte porque
+
+Opciones:
+a) el Sol atrae la aguja con mayor intensidad desde esa dirección.
+b) la aguja se alinea con el campo magnético terrestre.
+c) el hierro del suelo empuja la aguja hacia arriba.
+d) el aire mueve la aguja de forma permanente.
+e) la gravedad la obliga a girar hacia el norte.
+
+Pista sin ofrecer la respuesta:
+La brújula funciona como un pequeño imán que responde al magnetismo de la Tierra.
+
+Respuesta correcta:
+b) la aguja se alinea con el campo magnético terrestre.
+
+Argumento de la respuesta correcta:
+La Tierra se comporta como un gran imán. La aguja imantada de la brújula se orienta siguiendo las líneas del campo magnético terrestre.
+
+Argumentos de las opciones incorrectas:
+a) el Sol atrae la aguja con mayor intensidad desde esa dirección: no explica el funcionamiento de la brújula.
+c) el hierro del suelo empuja la aguja hacia arriba: no es la causa general del fenómeno.
+d) el aire mueve la aguja de forma permanente: el aire no determina su orientación magnética.
+e) la gravedad la obliga a girar hacia el norte: la gravedad actúa verticalmente, no orienta la aguja al norte.
+
+REACTIVO 112
+Área temática: Física
+Bloque que corresponde al área temática: Gases, teoría cinética
+Planteamiento del problema:
+La teoría que explica que las partículas de un gas están muy separadas, se mueven continuamente y chocan entre sí y con las paredes del recipiente es la
+
+Opciones:
+a) teoría cinética de los gases.
+b) ley de Ohm.
+c) ley de gravitación universal.
+d) teoría heliocéntrica.
+e) ley de reflexión.
+
+Pista sin ofrecer la respuesta:
+Busca la teoría que describe el comportamiento microscópico de las partículas de un gas.
+
+Respuesta correcta:
+a) teoría cinética de los gases.
+
+Argumento de la respuesta correcta:
+La teoría cinética de los gases propone que sus partículas están en movimiento constante, con choques entre ellas y contra el recipiente, y que de ahí se explican varias propiedades del gas.
+
+Argumentos de las opciones incorrectas:
+b) ley de Ohm: trata de corriente, voltaje y resistencia.
+c) ley de gravitación universal: explica atracción entre masas.
+d) teoría heliocéntrica: describe la posición del Sol respecto al sistema planetario.
+e) ley de reflexión: corresponde a fenómenos de luz.
+
+REACTIVO 113
+Área temática: Física
+Bloque que corresponde al área temática: Calor y temperatura
+Planteamiento del problema:
+¿Cuál opción define correctamente la diferencia entre calor y temperatura?
+
+Opciones:
+a) La temperatura es una forma de energía que pasa de un cuerpo a otro, mientras que el calor solo indica cuán caliente está un objeto.
+b) La temperatura es lo que mide un termómetro, mientras que el calor es energía que se transfiere de un cuerpo más caliente a otro más frío.
+c) El calor es lo que mide un termómetro, mientras que la temperatura es el color de un cuerpo caliente.
+d) El calor y la temperatura significan exactamente lo mismo en física.
+e) La temperatura solo existe en sólidos y el calor solo en líquidos.
+
+Pista sin ofrecer la respuesta:
+Una se mide con termómetro; la otra se entiende como energía en tránsito.
+
+Respuesta correcta:
+b) La temperatura es lo que mide un termómetro, mientras que el calor es energía que se transfiere de un cuerpo más caliente a otro más frío.
+
+Argumento de la respuesta correcta:
+La temperatura indica qué tan caliente o frío está un cuerpo y puede medirse con termómetro. El calor es energía que se transfiere debido a una diferencia de temperatura.
+
+Argumentos de las opciones incorrectas:
+a) La temperatura es una forma de energía que pasa de un cuerpo a otro, mientras que el calor solo indica cuán caliente está un objeto: invierte los conceptos.
+c) El calor es lo que mide un termómetro, mientras que la temperatura es el color de un cuerpo caliente: mezcla física con una característica visual.
+d) El calor y la temperatura significan exactamente lo mismo en física: son conceptos relacionados, pero distintos.
+e) La temperatura solo existe en sólidos y el calor solo en líquidos: ambos conceptos pueden aplicarse en distintos estados de la materia.
+
+REACTIVO 114
+Área temática: Física
+Bloque que corresponde al área temática: Corriente y magnetismo
+Planteamiento del problema:
+¿En cuáles de los siguientes casos se puede generar un campo magnético?
+
+I. Al pasar corriente eléctrica a través de un conductor.
+II. Al enrollar un alambre sobre un clavo y hacer pasar corriente.
+III. Al impedir por completo el paso de corriente en un conductor.
+IV. Con una carga puntual en reposo.
+
+Opciones:
+a) I y II
+b) I y III
+c) II y IV
+d) III y IV
+e) I, III y IV
+
+Pista sin ofrecer la respuesta:
+Relaciona el magnetismo con el movimiento de cargas eléctricas.
+
+Respuesta correcta:
+a) I y II
+
+Argumento de la respuesta correcta:
+Una corriente eléctrica en un conductor genera campo magnético. Además, si el alambre se enrolla sobre un clavo y pasa corriente, se forma un electroimán. Por eso I y II son correctas.
+
+Argumentos de las opciones incorrectas:
+b) I y III: el caso III no genera campo magnético porque no hay corriente.
+c) II y IV: una carga en reposo no produce campo magnético como en el caso planteado.
+d) III y IV: en ninguno de esos casos hay corriente eléctrica en movimiento.
+e) I, III y IV: incluye dos situaciones que no producen el efecto solicitado.
+
+REACTIVO 115
+Área temática: Física
+Bloque que corresponde al área temática: Ondas
+Planteamiento del problema:
+El movimiento ondulatorio es un proceso mediante el cual se transmite
+
+Opciones:
+a) energía.
+b) materia.
+c) masa.
+d) volumen.
+e) peso.
+
+Pista sin ofrecer la respuesta:
+Una onda puede propagarse sin trasladar de un lugar a otro toda la materia del medio.
+
+Respuesta correcta:
+a) energía.
+
+Argumento de la respuesta correcta:
+Las ondas transportan energía de un punto a otro. Aunque las partículas del medio pueden vibrar, no se trasladan en conjunto con la onda.
+
+Argumentos de las opciones incorrectas:
+b) materia: la onda no lleva toda la materia del medio con ella.
+c) masa: no es lo que se transmite como fenómeno principal.
+d) volumen: no es una magnitud que la onda transporte.
+e) peso: no describe lo que se propaga en el movimiento ondulatorio.
+
+REACTIVO 116
+Área temática: Física
+Bloque que corresponde al área temática: Luz visible, longitud de onda y color
+Planteamiento del problema:
+¿Qué color de la luz visible tiene mayor longitud de onda?
+
+Opciones:
+a) azul.
+b) violeta.
+c) verde.
+d) amarillo.
+e) rojo.
+
+Pista sin ofrecer la respuesta:
+Dentro del espectro visible, piensa en el extremo opuesto al violeta.
+
+Respuesta correcta:
+e) rojo.
+
+Argumento de la respuesta correcta:
+En el espectro visible, la luz roja tiene mayor longitud de onda que colores como azul o violeta. Por eso el rojo es la respuesta correcta.
+
+Argumentos de las opciones incorrectas:
+a) azul: tiene menor longitud de onda que el rojo.
+b) violeta: es de las menores longitudes de onda visibles.
+c) verde: queda en una zona intermedia del espectro.
+d) amarillo: aunque es mayor que azul y violeta, sigue siendo menor que rojo.
+
+---
+---
+
+ÁREA TEMÁTICA: FORMACIÓN CÍVICA Y ÉTICA
+RANGO: REACTIVOS 117 AL 128
+
+REACTIVO 117
+Área temática: Formación cívica y ética
+Bloque que corresponde al área temática: Identidad personal, decisiones y relación con el entorno
+Planteamiento del problema:
+¿Cuál de los siguientes casos ejemplifica mejor la influencia del entorno social y natural en la identidad personal?
+
+Opciones:
+a) Raúl compra siempre la misma marca de tenis porque la vio anunciada en internet.
+b) Elena prefiere dormir temprano porque al día siguiente tiene examen de matemáticas.
+c) Sofía aprendió en su familia a dialogar, respetar turnos y cuidar el agua de su comunidad, por eso actúa con responsabilidad y respeto hacia los demás.
+d) Marco juega videojuegos todas las noches porque le parecen entretenidos.
+e) Diana come fruta en el recreo porque no alcanzó a desayunar en casa.
+
+Pista sin ofrecer la respuesta:
+Busca el caso donde costumbres, convivencia y relación con el entorno influyen en la forma de ser de la persona.
+
+Respuesta correcta:
+c) Sofía aprendió en su familia a dialogar, respetar turnos y cuidar el agua de su comunidad, por eso actúa con responsabilidad y respeto hacia los demás.
+
+Argumento de la respuesta correcta:
+La identidad personal se forma en relación con la familia, la comunidad y el ambiente. En este caso, las prácticas de diálogo, respeto y cuidado de recursos moldean claramente la conducta y valores de Sofía.
+
+Argumentos de las opciones incorrectas:
+a) muestra una preferencia de consumo, pero no una formación de identidad ligada al entorno social y natural.
+b) describe una decisión práctica de horario, no un proceso de construcción de identidad.
+d) expresa un gusto personal, pero no la influencia formativa del entorno.
+e) se refiere a una acción aislada relacionada con alimentación, no a identidad personal.
+
+REACTIVO 118
+Área temática: Formación cívica y ética
+Bloque que corresponde al área temática: Valores, estético, económico y moral
+Planteamiento del problema:
+Relaciona los tipos de valores con el concepto que les corresponde.
+
+Valores
+I. Estético
+II. Económico
+III. Moral
+
+Conceptos
+a. Se relaciona con la utilidad, el precio y el valor material de bienes y servicios.
+b. Se vincula con la apreciación de la belleza, el arte y la expresión.
+c. Orienta la conducta a partir de lo que se considera correcto o incorrecto.
+
+Opciones:
+a) I: b, II: a, III: c
+b) I: a, II: b, III: c
+c) I: c, II: a, III: b
+d) I: b, II: c, III: a
+e) I: a, II: c, III: b
+
+Pista sin ofrecer la respuesta:
+Distingue entre belleza, utilidad material y conducta ética.
+
+Respuesta correcta:
+a) I: b, II: a, III: c
+
+Argumento de la respuesta correcta:
+El valor estético se relaciona con la belleza y la expresión. El valor económico se asocia con bienes, utilidad y precio. El valor moral guía decisiones sobre lo que está bien o mal.
+
+Argumentos de las opciones incorrectas:
+b) intercambia el valor estético con el económico.
+c) coloca el valor moral donde debe ir el estético.
+d) confunde el económico con el moral.
+e) altera el orden correcto de los tres valores.
+
+REACTIVO 119
+Área temática: Formación cívica y ética
+Bloque que corresponde al área temática: Identidad personal, historias y experiencias compartidas
+Planteamiento del problema:
+Lucía y Daniel escucharon a su abuelo contar cómo vivió su infancia, cómo era su barrio y qué tradiciones mantenía la familia. Después comprendieron que ________ también participan en la construcción de su identidad personal.
+
+Opciones:
+a) las historias compartidas
+b) los trámites escolares
+c) los anuncios comerciales
+d) las modas pasajeras
+e) las estadísticas de población
+
+Pista sin ofrecer la respuesta:
+Piensa en aquello que transmite memoria, pertenencia y sentido de origen.
+
+Respuesta correcta:
+a) las historias compartidas
+
+Argumento de la respuesta correcta:
+Las historias compartidas dentro de la familia y la comunidad ayudan a construir identidad porque transmiten recuerdos, costumbres, sentido de pertenencia y visión del pasado.
+
+Argumentos de las opciones incorrectas:
+b) los trámites escolares: forman parte de la vida diaria, pero no explican directamente la construcción identitaria del caso.
+c) los anuncios comerciales: pueden influir en gustos, pero no son el elemento central del planteamiento.
+d) las modas pasajeras: cambian rápido y no representan el sentido profundo de identidad señalado.
+e) las estadísticas de población: aportan datos generales, no historias personales o familiares.
+
+REACTIVO 120
+Área temática: Formación cívica y ética
+Bloque que corresponde al área temática: Derechos y obligaciones, distinguirlos en casos cotidianos
+Planteamiento del problema:
+Relaciona los derechos y obligaciones de los adolescentes con el ejemplo que les corresponde.
+
+Clasificación
+I. Derecho
+II. Obligación
+
+Ejemplos
+a. Recibir educación.
+b. Respetar el reglamento escolar.
+c. Acceder a servicios de salud.
+d. Cumplir con tareas y responsabilidades académicas.
+
+Opciones:
+a) I: a, c; II: b, d
+b) I: b, d; II: a, c
+c) I: a, b; II: c, d
+d) I: c, d; II: a, b
+e) I: b, c; II: a, d
+
+Pista sin ofrecer la respuesta:
+Un derecho se recibe o se garantiza; una obligación se cumple.
+
+Respuesta correcta:
+a) I: a, c; II: b, d
+
+Argumento de la respuesta correcta:
+Recibir educación y acceder a servicios de salud son derechos. Respetar reglas escolares y cumplir con tareas son obligaciones que corresponden a la vida estudiantil y social.
+
+Argumentos de las opciones incorrectas:
+b) invierte completamente derechos y obligaciones.
+c) toma el respeto al reglamento como derecho, cuando en este caso es una obligación.
+d) coloca el cumplimiento de tareas como derecho, lo cual es incorrecto.
+e) mezcla ejemplos de ambas categorías sin respetar su naturaleza.
+
+REACTIVO 121
+Área temática: Formación cívica y ética
+Bloque que corresponde al área temática: Violencia económica
+Planteamiento del problema:
+Una adolescente trabaja medio tiempo en una tienda. El dueño le paga menos que a otros empleados que hacen las mismas tareas, con el argumento de que «todavía depende de sus papás y no necesita ganar más». Esta situación describe un caso de
+
+Opciones:
+a) solidaridad laboral
+b) violencia económica
+c) administración doméstica
+d) autonomía financiera
+e) cooperación ciudadana
+
+Pista sin ofrecer la respuesta:
+Se afecta el acceso justo a recursos económicos mediante un trato desigual.
+
+Respuesta correcta:
+b) violencia económica
+
+Argumento de la respuesta correcta:
+La violencia económica ocurre cuando se limita, controla o reduce injustamente el acceso de una persona a recursos o ingresos. Aquí hay un pago desigual e injustificado por la misma labor.
+
+Argumentos de las opciones incorrectas:
+a) solidaridad laboral: implicaría apoyo, no abuso.
+c) administración doméstica: se refiere al manejo del gasto en casa, no a discriminación salarial.
+d) autonomía financiera: apunta a capacidad de manejo de recursos, no a una agresión económica.
+e) cooperación ciudadana: no describe una situación de explotación o desigualdad salarial.
+
+REACTIVO 122
+Área temática: Formación cívica y ética
+Bloque que corresponde al área temática: Democracia, principio de mayoría y reglas de convivencia
+Planteamiento del problema:
+En un grupo escolar se vota entre tres propuestas para elegir el destino de una excursión. La opción ganadora es la que recibe el mayor número de votos. Este procedimiento democrático se basa en el principio de
+
+Opciones:
+a) utilidad
+b) mayoría
+c) autoridad
+d) privilegio
+e) imposición
+
+Pista sin ofrecer la respuesta:
+La decisión se toma según la opción que reúne más apoyo.
+
+Respuesta correcta:
+b) mayoría
+
+Argumento de la respuesta correcta:
+En democracia, el principio de mayoría permite resolver diferencias mediante el voto, eligiendo la opción que obtiene más respaldo entre los participantes.
+
+Argumentos de las opciones incorrectas:
+a) utilidad: puede influir en decisiones, pero no define el método descrito.
+c) autoridad: implicaría decidir por mando, no por votación.
+d) privilegio: supone ventaja para unos cuantos, no participación democrática.
+e) imposición: niega el proceso de consulta y elección colectiva.
+
+REACTIVO 123
+Área temática: Formación cívica y ética
+Bloque que corresponde al área temática: Territorio y soberanía
+Planteamiento del problema:
+El espacio físico dentro del cual un Estado ejerce autoridad, aplica leyes y establece los límites de su independencia frente a otros Estados se llama
+
+Opciones:
+a) nación
+b) paisaje
+c) territorio
+d) localidad
+e) cultura
+
+Pista sin ofrecer la respuesta:
+No se refiere a la población ni a la identidad, sino al espacio sobre el que se ejerce poder.
+
+Respuesta correcta:
+c) territorio
+
+Argumento de la respuesta correcta:
+El territorio es el espacio físico sobre el cual un Estado ejerce autoridad política y jurídica. Incluye tierra, mar y, según el caso, espacio aéreo.
+
+Argumentos de las opciones incorrectas:
+a) nación: se relaciona más con comunidad histórica y cultural que con el espacio físico de autoridad estatal.
+b) paisaje: es una forma de observar el espacio, no una categoría política de soberanía.
+d) localidad: es un asentamiento o lugar específico, no el concepto estatal completo.
+e) cultura: alude a prácticas, valores y expresiones, no al espacio de jurisdicción.
+
+REACTIVO 124
+Área temática: Formación cívica y ética
+Bloque que corresponde al área temática: Participación ciudadana y pluralidad ideológica
+Planteamiento del problema:
+En un municipio se organizan foros donde jóvenes, adultos mayores, comerciantes y estudiantes presentan sus opiniones sobre problemas públicos y propuestas de mejora. Esta práctica fortalece principalmente la
+
+Opciones:
+a) censura institucional
+b) participación ciudadana
+c) obediencia obligatoria
+d) concentración del poder
+e) exclusión política
+
+Pista sin ofrecer la respuesta:
+Se trata de abrir espacios para que distintos grupos expresen ideas y sean escuchados.
+
+Respuesta correcta:
+b) participación ciudadana
+
+Argumento de la respuesta correcta:
+La participación ciudadana implica que las personas intervengan en asuntos públicos mediante opinión, propuesta, organización y diálogo. Eso permite reconocer la pluralidad de la sociedad.
+
+Argumentos de las opciones incorrectas:
+a) censura institucional: sería impedir expresiones, no promoverlas.
+c) obediencia obligatoria: no describe un proceso de deliberación pública.
+d) concentración del poder: el caso muestra apertura, no acumulación de decisiones en pocos actores.
+e) exclusión política: ocurre lo contrario, porque se incluye a varios grupos sociales.
+
+REACTIVO 125
+Área temática: Formación cívica y ética
+Bloque que corresponde al área temática: Territorio y soberanía
+Planteamiento del problema:
+¿Cuál de los siguientes casos es un ejemplo de soberanía?
+
+Opciones:
+a) Una empresa extranjera decide las leyes de un país.
+b) Los ciudadanos eligen mediante voto a sus gobernantes.
+c) Un gobierno externo nombra a las autoridades locales.
+d) Un ejército extranjero controla las fronteras nacionales.
+e) Un organismo privado impone el presupuesto público.
+
+Pista sin ofrecer la respuesta:
+Busca la opción donde el poder se ejerce desde la propia comunidad política.
+
+Respuesta correcta:
+b) Los ciudadanos eligen mediante voto a sus gobernantes.
+
+Argumento de la respuesta correcta:
+La soberanía implica que el poder político reside en la nación o en el pueblo, que decide sobre su gobierno y su organización política. El voto ciudadano es una expresión directa de ello.
+
+Argumentos de las opciones incorrectas:
+a) una empresa extranjera decide las leyes de un país: eso niega soberanía.
+c) un gobierno externo nombra a las autoridades locales: también contradice la autonomía política.
+d) un ejército extranjero controla las fronteras nacionales: implica pérdida de control soberano.
+e) un organismo privado impone el presupuesto público: desplaza indebidamente la decisión política nacional.
+
+REACTIVO 126
+Área temática: Formación cívica y ética
+Bloque que corresponde al área temática: Medios de comunicación, función social y responsabilidad
+Planteamiento del problema:
+Durante el paso de un huracán, varias estaciones de radio y canales de televisión suspenden su programación habitual para informar rutas de evacuación, ubicación de refugios y medidas de protección. Con ello cumplen una
+
+Opciones:
+a) función social
+b) estrategia comercial
+c) acción de competencia privada
+d) actividad recreativa
+e) práctica de censura
+
+Pista sin ofrecer la respuesta:
+Aquí los medios ayudan a proteger a la población con información útil.
+
+Respuesta correcta:
+a) función social
+
+Argumento de la respuesta correcta:
+Los medios cumplen una función social cuando informan, orientan y apoyan a la población en situaciones de interés colectivo, como emergencias o riesgos.
+
+Argumentos de las opciones incorrectas:
+b) estrategia comercial: la finalidad principal del caso no es vender o competir.
+c) acción de competencia privada: no describe el sentido público de la información difundida.
+d) actividad recreativa: el contenido no busca entretener, sino orientar y proteger.
+e) práctica de censura: no se está ocultando información, sino comunicándola.
+
+REACTIVO 127
+Área temática: Formación cívica y ética
+Bloque que corresponde al área temática: Cuidado del entorno natural
+Planteamiento del problema:
+En una escuela se acuerda separar residuos, reducir el uso de botellas desechables y sembrar árboles en las áreas comunes. Estas acciones están encaminadas al cuidado del entorno
+
+Opciones:
+a) cultural
+b) político
+c) económico
+d) natural
+e) administrativo
+
+Pista sin ofrecer la respuesta:
+Las acciones se dirigen al manejo de residuos y a la conservación de áreas verdes.
+
+Respuesta correcta:
+d) natural
+
+Argumento de la respuesta correcta:
+Separar residuos, disminuir plásticos y sembrar árboles son medidas orientadas a proteger elementos del ambiente físico y biológico, es decir, el entorno natural.
+
+Argumentos de las opciones incorrectas:
+a) cultural: se relaciona con costumbres, expresiones y patrimonio.
+b) político: alude a organización del poder y gobierno.
+c) económico: se refiere a producción, intercambio y consumo de bienes.
+e) administrativo: se vincula con gestión interna, no con protección ambiental directa.
+
+REACTIVO 128
+Área temática: Formación cívica y ética
+Bloque que corresponde al área temática: Resolución de conflictos, negociación y diálogo
+Planteamiento del problema:
+Dos grupos de vecinos quieren usar el mismo espacio comunitario en horarios similares. Después de dialogar, uno acepta mover su actividad media hora y el otro reduce su tiempo de uso para que ambos puedan ocupar el lugar. Esta situación describe un proceso de
+
+Opciones:
+a) imposición, porque uno de los grupos conserva todo el control del espacio.
+b) negociación, porque existe un conflicto de intereses y ambas partes están dispuestas a dialogar y ceder.
+c) indiferencia, porque ninguno de los grupos modifica su postura inicial.
+d) obediencia, porque una autoridad externa decide sin escuchar a las partes.
+e) competencia, porque uno de los grupos elimina por completo al otro.
+
+Pista sin ofrecer la respuesta:
+Observa si hubo conflicto, diálogo y concesiones mutuas.
+
+Respuesta correcta:
+b) negociación, porque existe un conflicto de intereses y ambas partes están dispuestas a dialogar y ceder.
+
+Argumento de la respuesta correcta:
+La negociación ocurre cuando dos o más partes con intereses distintos dialogan y hacen concesiones para llegar a un acuerdo. Eso es exactamente lo que sucede en el caso.
+
+Argumentos de las opciones incorrectas:
+a) imposición, porque uno de los grupos conserva todo el control del espacio: no coincide, ya que ambos ceden y comparten.
+c) indiferencia, porque ninguno de los grupos modifica su postura inicial: es falso, porque sí ajustan horarios y tiempos.
+d) obediencia, porque una autoridad externa decide sin escuchar a las partes: aquí el acuerdo surge del diálogo entre los vecinos.
+e) competencia, porque uno de los grupos elimina por completo al otro: tampoco corresponde, porque ambos conservan acceso al espacio.
+
+---
+---
+---
