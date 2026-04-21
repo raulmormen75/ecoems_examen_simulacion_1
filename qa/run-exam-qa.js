@@ -62,6 +62,14 @@ async function clickOption(page, exerciseId, optionLabel) {
   await page.locator(`[data-action="answer"][data-id="${exerciseId}"][data-option="${optionLabel}"]`).click();
 }
 
+async function advanceToExercise(page, targetNumber) {
+  for (let index = 0; index < targetNumber - 1; index += 1) {
+    const exercise = await getExerciseData(page, index);
+    await page.locator(`[data-action="answer"][data-id="${exercise.id}"]`).first().waitFor();
+    await clickOption(page, exercise.id, exercise.correctOption);
+  }
+}
+
 async function startExam(page) {
   await page.goto(APP_URL, { waitUntil: 'networkidle' });
   await page.getByRole('button', { name: 'Iniciar examen' }).click();
@@ -137,6 +145,26 @@ async function runResponsiveChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-mobile-running.png'), fullPage: true });
 }
 
+async function runReactivo8FigureChecks(page) {
+  log('Validando que el reactivo 8 muestre figuras reales en el planteamiento y las opciones.');
+
+  await page.setViewportSize({ width: 1440, height: 1080 });
+  await startExam(page);
+  await advanceToExercise(page, 8);
+  await page.locator('#reactivo-8').waitFor();
+  assert.equal(await page.locator('#reactivo-8 .visual-panel svg').count(), 1, 'El planteamiento del reactivo 8 debe mostrar un SVG.');
+  assert.equal(await page.locator('#reactivo-8 .option-visual svg').count(), 5, 'Las cinco opciones del reactivo 8 deben mostrar figuras SVG.');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo8-desktop.png'), fullPage: true });
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(APP_URL, { waitUntil: 'networkidle' });
+  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await advanceToExercise(page, 8);
+  await page.locator('#reactivo-8 .option-visual svg').first().waitFor();
+  await checkNoHorizontalOverflow(page, 'reactivo 8 en móvil');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo8-mobile.png'), fullPage: true });
+}
+
 async function runTimeoutChecks(page) {
   log('Validando cierre por tiempo y tratamiento de reactivos pendientes.');
 
@@ -184,6 +212,7 @@ async function main() {
   try {
     await runFlowChecks(page);
     await runResponsiveChecks(page);
+    await runReactivo8FigureChecks(page);
     await runTimeoutChecks(page);
 
     assert.deepEqual(pageErrors, [], `Se detectaron errores de página: ${pageErrors.join(' | ')}`);

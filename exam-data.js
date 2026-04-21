@@ -4,7 +4,7 @@ window.IFR_APP_DATA = {
     "durationSeconds": 10800,
     "totalExercises": 128,
     "scoreMode": "raw+percent",
-    "generatedAt": "2026-04-12T06:17:46.743Z"
+    "generatedAt": "2026-04-21T05:53:24.717Z"
   },
   "areas": [
     {
@@ -454,27 +454,32 @@ window.IFR_APP_DATA = {
         {
           "label": "a",
           "text": "cuatro cuadros con un triángulo abajo",
-          "kind": "text"
+          "kind": "svg",
+          "visualContent": "<svg viewBox=\"0 0 240 156\" role=\"img\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\">\n  <g>\n    <rect x=\"10\" y=\"10\" width=\"220\" height=\"136\" rx=\"22\" fill=\"#FFFFFF\" stroke=\"#CFD7F0\" stroke-width=\"2\"/>\n    \n    \n    <polygon points=\"120,128 104,104 136,104\" fill=\"#2CE51E\" stroke=\"#14143A\" stroke-width=\"4\" stroke-linejoin=\"round\"/>\n    <rect x=\"45\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"85\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"125\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"165\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/>\n    \n  </g>\n</svg>"
         },
         {
           "label": "b",
           "text": "cuatro cuadros con un triángulo arriba",
-          "kind": "text"
+          "kind": "svg",
+          "visualContent": "<svg viewBox=\"0 0 240 156\" role=\"img\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\">\n  <g>\n    <rect x=\"10\" y=\"10\" width=\"220\" height=\"136\" rx=\"22\" fill=\"#FFFFFF\" stroke=\"#CFD7F0\" stroke-width=\"2\"/>\n    \n    \n    <polygon points=\"120,38 104,62 136,62\" fill=\"#2CE51E\" stroke=\"#14143A\" stroke-width=\"4\" stroke-linejoin=\"round\"/>\n    <rect x=\"45\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"85\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"125\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"165\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/>\n    \n  </g>\n</svg>"
         },
         {
           "label": "c",
           "text": "tres cuadros con un triángulo abajo",
-          "kind": "text"
+          "kind": "svg",
+          "visualContent": "<svg viewBox=\"0 0 240 156\" role=\"img\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\">\n  <g>\n    <rect x=\"10\" y=\"10\" width=\"220\" height=\"136\" rx=\"22\" fill=\"#FFFFFF\" stroke=\"#CFD7F0\" stroke-width=\"2\"/>\n    \n    \n    <polygon points=\"120,128 104,104 136,104\" fill=\"#2CE51E\" stroke=\"#14143A\" stroke-width=\"4\" stroke-linejoin=\"round\"/>\n    <rect x=\"65\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"105\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"145\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/>\n    \n  </g>\n</svg>"
         },
         {
           "label": "d",
           "text": "cinco cuadros con un triángulo abajo",
-          "kind": "text"
+          "kind": "svg",
+          "visualContent": "<svg viewBox=\"0 0 240 156\" role=\"img\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\">\n  <g>\n    <rect x=\"10\" y=\"10\" width=\"220\" height=\"136\" rx=\"22\" fill=\"#FFFFFF\" stroke=\"#CFD7F0\" stroke-width=\"2\"/>\n    \n    \n    <polygon points=\"120,124 104,100 136,100\" fill=\"#2CE51E\" stroke=\"#14143A\" stroke-width=\"4\" stroke-linejoin=\"round\"/>\n    <rect x=\"35\" y=\"68\" width=\"26\" height=\"26\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"71\" y=\"68\" width=\"26\" height=\"26\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"107\" y=\"68\" width=\"26\" height=\"26\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"143\" y=\"68\" width=\"26\" height=\"26\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"179\" y=\"68\" width=\"26\" height=\"26\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/>\n    \n  </g>\n</svg>"
         },
         {
           "label": "e",
           "text": "cuatro cuadros con un círculo al centro",
-          "kind": "text"
+          "kind": "svg",
+          "visualContent": "<svg viewBox=\"0 0 240 156\" role=\"img\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\">\n  <g>\n    <rect x=\"10\" y=\"10\" width=\"220\" height=\"136\" rx=\"22\" fill=\"#FFFFFF\" stroke=\"#CFD7F0\" stroke-width=\"2\"/>\n    \n    \n    <circle cx=\"120\" cy=\"83\" r=\"12\" fill=\"#2CE51E\" stroke=\"#14143A\" stroke-width=\"4\"/>\n    <rect x=\"45\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"85\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"125\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"165\" y=\"68\" width=\"30\" height=\"30\" rx=\"8\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/>\n    \n  </g>\n</svg>"
         }
       ],
       "correctOption": "a",
@@ -488,8 +493,8 @@ window.IFR_APP_DATA = {
         "e": "Cambia el tipo de símbolo, y la serie siempre usa un triángulo."
       },
       "visual": {
-        "kind": "preformatted",
-        "content": "Figura 1: un cuadro con un triángulo arriba\nFigura 2: dos cuadros con un triángulo abajo\nFigura 3: tres cuadros con un triángulo arriba"
+        "kind": "svg",
+        "content": "<svg viewBox=\"0 0 720 260\" role=\"img\" aria-labelledby=\"reactivo8Title reactivo8Desc\" xmlns=\"http://www.w3.org/2000/svg\">\n  <title id=\"reactivo8Title\">Secuencia visual del reactivo 8</title>\n  <desc id=\"reactivo8Desc\">Figura 1 con un cuadro y un triangulo arriba. Figura 2 con dos cuadros y un triangulo abajo. Figura 3 con tres cuadros y un triangulo arriba.</desc>\n  <rect x=\"8\" y=\"8\" width=\"704\" height=\"244\" rx=\"30\" fill=\"#F7F8FF\"/>\n  <g>\n    <rect x=\"24\" y=\"26\" width=\"204\" height=\"208\" rx=\"24\" fill=\"#FFFFFF\" stroke=\"#D7DCEE\" stroke-width=\"2\"/>\n    <text x=\"126\" y=\"60\" text-anchor=\"middle\" font-family=\"'Plus Jakarta Sans', sans-serif\" font-size=\"22\" font-weight=\"800\" fill=\"#1C1E5A\">Figura 1</text>\n    <line x1=\"46\" y1=\"74\" x2=\"206\" y2=\"74\" stroke=\"#E3E7F5\" stroke-width=\"2\"/>\n    <polygon points=\"126,103 108,129 144,129\" fill=\"#2CE51E\" stroke=\"#14143A\" stroke-width=\"4\" stroke-linejoin=\"round\"/>\n    <rect x=\"105\" y=\"138\" width=\"42\" height=\"42\" rx=\"10\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/>\n    <text x=\"126\" y=\"216\" text-anchor=\"middle\" font-family=\"'Plus Jakarta Sans', sans-serif\" font-size=\"17\" font-weight=\"700\" fill=\"#2B2F8F\">1 cuadro</text>\n  </g>\n  <g fill=\"none\" stroke=\"#2B2F8F\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.28\">\n    <path d=\"M230 132h26\"/>\n    <path d=\"M244 122l12 10-12 10\"/>\n  </g>\n  <g>\n    <rect x=\"258\" y=\"26\" width=\"204\" height=\"208\" rx=\"24\" fill=\"#FFFFFF\" stroke=\"#D7DCEE\" stroke-width=\"2\"/>\n    <text x=\"360\" y=\"60\" text-anchor=\"middle\" font-family=\"'Plus Jakarta Sans', sans-serif\" font-size=\"22\" font-weight=\"800\" fill=\"#1C1E5A\">Figura 2</text>\n    <line x1=\"280\" y1=\"74\" x2=\"440\" y2=\"74\" stroke=\"#E3E7F5\" stroke-width=\"2\"/>\n    <polygon points=\"360,217 342,191 378,191\" fill=\"#2CE51E\" stroke=\"#14143A\" stroke-width=\"4\" stroke-linejoin=\"round\"/>\n    <rect x=\"312\" y=\"138\" width=\"42\" height=\"42\" rx=\"10\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"366\" y=\"138\" width=\"42\" height=\"42\" rx=\"10\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/>\n    <text x=\"360\" y=\"216\" text-anchor=\"middle\" font-family=\"'Plus Jakarta Sans', sans-serif\" font-size=\"17\" font-weight=\"700\" fill=\"#2B2F8F\">2 cuadros</text>\n  </g>\n  <g fill=\"none\" stroke=\"#2B2F8F\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" opacity=\"0.28\">\n    <path d=\"M464 132h26\"/>\n    <path d=\"M478 122l12 10-12 10\"/>\n  </g>\n  <g>\n    <rect x=\"492\" y=\"26\" width=\"204\" height=\"208\" rx=\"24\" fill=\"#FFFFFF\" stroke=\"#D7DCEE\" stroke-width=\"2\"/>\n    <text x=\"594\" y=\"60\" text-anchor=\"middle\" font-family=\"'Plus Jakarta Sans', sans-serif\" font-size=\"22\" font-weight=\"800\" fill=\"#1C1E5A\">Figura 3</text>\n    <line x1=\"514\" y1=\"74\" x2=\"674\" y2=\"74\" stroke=\"#E3E7F5\" stroke-width=\"2\"/>\n    <polygon points=\"594,103 576,129 612,129\" fill=\"#2CE51E\" stroke=\"#14143A\" stroke-width=\"4\" stroke-linejoin=\"round\"/>\n    <rect x=\"519\" y=\"138\" width=\"42\" height=\"42\" rx=\"10\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"573\" y=\"138\" width=\"42\" height=\"42\" rx=\"10\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/><rect x=\"627\" y=\"138\" width=\"42\" height=\"42\" rx=\"10\" fill=\"#EEF1FF\" stroke=\"#1C1E5A\" stroke-width=\"4\"/>\n    <text x=\"594\" y=\"216\" text-anchor=\"middle\" font-family=\"'Plus Jakarta Sans', sans-serif\" font-size=\"17\" font-weight=\"700\" fill=\"#2B2F8F\">3 cuadros</text>\n  </g>\n</svg>"
       },
       "sourceOrder": 8,
       "rangeStart": 1,

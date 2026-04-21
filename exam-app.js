@@ -263,11 +263,24 @@
   }
 
   function renderVisual(visual) {
-    if (!visual || visual.kind !== 'preformatted' || !visual.content) return '';
-    return `<div class="visual-panel"><pre>${esc(visual.content)}</pre></div>`;
+    if (!visual || !visual.content) return '';
+
+    if (visual.kind === 'svg') {
+      return `<div class="visual-panel visual-panel-svg">${visual.content}</div>`;
+    }
+
+    if (visual.kind === 'preformatted') {
+      return `<div class="visual-panel"><pre>${esc(visual.content)}</pre></div>`;
+    }
+
+    return '';
   }
 
   function renderOptionCopy(option) {
+    if (option.kind === 'svg' && option.visualContent) {
+      return `<div class="option-visual">${option.visualContent}</div>${option.text ? `<p class="option-caption">${esc(option.text)}</p>` : ''}`;
+    }
+
     if (option.kind === 'preformatted') {
       return `<pre class="option-pre">${esc(option.text)}</pre>`;
     }

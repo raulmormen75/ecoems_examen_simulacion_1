@@ -782,6 +782,16 @@ main{
   background:linear-gradient(180deg,rgba(250,248,242,.98),rgba(255,255,255,.96));
 }
 
+.visual-panel-svg{
+  overflow:visible;
+}
+
+.visual-panel-svg svg{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
 .visual-panel pre,
 .option-pre{
   margin:0;
@@ -845,6 +855,27 @@ main{
   gap:8px;
   line-height:1.6;
   color:var(--ink);
+}
+
+.option-visual{
+  display:grid;
+  place-items:center;
+  padding:4px 0 2px;
+}
+
+.option-visual svg{
+  display:block;
+  width:min(100%,240px);
+  max-width:240px;
+  height:auto;
+  margin:0 auto;
+}
+
+.option-caption{
+  text-align:center;
+  color:var(--n2);
+  line-height:1.55;
+  font-weight:700;
 }
 
 .option.is-correct{
