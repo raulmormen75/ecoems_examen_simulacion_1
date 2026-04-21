@@ -313,7 +313,7 @@
         return `<article class="argument-card incorrect">
           <div class="argument-head">
             <strong>Opción ${esc(option.label.toUpperCase())}</strong>
-            <span class="argument-badge">No corresponde</span>
+            <span class="argument-badge">✘ Opción incorrecta</span>
           </div>
           ${textToParagraphs(text)}
         </article>`;
@@ -323,16 +323,16 @@
     return `<section class="feedback-panel">
       <div class="feedback-title">
         <div>
-          <strong>Respuesta correcta confirmada</strong>
+          <strong>✓. Opción correcta</strong>
           <p>Se muestra el argumento correcto y, debajo, las razones por las que las demás opciones no corresponden.</p>
         </div>
-        <span class="state-chip correct">Correcto</span>
+        <span class="state-chip correct">✓. Opción correcta</span>
       </div>
       <div class="feedback-grid">
         <article class="argument-card correct">
           <div class="argument-head">
             <strong>Opción ${esc(exercise.correctOption.toUpperCase())}</strong>
-            <span class="argument-badge">Sí corresponde</span>
+            <span class="argument-badge">✓. Opción correcta</span>
           </div>
           ${textToParagraphs(exercise.correctArgument)}
         </article>
@@ -346,23 +346,23 @@
     return `<section class="feedback-panel">
       <div class="feedback-title">
         <div>
-          <strong>Respuesta incorrecta registrada</strong>
+          <strong>✘ Opción incorrecta</strong>
           <p>Se conserva solo la opción elegida, la respuesta correcta y los argumentos indispensables para revisar el error.</p>
         </div>
-        <span class="state-chip incorrect">Incorrecto</span>
+        <span class="state-chip incorrect">✘ Opción incorrecta</span>
       </div>
       <div class="feedback-grid">
         <article class="argument-card correct">
           <div class="argument-head">
             <strong>Opción ${esc(exercise.correctOption.toUpperCase())}</strong>
-            <span class="argument-badge">Respuesta correcta</span>
+            <span class="argument-badge">✓. Opción correcta</span>
           </div>
           ${textToParagraphs(exercise.correctArgument)}
         </article>
         <article class="argument-card incorrect">
           <div class="argument-head">
             <strong>Opción ${esc(answer.selectedOption.toUpperCase())}</strong>
-            <span class="argument-badge">Respuesta elegida</span>
+            <span class="argument-badge">✘ Opción incorrecta</span>
           </div>
           ${textToParagraphs(wrongText)}
         </article>
@@ -409,20 +409,20 @@
     const correctOption = exercise.options.find((option) => option.label === exercise.correctOption);
     const optionMarkup = answer.isCorrect
       ? exercise.options
-          .map((option) => renderResolvedOption(option, option.label === exercise.correctOption ? 'correct' : 'incorrect', option.label === exercise.correctOption ? 'Correcta' : 'Descartada'))
+          .map((option) => renderResolvedOption(option, option.label === exercise.correctOption ? 'correct' : 'incorrect', option.label === exercise.correctOption ? '✓. Opción correcta' : '✘ Opción incorrecta'))
           .join('')
       : [
-          selectedOption ? renderResolvedOption(selectedOption, 'incorrect', 'Elegida', true) : '',
-          correctOption ? renderResolvedOption(correctOption, 'correct', 'Correcta') : ''
+          selectedOption ? renderResolvedOption(selectedOption, 'incorrect', '✘ Opción incorrecta', true) : '',
+          correctOption ? renderResolvedOption(correctOption, 'correct', '✓. Opción correcta') : ''
         ].join('');
 
     const headerSummary = answer.isCorrect
       ? [
-          '<span class="summary-chip">Correcto</span>',
+          '<span class="summary-chip">✓. Opción correcta</span>',
           `<span class="summary-chip">Opción ${esc(answer.selectedOption.toUpperCase())}</span>`
         ].join('')
       : [
-          '<span class="summary-chip">Incorrecto</span>',
+          '<span class="summary-chip">✘ Opción incorrecta</span>',
           `<span class="summary-chip">Elegiste ${esc(answer.selectedOption.toUpperCase())}</span>`,
           `<span class="summary-chip">Correcta ${esc(exercise.correctOption.toUpperCase())}</span>`
         ].join('');
@@ -439,7 +439,7 @@
           <p>Este reactivo ya quedó cerrado para edición. Puedes abrirlo solo para consulta.</p>
         </div>
         <div class="card-status">
-          <span class="state-chip ${answer.isCorrect ? 'correct' : 'incorrect'}">${answer.isCorrect ? 'Correcto' : 'Incorrecto'}</span>
+          <span class="state-chip ${answer.isCorrect ? 'correct' : 'incorrect'}">${answer.isCorrect ? '✓. Opción correcta' : '✘ Opción incorrecta'}</span>
           <span class="toggle-label">${expanded ? 'Ocultar revisión' : 'Ver revisión'}</span>
           <div class="summary-inline">${headerSummary}</div>
         </div>
@@ -746,6 +746,8 @@
     if (STATE.answersById[exerciseId]) return;
 
     const exercise = EXERCISES[index];
+    const validOptionLabels = new Set(exercise.options.map((option) => option.label));
+    if (!validOptionLabels.has(selectedOption)) return;
     const isCorrect = selectedOption === exercise.correctOption;
 
     STATE.answersById[exerciseId] = {
