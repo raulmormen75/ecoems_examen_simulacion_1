@@ -81,6 +81,55 @@ async function checkNoHorizontalOverflow(page, label) {
   assert.equal(hasOverflow, false, `Se detectó desborde horizontal en ${label}.`);
 }
 
+async function waitForFloatingReview(page) {
+  await page.locator('.floating-review').waitFor();
+}
+
+async function checkFloatingReviewLayout(page, label) {
+  const layout = await page.evaluate(() => {
+    const shell = document.querySelector('.exercise-shell-current');
+    const prompt = shell?.querySelector('.floating-review');
+    const card = shell?.querySelector('.card');
+    const button = prompt?.querySelector('.floating-review-btn');
+    const dismiss = prompt?.querySelector('.floating-review-dismiss');
+    if (!shell || !prompt || !card || !button || !dismiss) return null;
+
+    const shellRect = shell.getBoundingClientRect();
+    const promptRect = prompt.getBoundingClientRect();
+    const cardRect = card.getBoundingClientRect();
+    const buttonRect = button.getBoundingClientRect();
+    const dismissRect = dismiss.getBoundingClientRect();
+
+    return {
+      fitsShell: promptRect.left >= shellRect.left - 1 && promptRect.right <= shellRect.right + 1,
+      sitsAboveCard: promptRect.bottom <= cardRect.top + 12,
+      controlsInside:
+        buttonRect.left >= promptRect.left - 1 &&
+        buttonRect.right <= promptRect.right + 1 &&
+        dismissRect.left >= promptRect.left - 1 &&
+        dismissRect.right <= promptRect.right + 1 &&
+        buttonRect.bottom <= promptRect.bottom + 1 &&
+        dismissRect.bottom <= promptRect.bottom + 1,
+      buttonHeight: buttonRect.height,
+      dismissHeight: dismissRect.height
+    };
+  });
+
+  assert.ok(layout, `No se pudo medir el recordatorio flotante en ${label}.`);
+  assert.equal(layout.fitsShell, true, `El recordatorio flotante salió del contenedor del reactivo en ${label}.`);
+  assert.equal(layout.sitsAboveCard, true, `El recordatorio flotante no quedó encima del card activo en ${label}.`);
+  assert.equal(layout.controlsInside, true, `Los controles del recordatorio flotante se salieron del panel en ${label}.`);
+  assert.ok(layout.buttonHeight >= 44, `El botón flotante quedó demasiado bajo en ${label}.`);
+  assert.ok(layout.dismissHeight >= 40, `El botón de descarte quedó demasiado pequeño en ${label}.`);
+}
+
+async function showFloatingReview(page, optionLabel) {
+  const first = await getExerciseData(page, 0);
+  await clickOption(page, first.id, optionLabel || first.correctOption);
+  await waitForFloatingReview(page);
+  return first;
+}
+
 async function runFlowChecks(page) {
   log('Validando conteo, bloqueo secuencial y cierre del examen.');
   await page.setViewportSize({ width: 1440, height: 1080 });
@@ -99,12 +148,20 @@ async function runFlowChecks(page) {
   await expectText(page, '#incorrectValue', '1');
   await expectIncludesText(page, '#scoreValue', '0/');
   await page.getByText('Reactivo revisable con error detectado').waitFor();
+  await waitForFloatingReview(page);
+  await checkFloatingReviewLayout(page, 'escritorio tras un error');
+  assert.equal(await page.locator('#reactivo-1 .card-body').count(), 0, 'La revisión del reactivo anterior no debe abrirse sola.');
+
+  await page.getByRole('button', { name: 'Ver resultado y argumentos' }).click();
+  await page.locator('#reactivo-1 .feedback-panel').waitFor();
   await page.getByText('✘ Opción incorrecta').first().waitFor();
-  assert.equal(await page.locator('.option.is-shaking').count(), 1, 'La respuesta incorrecta debía mostrar una animación de sacudida.');
 
   const second = await getExerciseData(page, 1);
   await page.locator(`[data-action="answer"][data-id="${second.id}"]`).first().waitFor();
   await clickOption(page, second.id, second.correctOption);
+  await waitForFloatingReview(page);
+  await page.locator('.floating-review-dismiss').click();
+  assert.equal(await page.locator('.floating-review').count(), 0, 'El recordatorio flotante debía poder descartarse.');
 
   await expectText(page, '#answeredValue', '2');
   await expectText(page, '#correctValue', '1');
@@ -129,20 +186,26 @@ async function runFlowChecks(page) {
 }
 
 async function runResponsiveChecks(page) {
-  log('Validando formato sin desbordes en escritorio y móvil.');
+  log('Validando formato del botón opcional en escritorio, tableta y móvil.');
 
-  await page.setViewportSize({ width: 1440, height: 1080 });
-  await startExam(page);
-  await checkNoHorizontalOverflow(page, 'escritorio');
+  const viewports = [
+    { width: 1440, height: 1080, label: 'escritorio', screenshot: 'qa-desktop-running.png' },
+    { width: 820, height: 1180, label: 'tableta', screenshot: 'qa-tablet-running.png' },
+    { width: 390, height: 844, label: 'móvil', screenshot: 'qa-mobile-running.png' }
+  ];
 
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(APP_URL, { waitUntil: 'networkidle' });
-  await checkNoHorizontalOverflow(page, 'portada móvil');
-  await page.getByRole('button', { name: 'Iniciar examen' }).click();
-  await page.getByRole('heading', { name: 'Resuelve este reactivo para continuar' }).waitFor();
-  await checkNoHorizontalOverflow(page, 'examen móvil');
-
-  await page.screenshot({ path: path.join(OUT_DIR, 'qa-mobile-running.png'), fullPage: true });
+  for (const viewport of viewports) {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height });
+    await page.goto(APP_URL, { waitUntil: 'networkidle' });
+    await checkNoHorizontalOverflow(page, `portada ${viewport.label}`);
+    await page.getByRole('button', { name: 'Iniciar examen' }).click();
+    await page.getByRole('heading', { name: 'Resuelve este reactivo para continuar' }).waitFor();
+    await checkNoHorizontalOverflow(page, `examen ${viewport.label}`);
+    await showFloatingReview(page);
+    await checkFloatingReviewLayout(page, viewport.label);
+    await checkNoHorizontalOverflow(page, `recordatorio flotante en ${viewport.label}`);
+    await page.screenshot({ path: path.join(OUT_DIR, viewport.screenshot), fullPage: true });
+  }
 }
 
 async function runReactivo8FigureChecks(page) {
@@ -178,6 +241,7 @@ async function runTimeoutChecks(page) {
   });
 
   await page.getByRole('heading', { name: 'Tiempo límite alcanzado' }).waitFor();
+  assert.equal(await page.locator('.floating-review').count(), 0, 'El recordatorio flotante debía cerrarse al agotar el tiempo.');
   await page.getByText('Reactivos pendientes al momento del cierre').waitFor();
   const unansweredCards = page.getByRole('heading', { name: 'Reactivo no respondido' });
   await unansweredCards.first().waitFor();

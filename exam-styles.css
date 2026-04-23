@@ -364,7 +364,9 @@ body.top-is-condensed .metric-secondary .metric-value{
 }
 
 body.top-is-condensed .exam-bar,
+body.top-is-condensed .exercise-shell,
 body.top-is-compact .card,
+body.top-is-compact .exercise-shell,
 body.top-is-compact .cover{
   scroll-margin-top:108px;
 }
@@ -635,6 +637,107 @@ main{
   margin-top:18px;
 }
 
+.exercise-shell{
+  display:grid;
+  gap:10px;
+  scroll-margin-top:118px;
+}
+
+.floating-review{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:14px 16px;
+  margin:0 8px -2px;
+  padding:14px 16px 14px 18px;
+  border-radius:24px;
+  border:1px solid rgba(43,47,143,.24);
+  background:linear-gradient(180deg,rgba(255,255,255,.99),rgba(244,249,255,.96));
+  box-shadow:0 0 0 1px rgba(43,47,143,.1),0 14px 28px rgba(17,22,65,.08);
+}
+
+.floating-review-copy{
+  display:grid;
+  gap:5px;
+  min-width:0;
+}
+
+.floating-review-copy strong{
+  color:var(--n2);
+  font-size:.96rem;
+  letter-spacing:-.01em;
+}
+
+.floating-review-copy p{
+  color:var(--muted);
+  font-size:.9rem;
+  line-height:1.58;
+}
+
+.floating-review-actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.floating-review-btn,
+.floating-review-dismiss{
+  cursor:pointer;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+}
+
+.floating-review-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:12px 18px;
+  border-radius:999px;
+  border:1px solid rgba(43,47,143,.88);
+  background:linear-gradient(180deg,rgba(44,229,30,.98),rgba(31,184,21,.96));
+  color:#fff;
+  font-size:.92rem;
+  font-weight:800;
+  text-align:center;
+  box-shadow:0 0 0 3px rgba(43,47,143,.14),0 12px 24px rgba(28,30,90,.22),inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.floating-review-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 0 0 3px rgba(43,47,143,.18),0 14px 28px rgba(28,30,90,.26),inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.floating-review-btn:focus-visible,
+.floating-review-dismiss:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 4px rgba(43,47,143,.18),0 12px 24px rgba(28,30,90,.2);
+}
+
+.floating-review-dismiss{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:999px;
+  border:1px solid rgba(43,47,143,.26);
+  background:rgba(255,255,255,.96);
+  color:var(--n1);
+  font-size:1.35rem;
+  font-weight:800;
+  flex-shrink:0;
+  box-shadow:0 8px 18px rgba(17,22,65,.08);
+}
+
+.floating-review-dismiss:hover{
+  transform:translateY(-1px);
+  border-color:rgba(43,47,143,.46);
+  background:#fff;
+}
+
 .card{
   border-radius:28px;
   border:1px solid var(--line);
@@ -786,6 +889,7 @@ main{
   overflow:visible;
 }
 
+.visual-panel-image img,
 .visual-panel-svg svg{
   display:block;
   width:100%;
@@ -863,6 +967,7 @@ main{
   padding:4px 0 2px;
 }
 
+.option-visual img,
 .option-visual svg{
   display:block;
   width:min(100%,240px);
@@ -1408,6 +1513,21 @@ main{
     flex-direction:column;
     align-items:flex-start;
   }
+
+  .floating-review{
+    grid-template-columns:1fr;
+    margin:0 4px -2px;
+    padding:14px 15px;
+  }
+
+  .floating-review-actions{
+    width:100%;
+    justify-content:space-between;
+  }
+
+  .floating-review-btn{
+    flex:1 1 260px;
+  }
 }
 
 @media (max-width:640px){
@@ -1499,6 +1619,43 @@ main{
   .card-status{
     width:100%;
     justify-items:flex-start;
+  }
+
+  .exercise-shell{
+    gap:8px;
+  }
+
+  .floating-review{
+    margin:0;
+    padding:13px 14px;
+    border-radius:22px;
+  }
+
+  .floating-review-copy strong{
+    font-size:.92rem;
+  }
+
+  .floating-review-copy p{
+    font-size:.87rem;
+  }
+
+  .floating-review-actions{
+    gap:8px;
+    flex-wrap:nowrap;
+    align-items:stretch;
+  }
+
+  .floating-review-btn{
+    width:calc(100% - 52px);
+    min-height:46px;
+    padding:11px 14px;
+    font-size:.89rem;
+  }
+
+  .floating-review-dismiss{
+    width:42px;
+    height:42px;
+    font-size:1.25rem;
   }
 
   .summary-inline{

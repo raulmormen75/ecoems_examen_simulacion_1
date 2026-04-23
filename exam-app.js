@@ -13,7 +13,7 @@
     answersById: Object.create(null),
     hintsOpen: Object.create(null),
     expandedAnswered: Object.create(null),
-    recentResolvedId: null,
+    floatingReviewId: null,
     summary: null,
     modalStep: null,
     timerId: null
@@ -259,11 +259,15 @@
   }
 
   function isAnsweredExpanded(exerciseId) {
-    return Boolean(STATE.expandedAnswered[exerciseId] || STATE.recentResolvedId === exerciseId);
+    return Boolean(STATE.expandedAnswered[exerciseId]);
   }
 
   function renderVisual(visual) {
-    if (!visual || !visual.content) return '';
+    if (!visual || (!visual.content && !visual.src)) return '';
+
+    if (visual.kind === 'image' && visual.src) {
+      return `<div class="visual-panel visual-panel-image"><img src="${esc(visual.src)}" alt="${esc(visual.alt || '')}"></div>`;
+    }
 
     if (visual.kind === 'svg') {
       return `<div class="visual-panel visual-panel-svg">${visual.content}</div>`;
@@ -277,6 +281,13 @@
   }
 
   function renderOptionCopy(option) {
+    if (option.kind === 'image' && option.imageSrc) {
+      const caption = option.text && option.showCaption !== false
+        ? `<p class="option-caption">${esc(option.text)}</p>`
+        : '';
+      return `<div class="option-visual"><img src="${esc(option.imageSrc)}" alt="${esc(option.imageAlt || option.text || '')}"></div>${caption}`;
+    }
+
     if (option.kind === 'svg' && option.visualContent) {
       return `<div class="option-visual">${option.visualContent}</div>${option.text ? `<p class="option-caption">${esc(option.text)}</p>` : ''}`;
     }
@@ -383,38 +394,61 @@
     </section>`;
   }
 
-  function renderCurrentCard(exercise) {
-    return `<article class="card" id="${esc(exercise.id)}">
-      <header class="card-header">
-        <div class="card-title">
-          <div class="card-kicker">
-            <span class="kicker-chip">Reactivo ${esc(exercise.number)}</span>
-            <span class="kicker-chip">${esc(exercise.areaName)}</span>
-            <span class="kicker-chip">${esc(exercise.block)}</span>
-          </div>
-          <h2>Resuelve este reactivo para continuar</h2>
-          <p>Lee el planteamiento, revisa el apoyo visual si aparece y selecciona una sola opción.</p>
-        </div>
-        <div class="card-status">
-          <span class="state-chip active">Actual</span>
-        </div>
-      </header>
-      <div class="card-body">
-        <section class="prompt-panel">
-          ${textToParagraphs(exercise.prompt)}
-          ${renderVisual(exercise.visual)}
-        </section>
-        <section class="option-list">
-          ${exercise.options.map((option) => renderInteractiveOption(option, exercise.id)).join('')}
-        </section>
-        <div class="action-row">
-          <button class="action-btn${STATE.hintsOpen[exercise.id] ? ' active' : ''}" type="button" data-action="toggle-hint" data-id="${esc(exercise.id)}">
-            ${STATE.hintsOpen[exercise.id] ? 'Ocultar pista' : 'Ver pista'}
-          </button>
-        </div>
-        ${renderHint(exercise.id, exercise)}
+  function renderFloatingReviewPrompt() {
+    const exerciseId = STATE.floatingReviewId;
+    if (!isRunning() || !exerciseId || !STATE.answersById[exerciseId]) return '';
+
+    return `<section class="floating-review" aria-label="Revisión opcional del reactivo anterior">
+      <div class="floating-review-copy">
+        <strong>Revisión opcional del reactivo anterior</strong>
+        <p>Si quieres, revisa si tu respuesta fue correcta o incorrecta y consulta los argumentos de cada opción antes de seguir.</p>
       </div>
-    </article>`;
+      <div class="floating-review-actions">
+        <button class="floating-review-btn" type="button" data-action="open-floating-review" data-id="${esc(exerciseId)}">
+          Ver resultado y argumentos
+        </button>
+        <button class="floating-review-dismiss" type="button" aria-label="Descartar revisión opcional" data-action="dismiss-floating-review" data-id="${esc(exerciseId)}">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+    </section>`;
+  }
+
+  function renderCurrentCard(exercise) {
+    return `<section class="exercise-shell exercise-shell-current" id="${esc(exercise.id)}">
+      ${renderFloatingReviewPrompt()}
+      <article class="card">
+        <header class="card-header">
+          <div class="card-title">
+            <div class="card-kicker">
+              <span class="kicker-chip">Reactivo ${esc(exercise.number)}</span>
+              <span class="kicker-chip">${esc(exercise.areaName)}</span>
+              <span class="kicker-chip">${esc(exercise.block)}</span>
+            </div>
+            <h2>Resuelve este reactivo para continuar</h2>
+            <p>Lee el planteamiento, revisa el apoyo visual si aparece y selecciona una sola opción.</p>
+          </div>
+          <div class="card-status">
+            <span class="state-chip active">Actual</span>
+          </div>
+        </header>
+        <div class="card-body">
+          <section class="prompt-panel">
+            ${textToParagraphs(exercise.prompt)}
+            ${renderVisual(exercise.visual)}
+          </section>
+          <section class="option-list">
+            ${exercise.options.map((option) => renderInteractiveOption(option, exercise.id)).join('')}
+          </section>
+          <div class="action-row">
+            <button class="action-btn${STATE.hintsOpen[exercise.id] ? ' active' : ''}" type="button" data-action="toggle-hint" data-id="${esc(exercise.id)}">
+              ${STATE.hintsOpen[exercise.id] ? 'Ocultar pista' : 'Ver pista'}
+            </button>
+          </div>
+          ${renderHint(exercise.id, exercise)}
+        </div>
+      </article>
+    </section>`;
   }
 
   function renderAnsweredCard(exercise, answer, expanded) {
@@ -736,6 +770,7 @@
     STATE.status = 'running';
     STATE.activeIndex = 0;
     STATE.remainingSeconds = DURATION;
+    STATE.floatingReviewId = null;
     STATE.summary = null;
     STATE.modalStep = null;
     startTimer();
@@ -747,6 +782,7 @@
     if (STATE.status !== 'running') return;
     clearTimer();
     STATE.status = mode;
+    STATE.floatingReviewId = null;
     STATE.summary = buildSummary(mode);
     STATE.modalStep = 'summary';
     render();
@@ -768,13 +804,13 @@
       isCorrect
     };
     STATE.hintsOpen[exerciseId] = false;
-    STATE.recentResolvedId = exerciseId;
 
     if (index === TOTAL - 1) {
       finishExam('finished');
       return;
     }
 
+    STATE.floatingReviewId = exerciseId;
     STATE.activeIndex = index + 1;
     render();
     scrollToExercise(EXERCISES[STATE.activeIndex].id);
@@ -790,10 +826,26 @@
   function toggleCard(exerciseId) {
     const answer = STATE.answersById[exerciseId];
     if (!answer) return;
-    STATE.expandedAnswered[exerciseId] = !isAnsweredExpanded(exerciseId);
-    if (STATE.recentResolvedId === exerciseId && STATE.expandedAnswered[exerciseId] === false) {
-      STATE.recentResolvedId = null;
+    const nextExpanded = !isAnsweredExpanded(exerciseId);
+    STATE.expandedAnswered[exerciseId] = nextExpanded;
+    if (nextExpanded && STATE.floatingReviewId === exerciseId) {
+      STATE.floatingReviewId = null;
     }
+    render();
+  }
+
+  function openFloatingReview(exerciseId) {
+    const answer = STATE.answersById[exerciseId];
+    if (!answer) return;
+    STATE.expandedAnswered[exerciseId] = true;
+    STATE.floatingReviewId = null;
+    render();
+    scrollToExercise(exerciseId);
+  }
+
+  function dismissFloatingReview(exerciseId) {
+    if (STATE.floatingReviewId !== exerciseId) return;
+    STATE.floatingReviewId = null;
     render();
   }
 
@@ -823,6 +875,16 @@
 
     if (action === 'toggle-hint' && id) {
       toggleHint(id);
+      return;
+    }
+
+    if (action === 'open-floating-review' && id) {
+      openFloatingReview(id);
+      return;
+    }
+
+    if (action === 'dismiss-floating-review' && id) {
+      dismissFloatingReview(id);
       return;
     }
 
