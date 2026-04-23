@@ -14,6 +14,34 @@ const FIELD_LABELS = {
   incorrectArguments: 'Argumentos de las opciones incorrectas:'
 };
 
+const REACTIVO_8_PROMPT_IMAGE = {
+  src: 'assets/reactivo-8/prompt/reactivo-8-secuencia.png',
+  alt: 'Secuencia con tres figuras. La primera tiene un cuadro y un triangulo arriba. La segunda tiene dos cuadros y un triangulo abajo. La tercera tiene tres cuadros y un triangulo arriba.'
+};
+
+const REACTIVO_8_OPTION_IMAGES = {
+  a: {
+    src: 'assets/reactivo-8/options/reactivo-8-opcion-a.png',
+    alt: 'Opcion A. Cuatro cuadros con un triangulo abajo.'
+  },
+  b: {
+    src: 'assets/reactivo-8/options/reactivo-8-opcion-b.png',
+    alt: 'Opcion B. Cuatro cuadros con un triangulo arriba.'
+  },
+  c: {
+    src: 'assets/reactivo-8/options/reactivo-8-opcion-c.png',
+    alt: 'Opcion C. Tres cuadros con un triangulo abajo.'
+  },
+  d: {
+    src: 'assets/reactivo-8/options/reactivo-8-opcion-d.png',
+    alt: 'Opcion D. Cinco cuadros con un triangulo abajo.'
+  },
+  e: {
+    src: 'assets/reactivo-8/options/reactivo-8-opcion-e.png',
+    alt: 'Opcion E. Cuatro cuadros con un circulo al centro.'
+  }
+};
+
 function slugify(value) {
   return String(value || '')
     .normalize('NFD')
@@ -274,51 +302,21 @@ function applyExerciseOverrides(exercise) {
     return {
       ...exercise,
       options: exercise.options.map((option) => {
-        if (option.label === 'a') {
-          return {
-            ...option,
-            kind: 'svg',
-            visualContent: buildReactivo8OptionSvg({ squareCount: 4, markerShape: 'triangle', markerPosition: 'below' })
-          };
-        }
+        const image = REACTIVO_8_OPTION_IMAGES[option.label];
+        if (!image) return option;
 
-        if (option.label === 'b') {
-          return {
-            ...option,
-            kind: 'svg',
-            visualContent: buildReactivo8OptionSvg({ squareCount: 4, markerShape: 'triangle', markerPosition: 'above' })
-          };
-        }
-
-        if (option.label === 'c') {
-          return {
-            ...option,
-            kind: 'svg',
-            visualContent: buildReactivo8OptionSvg({ squareCount: 3, markerShape: 'triangle', markerPosition: 'below' })
-          };
-        }
-
-        if (option.label === 'd') {
-          return {
-            ...option,
-            kind: 'svg',
-            visualContent: buildReactivo8OptionSvg({ squareCount: 5, markerShape: 'triangle', markerPosition: 'below' })
-          };
-        }
-
-        if (option.label === 'e') {
-          return {
-            ...option,
-            kind: 'svg',
-            visualContent: buildReactivo8OptionSvg({ squareCount: 4, markerShape: 'circle', markerPosition: 'center' })
-          };
-        }
-
-        return option;
+        return {
+          ...option,
+          kind: 'image',
+          imageSrc: image.src,
+          imageAlt: image.alt,
+          showCaption: false
+        };
       }),
       visual: {
-        kind: 'svg',
-        content: buildReactivo8Svg()
+        kind: 'image',
+        src: REACTIVO_8_PROMPT_IMAGE.src,
+        alt: REACTIVO_8_PROMPT_IMAGE.alt
       }
     };
   }

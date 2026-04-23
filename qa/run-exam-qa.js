@@ -215,15 +215,57 @@ async function runReactivo8FigureChecks(page) {
   await startExam(page);
   await advanceToExercise(page, 8);
   await page.locator('#reactivo-8').waitFor();
-  assert.equal(await page.locator('#reactivo-8 .visual-panel svg').count(), 1, 'El planteamiento del reactivo 8 debe mostrar un SVG.');
-  assert.equal(await page.locator('#reactivo-8 .option-visual svg').count(), 5, 'Las cinco opciones del reactivo 8 deben mostrar figuras SVG.');
+  assert.equal(await page.locator('#reactivo-8 .visual-panel img').count(), 1, 'El planteamiento del reactivo 8 debe mostrar una imagen raster.');
+  assert.equal(await page.locator('#reactivo-8 .option-visual img').count(), 5, 'Las cinco opciones del reactivo 8 deben mostrar imágenes raster.');
+
+  const imageReport = await page.evaluate(() => {
+    const prompt = document.querySelector('#reactivo-8 .visual-panel img');
+    const options = Array.from(document.querySelectorAll('#reactivo-8 .option-visual img'));
+
+    return {
+      prompt: prompt
+        ? {
+            src: prompt.getAttribute('src'),
+            naturalWidth: prompt.naturalWidth,
+            naturalHeight: prompt.naturalHeight
+          }
+        : null,
+      options: options.map((image) => ({
+        src: image.getAttribute('src'),
+        naturalWidth: image.naturalWidth,
+        naturalHeight: image.naturalHeight
+      }))
+    };
+  });
+
+  assert.ok(imageReport.prompt, 'No se detectó la imagen principal del reactivo 8.');
+  assert.ok(imageReport.prompt.src.includes('reactivo-8-secuencia.png'), 'La imagen principal del reactivo 8 no corresponde al asset esperado.');
+  assert.ok(imageReport.prompt.naturalWidth > 0 && imageReport.prompt.naturalHeight > 0, 'La imagen principal del reactivo 8 no cargó correctamente.');
+
+  const expectedOptionAssets = [
+    'reactivo-8-opcion-a.png',
+    'reactivo-8-opcion-b.png',
+    'reactivo-8-opcion-c.png',
+    'reactivo-8-opcion-d.png',
+    'reactivo-8-opcion-e.png'
+  ];
+
+  assert.deepEqual(
+    imageReport.options.map((image) => image.src.split('/').pop()),
+    expectedOptionAssets,
+    'Las opciones del reactivo 8 no quedaron enlazadas a los assets raster esperados.'
+  );
+
+  for (const image of imageReport.options) {
+    assert.ok(image.naturalWidth > 0 && image.naturalHeight > 0, `No cargó correctamente la opción raster ${image.src}.`);
+  }
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo8-desktop.png'), fullPage: true });
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(APP_URL, { waitUntil: 'networkidle' });
   await page.getByRole('button', { name: 'Iniciar examen' }).click();
   await advanceToExercise(page, 8);
-  await page.locator('#reactivo-8 .option-visual svg').first().waitFor();
+  await page.locator('#reactivo-8 .option-visual img').first().waitFor();
   await checkNoHorizontalOverflow(page, 'reactivo 8 en móvil');
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo8-mobile.png'), fullPage: true });
 }
