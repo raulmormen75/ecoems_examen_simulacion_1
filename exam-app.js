@@ -426,7 +426,6 @@
               <span class="kicker-chip">${esc(exercise.block)}</span>
             </div>
             <h2>Resuelve este reactivo para continuar</h2>
-            <p>Lee el planteamiento, revisa el apoyo visual si aparece y selecciona una sola opción.</p>
           </div>
           <div class="card-status">
             <span class="state-chip active">Actual</span>

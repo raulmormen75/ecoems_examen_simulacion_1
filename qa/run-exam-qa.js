@@ -592,6 +592,41 @@ async function runReactivo16FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo16-mobile.png'), fullPage: true });
 }
 
+async function runReactivo17InstructionChecks(page) {
+  const removedText = 'Lee el planteamiento, revisa el apoyo visual si aparece y selecciona una sola opción.';
+  log('Validando que el reactivo 17 no muestre la instrucción redundante en el encabezado.');
+
+  await page.setViewportSize({ width: 1440, height: 1080 });
+  await startExam(page);
+  await advanceToExercise(page, 17);
+  await page.locator('#reactivo-17').waitFor();
+
+  const desktopReport = await page.evaluate((text) => {
+    const card = document.querySelector('#reactivo-17');
+    const title = card?.querySelector('.card-title');
+    return {
+      hasRemovedText: Boolean(card?.textContent?.includes(text)),
+      heading: title?.querySelector('h2')?.textContent?.trim() || '',
+      headerParagraphCount: title?.querySelectorAll('p').length || 0
+    };
+  }, removedText);
+
+  assert.equal(desktopReport.hasRemovedText, false, 'El reactivo 17 todavía muestra la instrucción redundante.');
+  assert.equal(desktopReport.heading, 'Resuelve este reactivo para continuar', 'El encabezado principal del reactivo 17 cambió inesperadamente.');
+  assert.equal(desktopReport.headerParagraphCount, 0, 'El encabezado del reactivo 17 no debe conservar el párrafo instructivo.');
+  await checkNoHorizontalOverflow(page, 'reactivo 17 en escritorio');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo17-desktop.png'), fullPage: true });
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(APP_URL, { waitUntil: 'networkidle' });
+  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await advanceToExercise(page, 17);
+  await page.locator('#reactivo-17').waitFor();
+  assert.equal(await page.getByText(removedText).count(), 0, 'La instrucción redundante no debe aparecer en móvil.');
+  await checkNoHorizontalOverflow(page, 'reactivo 17 en móvil');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo17-mobile.png'), fullPage: true });
+}
+
 async function runTimeoutChecks(page) {
   log('Validando cierre por tiempo y tratamiento de reactivos pendientes.');
 
@@ -647,6 +682,7 @@ async function main() {
     await runReactivo14FigureChecks(page);
     await runReactivo15FigureChecks(page);
     await runReactivo16FigureChecks(page);
+    await runReactivo17InstructionChecks(page);
     await runTimeoutChecks(page);
 
     assert.deepEqual(pageErrors, [], `Se detectaron errores de página: ${pageErrors.join(' | ')}`);
