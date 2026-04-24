@@ -818,8 +818,9 @@ window.IFR_APP_DATA = {
         "e": "8 pesos: hace que el precio del cuaderno resulte incompatible con la otra compra."
       },
       "visual": {
-        "kind": "none",
-        "content": ""
+        "kind": "image",
+        "src": "assets/reactivo-14/prompt/reactivo-14-papeleria.png",
+        "alt": "Diagrama de dos compras en papelería: dos cuadernos y una pluma cuestan 34 pesos; un cuaderno y dos plumas cuestan 26 pesos; el precio de una pluma queda como incógnita."
       },
       "sourceOrder": 14,
       "rangeStart": 1,

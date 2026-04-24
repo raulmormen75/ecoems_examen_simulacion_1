@@ -57,6 +57,11 @@ const REACTIVO_13_PROMPT_IMAGE = {
   alt: 'Diagrama de un número N que debe cumplir tres condiciones: al dividirse entre 4 deja residuo 3, entre 5 deja residuo 4 y entre 3 deja residuo 0.'
 };
 
+const REACTIVO_14_PROMPT_IMAGE = {
+  src: 'assets/reactivo-14/prompt/reactivo-14-papeleria.png',
+  alt: 'Diagrama de dos compras en papelería: dos cuadernos y una pluma cuestan 34 pesos; un cuaderno y dos plumas cuestan 26 pesos; el precio de una pluma queda como incógnita.'
+};
+
 function slugify(value) {
   return String(value || '')
     .normalize('NFD')
@@ -365,6 +370,17 @@ function applyExerciseOverrides(exercise) {
         kind: 'image',
         src: REACTIVO_13_PROMPT_IMAGE.src,
         alt: REACTIVO_13_PROMPT_IMAGE.alt
+      }
+    };
+  }
+
+  if (exercise.number === 14) {
+    return {
+      ...exercise,
+      visual: {
+        kind: 'image',
+        src: REACTIVO_14_PROMPT_IMAGE.src,
+        alt: REACTIVO_14_PROMPT_IMAGE.alt
       }
     };
   }
