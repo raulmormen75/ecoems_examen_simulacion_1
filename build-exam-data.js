@@ -52,6 +52,11 @@ const REACTIVO_12_PROMPT_IMAGE = {
   alt: 'Figura formada por un hexágono central rodeado por seis hexágonos iguales; el contorno exterior forma un hexágono mayor.'
 };
 
+const REACTIVO_13_PROMPT_IMAGE = {
+  src: 'assets/reactivo-13/prompt/reactivo-13-residuos.png',
+  alt: 'Diagrama de un número N que debe cumplir tres condiciones: al dividirse entre 4 deja residuo 3, entre 5 deja residuo 4 y entre 3 deja residuo 0.'
+};
+
 function slugify(value) {
   return String(value || '')
     .normalize('NFD')
@@ -349,6 +354,17 @@ function applyExerciseOverrides(exercise) {
         kind: 'image',
         src: REACTIVO_12_PROMPT_IMAGE.src,
         alt: REACTIVO_12_PROMPT_IMAGE.alt
+      }
+    };
+  }
+
+  if (exercise.number === 13) {
+    return {
+      ...exercise,
+      visual: {
+        kind: 'image',
+        src: REACTIVO_13_PROMPT_IMAGE.src,
+        alt: REACTIVO_13_PROMPT_IMAGE.alt
       }
     };
   }

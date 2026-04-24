@@ -765,8 +765,9 @@ window.IFR_APP_DATA = {
         "e": "45: sí es múltiplo de 3, pero al dividirlo entre 4 no deja residuo 3."
       },
       "visual": {
-        "kind": "none",
-        "content": ""
+        "kind": "image",
+        "src": "assets/reactivo-13/prompt/reactivo-13-residuos.png",
+        "alt": "Diagrama de un número N que debe cumplir tres condiciones: al dividirse entre 4 deja residuo 3, entre 5 deja residuo 4 y entre 3 deja residuo 0."
       },
       "sourceOrder": 13,
       "rangeStart": 1,
