@@ -62,6 +62,11 @@ const REACTIVO_14_PROMPT_IMAGE = {
   alt: 'Diagrama de dos compras en papelería: dos cuadernos y una pluma cuestan 34 pesos; un cuaderno y dos plumas cuestan 26 pesos; el precio de una pluma queda como incógnita.'
 };
 
+const REACTIVO_15_PROMPT_IMAGE = {
+  src: 'assets/reactivo-15/prompt/reactivo-15-autobus-gasolina.png',
+  alt: 'Diagrama de proporción: un autobús recorre 180 kilómetros con 15 litros de gasolina y debe estimarse cuánta gasolina necesita para recorrer 300 kilómetros.'
+};
+
 function slugify(value) {
   return String(value || '')
     .normalize('NFD')
@@ -381,6 +386,17 @@ function applyExerciseOverrides(exercise) {
         kind: 'image',
         src: REACTIVO_14_PROMPT_IMAGE.src,
         alt: REACTIVO_14_PROMPT_IMAGE.alt
+      }
+    };
+  }
+
+  if (exercise.number === 15) {
+    return {
+      ...exercise,
+      visual: {
+        kind: 'image',
+        src: REACTIVO_15_PROMPT_IMAGE.src,
+        alt: REACTIVO_15_PROMPT_IMAGE.alt
       }
     };
   }

@@ -871,8 +871,9 @@ window.IFR_APP_DATA = {
         "e": "27 litros: excede lo necesario y rompe la razón original del problema."
       },
       "visual": {
-        "kind": "none",
-        "content": ""
+        "kind": "image",
+        "src": "assets/reactivo-15/prompt/reactivo-15-autobus-gasolina.png",
+        "alt": "Diagrama de proporción: un autobús recorre 180 kilómetros con 15 litros de gasolina y debe estimarse cuánta gasolina necesita para recorrer 300 kilómetros."
       },
       "sourceOrder": 15,
       "rangeStart": 1,
