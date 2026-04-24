@@ -123,6 +123,28 @@ async function checkFloatingReviewLayout(page, label) {
   assert.ok(layout.dismissHeight >= 40, `El botón de descarte quedó demasiado pequeño en ${label}.`);
 }
 
+async function waitForLoadedImages(page, selector, expectedCount, label) {
+  try {
+    await page.waitForFunction(
+      ({ imageSelector, count }) => {
+        const images = Array.from(document.querySelectorAll(imageSelector));
+        return images.length === count && images.every((image) => image.complete && image.naturalWidth > 0 && image.naturalHeight > 0);
+      },
+      { imageSelector: selector, count: expectedCount },
+      { timeout: 10000 }
+    );
+  } catch (error) {
+    const imageReport = await page.locator(selector).evaluateAll((images) => images.map((image) => ({
+      src: image.getAttribute('src'),
+      complete: image.complete,
+      naturalWidth: image.naturalWidth,
+      naturalHeight: image.naturalHeight
+    })));
+
+    throw new Error(`No cargaron correctamente las imágenes de ${label}: ${JSON.stringify(imageReport)}. ${error.message}`);
+  }
+}
+
 async function showFloatingReview(page, optionLabel) {
   const first = await getExerciseData(page, 0);
   await clickOption(page, first.id, optionLabel || first.correctOption);
@@ -215,6 +237,8 @@ async function runReactivo8FigureChecks(page) {
   await startExam(page);
   await advanceToExercise(page, 8);
   await page.locator('#reactivo-8').waitFor();
+  await waitForLoadedImages(page, '#reactivo-8 .visual-panel img', 1, 'planteamiento del reactivo 8 en escritorio');
+  await waitForLoadedImages(page, '#reactivo-8 .option-visual img', 5, 'opciones del reactivo 8 en escritorio');
   assert.equal(await page.locator('#reactivo-8 .visual-panel img').count(), 1, 'El planteamiento del reactivo 8 debe mostrar una imagen raster.');
   assert.equal(await page.locator('#reactivo-8 .option-visual img').count(), 5, 'Las cinco opciones del reactivo 8 deben mostrar imágenes raster.');
 
@@ -266,6 +290,8 @@ async function runReactivo8FigureChecks(page) {
   await page.getByRole('button', { name: 'Iniciar examen' }).click();
   await advanceToExercise(page, 8);
   await page.locator('#reactivo-8 .option-visual img').first().waitFor();
+  await waitForLoadedImages(page, '#reactivo-8 .visual-panel img', 1, 'planteamiento del reactivo 8 en móvil');
+  await waitForLoadedImages(page, '#reactivo-8 .option-visual img', 5, 'opciones del reactivo 8 en móvil');
   await checkNoHorizontalOverflow(page, 'reactivo 8 en móvil');
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo8-mobile.png'), fullPage: true });
 }

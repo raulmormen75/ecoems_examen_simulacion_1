@@ -16,29 +16,29 @@ const FIELD_LABELS = {
 
 const REACTIVO_8_PROMPT_IMAGE = {
   src: 'assets/reactivo-8/prompt/reactivo-8-secuencia.png',
-  alt: 'Secuencia con tres figuras. La primera tiene un cuadro y un triangulo arriba. La segunda tiene dos cuadros y un triangulo abajo. La tercera tiene tres cuadros y un triangulo arriba.'
+  alt: 'Secuencia con tres figuras. La primera tiene un cuadro y un triángulo arriba. La segunda tiene dos cuadros y un triángulo abajo. La tercera tiene tres cuadros y un triángulo arriba.'
 };
 
 const REACTIVO_8_OPTION_IMAGES = {
   a: {
     src: 'assets/reactivo-8/options/reactivo-8-opcion-a.png',
-    alt: 'Opcion A. Cuatro cuadros con un triangulo abajo.'
+    alt: 'Opción A. Cuatro cuadros con un triángulo abajo.'
   },
   b: {
     src: 'assets/reactivo-8/options/reactivo-8-opcion-b.png',
-    alt: 'Opcion B. Cuatro cuadros con un triangulo arriba.'
+    alt: 'Opción B. Cuatro cuadros con un triángulo arriba.'
   },
   c: {
     src: 'assets/reactivo-8/options/reactivo-8-opcion-c.png',
-    alt: 'Opcion C. Tres cuadros con un triangulo abajo.'
+    alt: 'Opción C. Tres cuadros con un triángulo abajo.'
   },
   d: {
     src: 'assets/reactivo-8/options/reactivo-8-opcion-d.png',
-    alt: 'Opcion D. Cinco cuadros con un triangulo abajo.'
+    alt: 'Opción D. Cinco cuadros con un triángulo abajo.'
   },
   e: {
     src: 'assets/reactivo-8/options/reactivo-8-opcion-e.png',
-    alt: 'Opcion E. Cuatro cuadros con un circulo al centro.'
+    alt: 'Opción E. Cuatro cuadros con un círculo al centro.'
   }
 };
 
@@ -266,7 +266,7 @@ function buildReactivo8Svg() {
   return `
 <svg viewBox="0 0 720 260" role="img" aria-labelledby="reactivo8Title reactivo8Desc" xmlns="http://www.w3.org/2000/svg">
   <title id="reactivo8Title">Secuencia visual del reactivo 8</title>
-  <desc id="reactivo8Desc">Figura 1 con un cuadro y un triangulo arriba. Figura 2 con dos cuadros y un triangulo abajo. Figura 3 con tres cuadros y un triangulo arriba.</desc>
+  <desc id="reactivo8Desc">Figura 1 con un cuadro y un triángulo arriba. Figura 2 con dos cuadros y un triángulo abajo. Figura 3 con tres cuadros y un triángulo arriba.</desc>
   <rect x="8" y="8" width="704" height="244" rx="30" fill="#F7F8FF"/>
   ${buildReactivo8FigureCard({ x: 24, y: 26, width: 204, height: 208, title: 'Figura 1', descriptor: '1 cuadro', squareCount: 1, markerPosition: 'above' })}
   ${buildReactivo8Arrow(230, 132)}
@@ -462,8 +462,7 @@ function main() {
       title: 'Instituto Fernando Ramírez · Examen simulación 1 ECOEMS',
       durationSeconds: 10800,
       totalExercises: exercises.length,
-      scoreMode: 'raw+percent',
-      generatedAt: new Date().toISOString()
+      scoreMode: 'raw+percent'
     },
     areas: normalizedAreas,
     exercises

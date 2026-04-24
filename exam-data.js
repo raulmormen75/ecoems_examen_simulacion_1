@@ -3,8 +3,7 @@ window.IFR_APP_DATA = {
     "title": "Instituto Fernando Ramírez · Examen simulación 1 ECOEMS",
     "durationSeconds": 10800,
     "totalExercises": 128,
-    "scoreMode": "raw+percent",
-    "generatedAt": "2026-04-23T05:28:15.626Z"
+    "scoreMode": "raw+percent"
   },
   "areas": [
     {
@@ -456,7 +455,7 @@ window.IFR_APP_DATA = {
           "text": "cuatro cuadros con un triángulo abajo",
           "kind": "image",
           "imageSrc": "assets/reactivo-8/options/reactivo-8-opcion-a.png",
-          "imageAlt": "Opcion A. Cuatro cuadros con un triangulo abajo.",
+          "imageAlt": "Opción A. Cuatro cuadros con un triángulo abajo.",
           "showCaption": false
         },
         {
@@ -464,7 +463,7 @@ window.IFR_APP_DATA = {
           "text": "cuatro cuadros con un triángulo arriba",
           "kind": "image",
           "imageSrc": "assets/reactivo-8/options/reactivo-8-opcion-b.png",
-          "imageAlt": "Opcion B. Cuatro cuadros con un triangulo arriba.",
+          "imageAlt": "Opción B. Cuatro cuadros con un triángulo arriba.",
           "showCaption": false
         },
         {
@@ -472,7 +471,7 @@ window.IFR_APP_DATA = {
           "text": "tres cuadros con un triángulo abajo",
           "kind": "image",
           "imageSrc": "assets/reactivo-8/options/reactivo-8-opcion-c.png",
-          "imageAlt": "Opcion C. Tres cuadros con un triangulo abajo.",
+          "imageAlt": "Opción C. Tres cuadros con un triángulo abajo.",
           "showCaption": false
         },
         {
@@ -480,7 +479,7 @@ window.IFR_APP_DATA = {
           "text": "cinco cuadros con un triángulo abajo",
           "kind": "image",
           "imageSrc": "assets/reactivo-8/options/reactivo-8-opcion-d.png",
-          "imageAlt": "Opcion D. Cinco cuadros con un triangulo abajo.",
+          "imageAlt": "Opción D. Cinco cuadros con un triángulo abajo.",
           "showCaption": false
         },
         {
@@ -488,7 +487,7 @@ window.IFR_APP_DATA = {
           "text": "cuatro cuadros con un círculo al centro",
           "kind": "image",
           "imageSrc": "assets/reactivo-8/options/reactivo-8-opcion-e.png",
-          "imageAlt": "Opcion E. Cuatro cuadros con un circulo al centro.",
+          "imageAlt": "Opción E. Cuatro cuadros con un círculo al centro.",
           "showCaption": false
         }
       ],
@@ -505,7 +504,7 @@ window.IFR_APP_DATA = {
       "visual": {
         "kind": "image",
         "src": "assets/reactivo-8/prompt/reactivo-8-secuencia.png",
-        "alt": "Secuencia con tres figuras. La primera tiene un cuadro y un triangulo arriba. La segunda tiene dos cuadros y un triangulo abajo. La tercera tiene tres cuadros y un triangulo arriba."
+        "alt": "Secuencia con tres figuras. La primera tiene un cuadro y un triángulo arriba. La segunda tiene dos cuadros y un triángulo abajo. La tercera tiene tres cuadros y un triángulo arriba."
       },
       "sourceOrder": 8,
       "rangeStart": 1,
