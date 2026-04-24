@@ -296,6 +296,47 @@ async function runReactivo8FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo8-mobile.png'), fullPage: true });
 }
 
+async function runReactivo11FigureChecks(page) {
+  log('Validando que el reactivo 11 muestre una cuadrícula clara para conteo de cuadrados.');
+
+  await page.setViewportSize({ width: 1440, height: 1080 });
+  await startExam(page);
+  await advanceToExercise(page, 11);
+  await page.locator('#reactivo-11').waitFor();
+  await waitForLoadedImages(page, '#reactivo-11 .visual-panel img', 1, 'planteamiento del reactivo 11 en escritorio');
+
+  const imageReport = await page.evaluate(() => {
+    const image = document.querySelector('#reactivo-11 .visual-panel img');
+    return image
+      ? {
+          src: image.getAttribute('src'),
+          alt: image.getAttribute('alt'),
+          naturalWidth: image.naturalWidth,
+          naturalHeight: image.naturalHeight
+        }
+      : null;
+  });
+
+  assert.ok(imageReport, 'No se detectó la imagen principal del reactivo 11.');
+  assert.ok(imageReport.src.includes('reactivo-11-cuadricula.png'), 'La imagen principal del reactivo 11 no corresponde al asset esperado.');
+  assert.equal(
+    imageReport.alt,
+    'Cuadrícula rectangular formada por 3 columnas y 2 filas de cuadrados iguales.',
+    'El texto alternativo del reactivo 11 no describe la cuadrícula esperada.'
+  );
+  assert.ok(imageReport.naturalWidth > 0 && imageReport.naturalHeight > 0, 'La imagen principal del reactivo 11 no cargó correctamente.');
+  await checkNoHorizontalOverflow(page, 'reactivo 11 en escritorio');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo11-desktop.png'), fullPage: true });
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(APP_URL, { waitUntil: 'networkidle' });
+  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await advanceToExercise(page, 11);
+  await waitForLoadedImages(page, '#reactivo-11 .visual-panel img', 1, 'planteamiento del reactivo 11 en móvil');
+  await checkNoHorizontalOverflow(page, 'reactivo 11 en móvil');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo11-mobile.png'), fullPage: true });
+}
+
 async function runTimeoutChecks(page) {
   log('Validando cierre por tiempo y tratamiento de reactivos pendientes.');
 
@@ -345,6 +386,7 @@ async function main() {
     await runFlowChecks(page);
     await runResponsiveChecks(page);
     await runReactivo8FigureChecks(page);
+    await runReactivo11FigureChecks(page);
     await runTimeoutChecks(page);
 
     assert.deepEqual(pageErrors, [], `Se detectaron errores de página: ${pageErrors.join(' | ')}`);

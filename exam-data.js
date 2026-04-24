@@ -659,8 +659,9 @@ window.IFR_APP_DATA = {
         "e": "10: sobrecuenta regiones que son rectángulos, no cuadrados."
       },
       "visual": {
-        "kind": "preformatted",
-        "content": "┌─┬─┬─┐\n│ │ │ │\n├─┼─┼─┤\n│ │ │ │\n└─┴─┴─┘"
+        "kind": "image",
+        "src": "assets/reactivo-11/prompt/reactivo-11-cuadricula.png",
+        "alt": "Cuadrícula rectangular formada por 3 columnas y 2 filas de cuadrados iguales."
       },
       "sourceOrder": 11,
       "rangeStart": 1,

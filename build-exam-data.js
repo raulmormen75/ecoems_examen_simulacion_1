@@ -42,6 +42,11 @@ const REACTIVO_8_OPTION_IMAGES = {
   }
 };
 
+const REACTIVO_11_PROMPT_IMAGE = {
+  src: 'assets/reactivo-11/prompt/reactivo-11-cuadricula.png',
+  alt: 'Cuadrícula rectangular formada por 3 columnas y 2 filas de cuadrados iguales.'
+};
+
 function slugify(value) {
   return String(value || '')
     .normalize('NFD')
@@ -317,6 +322,17 @@ function applyExerciseOverrides(exercise) {
         kind: 'image',
         src: REACTIVO_8_PROMPT_IMAGE.src,
         alt: REACTIVO_8_PROMPT_IMAGE.alt
+      }
+    };
+  }
+
+  if (exercise.number === 11) {
+    return {
+      ...exercise,
+      visual: {
+        kind: 'image',
+        src: REACTIVO_11_PROMPT_IMAGE.src,
+        alt: REACTIVO_11_PROMPT_IMAGE.alt
       }
     };
   }
