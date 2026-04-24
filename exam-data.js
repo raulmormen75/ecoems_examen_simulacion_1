@@ -924,8 +924,9 @@ window.IFR_APP_DATA = {
         "e": "14: corresponde a 168 páginas, no a 144."
       },
       "visual": {
-        "kind": "none",
-        "content": ""
+        "kind": "image",
+        "src": "assets/reactivo-16/prompt/reactivo-16-impresora-paginas.png",
+        "alt": "Diagrama de proporción: una impresora genera 84 páginas en 7 minutos y debe estimarse cuántos minutos tarda en generar 144 páginas."
       },
       "sourceOrder": 16,
       "rangeStart": 1,

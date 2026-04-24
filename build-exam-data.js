@@ -67,6 +67,11 @@ const REACTIVO_15_PROMPT_IMAGE = {
   alt: 'Diagrama de proporción: un autobús recorre 180 kilómetros con 15 litros de gasolina y debe estimarse cuánta gasolina necesita para recorrer 300 kilómetros.'
 };
 
+const REACTIVO_16_PROMPT_IMAGE = {
+  src: 'assets/reactivo-16/prompt/reactivo-16-impresora-paginas.png',
+  alt: 'Diagrama de proporción: una impresora genera 84 páginas en 7 minutos y debe estimarse cuántos minutos tarda en generar 144 páginas.'
+};
+
 function slugify(value) {
   return String(value || '')
     .normalize('NFD')
@@ -397,6 +402,17 @@ function applyExerciseOverrides(exercise) {
         kind: 'image',
         src: REACTIVO_15_PROMPT_IMAGE.src,
         alt: REACTIVO_15_PROMPT_IMAGE.alt
+      }
+    };
+  }
+
+  if (exercise.number === 16) {
+    return {
+      ...exercise,
+      visual: {
+        kind: 'image',
+        src: REACTIVO_16_PROMPT_IMAGE.src,
+        alt: REACTIVO_16_PROMPT_IMAGE.alt
       }
     };
   }
