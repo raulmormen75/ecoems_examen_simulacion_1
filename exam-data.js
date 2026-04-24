@@ -712,8 +712,9 @@ window.IFR_APP_DATA = {
         "e": "10: sobrecuenta regiones que no tienen contorno hexagonal completo."
       },
       "visual": {
-        "kind": "none",
-        "content": ""
+        "kind": "image",
+        "src": "assets/reactivo-12/prompt/reactivo-12-hexagonos.png",
+        "alt": "Figura formada por un hexágono central rodeado por seis hexágonos iguales; el contorno exterior forma un hexágono mayor."
       },
       "sourceOrder": 12,
       "rangeStart": 1,

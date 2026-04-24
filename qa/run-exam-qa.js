@@ -337,6 +337,57 @@ async function runReactivo11FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo11-mobile.png'), fullPage: true });
 }
 
+async function runReactivo12FigureChecks(page) {
+  log('Validando que el reactivo 12 muestre la figura de hexágonos en el planteamiento.');
+
+  await page.setViewportSize({ width: 1440, height: 1080 });
+  await startExam(page);
+  await advanceToExercise(page, 12);
+  await page.locator('#reactivo-12').waitFor();
+  await waitForLoadedImages(page, '#reactivo-12 .visual-panel img', 1, 'planteamiento del reactivo 12 en escritorio');
+
+  const imageReport = await page.evaluate(() => {
+    const card = document.querySelector('#reactivo-12');
+    const promptImage = card?.querySelector('.prompt-panel .visual-panel img');
+    const optionImages = card ? Array.from(card.querySelectorAll('.option-list img')) : [];
+    const promptPanel = card?.querySelector('.prompt-panel');
+    const optionList = card?.querySelector('.option-list');
+    return promptImage
+      ? {
+          src: promptImage.getAttribute('src'),
+          alt: promptImage.getAttribute('alt'),
+          naturalWidth: promptImage.naturalWidth,
+          naturalHeight: promptImage.naturalHeight,
+          optionImageCount: optionImages.length,
+          imageBeforeOptions: Boolean(promptPanel && optionList && (promptPanel.compareDocumentPosition(optionList) & Node.DOCUMENT_POSITION_FOLLOWING))
+        }
+      : null;
+  });
+
+  assert.ok(imageReport, 'No se detectó la imagen principal del reactivo 12.');
+  assert.ok(imageReport.src.includes('reactivo-12-hexagonos.png'), 'La imagen principal del reactivo 12 no corresponde al asset esperado.');
+  assert.equal(
+    imageReport.alt,
+    'Figura formada por un hexágono central rodeado por seis hexágonos iguales; el contorno exterior forma un hexágono mayor.',
+    'El texto alternativo del reactivo 12 no describe la figura esperada.'
+  );
+  assert.ok(imageReport.naturalWidth > 0 && imageReport.naturalHeight > 0, 'La imagen principal del reactivo 12 no cargó correctamente.');
+  assert.equal(imageReport.optionImageCount, 0, 'La imagen del reactivo 12 no debe insertarse dentro de las opciones.');
+  assert.equal(imageReport.imageBeforeOptions, true, 'La imagen del reactivo 12 debe aparecer en el planteamiento antes de las opciones.');
+  await checkNoHorizontalOverflow(page, 'reactivo 12 en escritorio');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo12-desktop.png'), fullPage: true });
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(APP_URL, { waitUntil: 'networkidle' });
+  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await advanceToExercise(page, 12);
+  await waitForLoadedImages(page, '#reactivo-12 .visual-panel img', 1, 'planteamiento del reactivo 12 en móvil');
+  const mobileOptionImages = await page.locator('#reactivo-12 .option-list img').count();
+  assert.equal(mobileOptionImages, 0, 'Las opciones del reactivo 12 no deben contener imágenes en móvil.');
+  await checkNoHorizontalOverflow(page, 'reactivo 12 en móvil');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo12-mobile.png'), fullPage: true });
+}
+
 async function runTimeoutChecks(page) {
   log('Validando cierre por tiempo y tratamiento de reactivos pendientes.');
 
@@ -387,6 +438,7 @@ async function main() {
     await runResponsiveChecks(page);
     await runReactivo8FigureChecks(page);
     await runReactivo11FigureChecks(page);
+    await runReactivo12FigureChecks(page);
     await runTimeoutChecks(page);
 
     assert.deepEqual(pageErrors, [], `Se detectaron errores de página: ${pageErrors.join(' | ')}`);

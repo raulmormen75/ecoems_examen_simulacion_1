@@ -47,6 +47,11 @@ const REACTIVO_11_PROMPT_IMAGE = {
   alt: 'Cuadrícula rectangular formada por 3 columnas y 2 filas de cuadrados iguales.'
 };
 
+const REACTIVO_12_PROMPT_IMAGE = {
+  src: 'assets/reactivo-12/prompt/reactivo-12-hexagonos.png',
+  alt: 'Figura formada por un hexágono central rodeado por seis hexágonos iguales; el contorno exterior forma un hexágono mayor.'
+};
+
 function slugify(value) {
   return String(value || '')
     .normalize('NFD')
@@ -333,6 +338,17 @@ function applyExerciseOverrides(exercise) {
         kind: 'image',
         src: REACTIVO_11_PROMPT_IMAGE.src,
         alt: REACTIVO_11_PROMPT_IMAGE.alt
+      }
+    };
+  }
+
+  if (exercise.number === 12) {
+    return {
+      ...exercise,
+      visual: {
+        kind: 'image',
+        src: REACTIVO_12_PROMPT_IMAGE.src,
+        alt: REACTIVO_12_PROMPT_IMAGE.alt
       }
     };
   }
