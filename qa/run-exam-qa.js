@@ -755,6 +755,7 @@ async function main() {
     await runReactivo16FigureChecks(page);
     await runReactivo44FigureChecks(page);
     await runInstructionRemovalRangeChecks(page, 17, 43);
+    await runInstructionRemovalRangeChecks(page, 45, 73);
     await runTimeoutChecks(page);
 
     assert.deepEqual(pageErrors, [], `Se detectaron errores de página: ${pageErrors.join(' | ')}`);
