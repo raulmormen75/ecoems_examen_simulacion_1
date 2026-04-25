@@ -592,17 +592,12 @@ async function runReactivo16FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo16-mobile.png'), fullPage: true });
 }
 
-async function runInstructionRemovalChecks(page, targetNumber) {
-  const exerciseId = `reactivo-${targetNumber}`;
+async function checkRemovedInstructionOnCurrentExercise(page, targetNumber) {
   const removedText = 'Lee el planteamiento, revisa el apoyo visual si aparece y selecciona una sola opción.';
-  log(`Validando que el reactivo ${targetNumber} no muestre la instrucción redundante en el encabezado.`);
-
-  await page.setViewportSize({ width: 1440, height: 1080 });
-  await startExam(page);
-  await advanceToExercise(page, targetNumber);
+  const exerciseId = `reactivo-${targetNumber}`;
   await page.locator(`#${exerciseId}`).waitFor();
 
-  const desktopReport = await page.evaluate(({ text, id }) => {
+  const report = await page.evaluate(({ text, id }) => {
     const card = document.querySelector(`#${id}`);
     const title = card?.querySelector('.card-title');
     return {
@@ -612,20 +607,44 @@ async function runInstructionRemovalChecks(page, targetNumber) {
     };
   }, { text: removedText, id: exerciseId });
 
-  assert.equal(desktopReport.hasRemovedText, false, `El reactivo ${targetNumber} todavía muestra la instrucción redundante.`);
-  assert.equal(desktopReport.heading, 'Resuelve este reactivo para continuar', `El encabezado principal del reactivo ${targetNumber} cambió inesperadamente.`);
-  assert.equal(desktopReport.headerParagraphCount, 0, `El encabezado del reactivo ${targetNumber} no debe conservar el párrafo instructivo.`);
-  await checkNoHorizontalOverflow(page, `reactivo ${targetNumber} en escritorio`);
-  await page.screenshot({ path: path.join(OUT_DIR, `qa-reactivo${targetNumber}-desktop.png`), fullPage: true });
+  assert.equal(report.hasRemovedText, false, `El reactivo ${targetNumber} todavía muestra la instrucción redundante.`);
+  assert.equal(report.heading, 'Resuelve este reactivo para continuar', `El encabezado principal del reactivo ${targetNumber} cambió inesperadamente.`);
+  assert.equal(report.headerParagraphCount, 0, `El encabezado del reactivo ${targetNumber} no debe conservar el párrafo instructivo.`);
+}
+
+async function runInstructionRemovalRangeChecks(page, startNumber, endNumber) {
+  log(`Validando que los reactivos ${startNumber} a ${endNumber} no muestren la instrucción redundante en el encabezado.`);
+
+  await page.setViewportSize({ width: 1440, height: 1080 });
+  await startExam(page);
+  await advanceToExercise(page, startNumber);
+  for (let targetNumber = startNumber; targetNumber <= endNumber; targetNumber += 1) {
+    await checkRemovedInstructionOnCurrentExercise(page, targetNumber);
+    await checkNoHorizontalOverflow(page, `reactivo ${targetNumber} en escritorio`);
+    if (targetNumber === startNumber || targetNumber === endNumber) {
+      await page.screenshot({ path: path.join(OUT_DIR, `qa-reactivo${targetNumber}-desktop.png`), fullPage: true });
+    }
+    if (targetNumber < endNumber) {
+      const exercise = await getExerciseData(page, targetNumber - 1);
+      await clickOption(page, exercise.id, exercise.correctOption);
+    }
+  }
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(APP_URL, { waitUntil: 'networkidle' });
   await page.getByRole('button', { name: 'Iniciar examen' }).click();
-  await advanceToExercise(page, targetNumber);
-  await page.locator(`#${exerciseId}`).waitFor();
-  assert.equal(await page.getByText(removedText).count(), 0, 'La instrucción redundante no debe aparecer en móvil.');
-  await checkNoHorizontalOverflow(page, `reactivo ${targetNumber} en móvil`);
-  await page.screenshot({ path: path.join(OUT_DIR, `qa-reactivo${targetNumber}-mobile.png`), fullPage: true });
+  await advanceToExercise(page, startNumber);
+  for (let targetNumber = startNumber; targetNumber <= endNumber; targetNumber += 1) {
+    await checkRemovedInstructionOnCurrentExercise(page, targetNumber);
+    await checkNoHorizontalOverflow(page, `reactivo ${targetNumber} en móvil`);
+    if (targetNumber === startNumber || targetNumber === endNumber) {
+      await page.screenshot({ path: path.join(OUT_DIR, `qa-reactivo${targetNumber}-mobile.png`), fullPage: true });
+    }
+    if (targetNumber < endNumber) {
+      const exercise = await getExerciseData(page, targetNumber - 1);
+      await clickOption(page, exercise.id, exercise.correctOption);
+    }
+  }
 }
 
 async function runTimeoutChecks(page) {
@@ -683,9 +702,7 @@ async function main() {
     await runReactivo14FigureChecks(page);
     await runReactivo15FigureChecks(page);
     await runReactivo16FigureChecks(page);
-    await runInstructionRemovalChecks(page, 17);
-    await runInstructionRemovalChecks(page, 19);
-    await runInstructionRemovalChecks(page, 20);
+    await runInstructionRemovalRangeChecks(page, 17, 43);
     await runTimeoutChecks(page);
 
     assert.deepEqual(pageErrors, [], `Se detectaron errores de página: ${pageErrors.join(' | ')}`);
