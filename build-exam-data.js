@@ -77,6 +77,11 @@ const REACTIVO_44_PROMPT_IMAGE = {
   alt: 'Modelo de partículas con tres conjuntos. X muestra átomos individuales del mismo tipo. Q muestra moléculas iguales formadas por dos átomos distintos unidos. Z muestra una mezcla de partículas distintas, con átomos sueltos y moléculas combinadas.'
 };
 
+const REACTIVO_74_PROMPT_IMAGE = {
+  src: 'assets/reactivo-74/prompt/reactivo-74-angulos-alternos-internos.png',
+  alt: 'Diagrama con dos rectas paralelas horizontales cortadas por una transversal inclinada. En la intersección superior los ángulos están numerados 1 arriba izquierda, 2 arriba derecha, 3 abajo derecha y 4 abajo izquierda. En la intersección inferior están numerados 5 arriba izquierda, 6 arriba derecha, 7 abajo derecha y 8 abajo izquierda.'
+};
+
 function slugify(value) {
   return String(value || '')
     .normalize('NFD')
@@ -429,6 +434,17 @@ function applyExerciseOverrides(exercise) {
         kind: 'image',
         src: REACTIVO_44_PROMPT_IMAGE.src,
         alt: REACTIVO_44_PROMPT_IMAGE.alt
+      }
+    };
+  }
+
+  if (exercise.number === 74) {
+    return {
+      ...exercise,
+      visual: {
+        kind: 'image',
+        src: REACTIVO_74_PROMPT_IMAGE.src,
+        alt: REACTIVO_74_PROMPT_IMAGE.alt
       }
     };
   }

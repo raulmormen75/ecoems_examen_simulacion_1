@@ -3942,8 +3942,9 @@ window.IFR_APP_DATA = {
         "e": "2 y 7: son exteriores, por eso no forman un par alterno interno."
       },
       "visual": {
-        "kind": "none",
-        "content": ""
+        "kind": "image",
+        "src": "assets/reactivo-74/prompt/reactivo-74-angulos-alternos-internos.png",
+        "alt": "Diagrama con dos rectas paralelas horizontales cortadas por una transversal inclinada. En la intersección superior los ángulos están numerados 1 arriba izquierda, 2 arriba derecha, 3 abajo derecha y 4 abajo izquierda. En la intersección inferior están numerados 5 arriba izquierda, 6 arriba derecha, 7 abajo derecha y 8 abajo izquierda."
       },
       "sourceOrder": 74,
       "rangeStart": 65,

@@ -643,6 +643,57 @@ async function runReactivo44FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo44-mobile.png'), fullPage: true });
 }
 
+async function runReactivo74FigureChecks(page) {
+  log('Validando que el reactivo 74 muestre el diagrama de paralelas y transversal en el planteamiento.');
+
+  await page.setViewportSize({ width: 1440, height: 1080 });
+  await startExam(page);
+  await advanceToExercise(page, 74);
+  await page.locator('#reactivo-74').waitFor();
+  await waitForLoadedImages(page, '#reactivo-74 .visual-panel img', 1, 'planteamiento del reactivo 74 en escritorio');
+
+  const imageReport = await page.evaluate(() => {
+    const card = document.querySelector('#reactivo-74');
+    const promptImage = card?.querySelector('.prompt-panel .visual-panel img');
+    const optionImages = card ? Array.from(card.querySelectorAll('.option-list img')) : [];
+    const promptPanel = card?.querySelector('.prompt-panel');
+    const optionList = card?.querySelector('.option-list');
+    return promptImage
+      ? {
+          src: promptImage.getAttribute('src'),
+          alt: promptImage.getAttribute('alt'),
+          naturalWidth: promptImage.naturalWidth,
+          naturalHeight: promptImage.naturalHeight,
+          optionImageCount: optionImages.length,
+          imageBeforeOptions: Boolean(promptPanel && optionList && (promptPanel.compareDocumentPosition(optionList) & Node.DOCUMENT_POSITION_FOLLOWING))
+        }
+      : null;
+  });
+
+  assert.ok(imageReport, 'No se detectó la imagen principal del reactivo 74.');
+  assert.ok(imageReport.src.includes('reactivo-74-angulos-alternos-internos.png'), 'La imagen principal del reactivo 74 no corresponde al asset esperado.');
+  assert.equal(
+    imageReport.alt,
+    'Diagrama con dos rectas paralelas horizontales cortadas por una transversal inclinada. En la intersección superior los ángulos están numerados 1 arriba izquierda, 2 arriba derecha, 3 abajo derecha y 4 abajo izquierda. En la intersección inferior están numerados 5 arriba izquierda, 6 arriba derecha, 7 abajo derecha y 8 abajo izquierda.',
+    'El texto alternativo del reactivo 74 no describe el apoyo visual esperado.'
+  );
+  assert.ok(imageReport.naturalWidth > 0 && imageReport.naturalHeight > 0, 'La imagen principal del reactivo 74 no cargó correctamente.');
+  assert.equal(imageReport.optionImageCount, 0, 'La imagen del reactivo 74 no debe insertarse dentro de las opciones.');
+  assert.equal(imageReport.imageBeforeOptions, true, 'La imagen del reactivo 74 debe aparecer en el planteamiento antes de las opciones.');
+  await checkNoHorizontalOverflow(page, 'reactivo 74 en escritorio');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo74-desktop.png'), fullPage: true });
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(APP_URL, { waitUntil: 'networkidle' });
+  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await advanceToExercise(page, 74);
+  await waitForLoadedImages(page, '#reactivo-74 .visual-panel img', 1, 'planteamiento del reactivo 74 en móvil');
+  const mobileOptionImages = await page.locator('#reactivo-74 .option-list img').count();
+  assert.equal(mobileOptionImages, 0, 'Las opciones del reactivo 74 no deben contener imágenes en móvil.');
+  await checkNoHorizontalOverflow(page, 'reactivo 74 en móvil');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo74-mobile.png'), fullPage: true });
+}
+
 async function checkRemovedInstructionOnCurrentExercise(page, targetNumber) {
   const removedText = 'Lee el planteamiento, revisa el apoyo visual si aparece y selecciona una sola opción.';
   const exerciseId = `reactivo-${targetNumber}`;
@@ -754,6 +805,7 @@ async function main() {
     await runReactivo15FigureChecks(page);
     await runReactivo16FigureChecks(page);
     await runReactivo44FigureChecks(page);
+    await runReactivo74FigureChecks(page);
     await runInstructionRemovalRangeChecks(page, 17, 43);
     await runInstructionRemovalRangeChecks(page, 45, 73);
     await runTimeoutChecks(page);
