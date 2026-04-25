@@ -72,6 +72,11 @@ const REACTIVO_16_PROMPT_IMAGE = {
   alt: 'Diagrama de proporción: una impresora genera 84 páginas en 7 minutos y debe estimarse cuántos minutos tarda en generar 144 páginas.'
 };
 
+const REACTIVO_44_PROMPT_IMAGE = {
+  src: 'assets/reactivo-44/prompt/reactivo-44-modelo-particulas.png',
+  alt: 'Modelo de partículas con tres conjuntos. X muestra átomos individuales del mismo tipo. Q muestra moléculas iguales formadas por dos átomos distintos unidos. Z muestra una mezcla de partículas distintas, con átomos sueltos y moléculas combinadas.'
+};
+
 function slugify(value) {
   return String(value || '')
     .normalize('NFD')
@@ -413,6 +418,17 @@ function applyExerciseOverrides(exercise) {
         kind: 'image',
         src: REACTIVO_16_PROMPT_IMAGE.src,
         alt: REACTIVO_16_PROMPT_IMAGE.alt
+      }
+    };
+  }
+
+  if (exercise.number === 44) {
+    return {
+      ...exercise,
+      visual: {
+        kind: 'image',
+        src: REACTIVO_44_PROMPT_IMAGE.src,
+        alt: REACTIVO_44_PROMPT_IMAGE.alt
       }
     };
   }

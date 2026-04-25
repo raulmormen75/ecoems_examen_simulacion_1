@@ -2381,8 +2381,9 @@ window.IFR_APP_DATA = {
         "e": "compuesto, mezcla, elemento: no respeta la descripción de cada conjunto de partículas."
       },
       "visual": {
-        "kind": "none",
-        "content": ""
+        "kind": "image",
+        "src": "assets/reactivo-44/prompt/reactivo-44-modelo-particulas.png",
+        "alt": "Modelo de partículas con tres conjuntos. X muestra átomos individuales del mismo tipo. Q muestra moléculas iguales formadas por dos átomos distintos unidos. Z muestra una mezcla de partículas distintas, con átomos sueltos y moléculas combinadas."
       },
       "sourceOrder": 44,
       "rangeStart": 41,

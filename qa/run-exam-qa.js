@@ -592,6 +592,57 @@ async function runReactivo16FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo16-mobile.png'), fullPage: true });
 }
 
+async function runReactivo44FigureChecks(page) {
+  log('Validando que el reactivo 44 muestre el modelo de partículas en el planteamiento.');
+
+  await page.setViewportSize({ width: 1440, height: 1080 });
+  await startExam(page);
+  await advanceToExercise(page, 44);
+  await page.locator('#reactivo-44').waitFor();
+  await waitForLoadedImages(page, '#reactivo-44 .visual-panel img', 1, 'planteamiento del reactivo 44 en escritorio');
+
+  const imageReport = await page.evaluate(() => {
+    const card = document.querySelector('#reactivo-44');
+    const promptImage = card?.querySelector('.prompt-panel .visual-panel img');
+    const optionImages = card ? Array.from(card.querySelectorAll('.option-list img')) : [];
+    const promptPanel = card?.querySelector('.prompt-panel');
+    const optionList = card?.querySelector('.option-list');
+    return promptImage
+      ? {
+          src: promptImage.getAttribute('src'),
+          alt: promptImage.getAttribute('alt'),
+          naturalWidth: promptImage.naturalWidth,
+          naturalHeight: promptImage.naturalHeight,
+          optionImageCount: optionImages.length,
+          imageBeforeOptions: Boolean(promptPanel && optionList && (promptPanel.compareDocumentPosition(optionList) & Node.DOCUMENT_POSITION_FOLLOWING))
+        }
+      : null;
+  });
+
+  assert.ok(imageReport, 'No se detectó la imagen principal del reactivo 44.');
+  assert.ok(imageReport.src.includes('reactivo-44-modelo-particulas.png'), 'La imagen principal del reactivo 44 no corresponde al asset esperado.');
+  assert.equal(
+    imageReport.alt,
+    'Modelo de partículas con tres conjuntos. X muestra átomos individuales del mismo tipo. Q muestra moléculas iguales formadas por dos átomos distintos unidos. Z muestra una mezcla de partículas distintas, con átomos sueltos y moléculas combinadas.',
+    'El texto alternativo del reactivo 44 no describe el apoyo visual esperado.'
+  );
+  assert.ok(imageReport.naturalWidth > 0 && imageReport.naturalHeight > 0, 'La imagen principal del reactivo 44 no cargó correctamente.');
+  assert.equal(imageReport.optionImageCount, 0, 'La imagen del reactivo 44 no debe insertarse dentro de las opciones.');
+  assert.equal(imageReport.imageBeforeOptions, true, 'La imagen del reactivo 44 debe aparecer en el planteamiento antes de las opciones.');
+  await checkNoHorizontalOverflow(page, 'reactivo 44 en escritorio');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo44-desktop.png'), fullPage: true });
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(APP_URL, { waitUntil: 'networkidle' });
+  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await advanceToExercise(page, 44);
+  await waitForLoadedImages(page, '#reactivo-44 .visual-panel img', 1, 'planteamiento del reactivo 44 en móvil');
+  const mobileOptionImages = await page.locator('#reactivo-44 .option-list img').count();
+  assert.equal(mobileOptionImages, 0, 'Las opciones del reactivo 44 no deben contener imágenes en móvil.');
+  await checkNoHorizontalOverflow(page, 'reactivo 44 en móvil');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo44-mobile.png'), fullPage: true });
+}
+
 async function checkRemovedInstructionOnCurrentExercise(page, targetNumber) {
   const removedText = 'Lee el planteamiento, revisa el apoyo visual si aparece y selecciona una sola opción.';
   const exerciseId = `reactivo-${targetNumber}`;
@@ -702,6 +753,7 @@ async function main() {
     await runReactivo14FigureChecks(page);
     await runReactivo15FigureChecks(page);
     await runReactivo16FigureChecks(page);
+    await runReactivo44FigureChecks(page);
     await runInstructionRemovalRangeChecks(page, 17, 43);
     await runTimeoutChecks(page);
 
