@@ -82,6 +82,30 @@ const REACTIVO_74_PROMPT_IMAGE = {
   alt: 'Diagrama con dos rectas paralelas horizontales cortadas por una transversal inclinada. En la intersección superior los ángulos están numerados 1 arriba izquierda, 2 arriba derecha, 3 abajo derecha y 4 abajo izquierda. En la intersección inferior están numerados 5 arriba izquierda, 6 arriba derecha, 7 abajo derecha y 8 abajo izquierda.'
 };
 
+const PROMPT_MARKS_BY_REACTIVO = {
+  32: [{ text: 'por eso', style: 'underline' }],
+  33: [
+    { text: 'Primero', style: 'highlight' },
+    { text: 'después', style: 'highlight' },
+    { text: 'finalmente', style: 'highlight' }
+  ],
+  34: [{ text: 'sin embargo', style: 'highlight' }],
+  37: [
+    { text: 'vieja', style: 'underline' },
+    { text: 'altos', style: 'underline' },
+    { text: 'angostas', style: 'underline' },
+    { text: 'silencioso', style: 'underline' }
+  ],
+  84: [{ text: 'LEALTAD – VIRTUD', style: 'highlight' }],
+  85: [{ text: 'HUMO – FUEGO', style: 'highlight' }],
+  86: [{ text: 'OVEJA – REBAÑO', style: 'highlight' }],
+  87: [{ text: 'APROBÓ', style: 'highlight' }],
+  88: [{ text: 'FRECUENTE', style: 'highlight' }],
+  89: [{ text: 'AUSTERIDAD', style: 'highlight' }],
+  91: [{ text: 'AMBIGUO', style: 'highlight' }],
+  92: [{ text: 'ASOMBRO', style: 'highlight' }]
+};
+
 function buildReactivo7SequenceSvg() {
   const figures = [
     {
@@ -389,9 +413,17 @@ function buildReactivo8OptionSvg({ squareCount, markerShape, markerPosition }) {
 }
 
 function applyExerciseOverrides(exercise) {
+  const promptMarks = PROMPT_MARKS_BY_REACTIVO[exercise.number];
+  const exerciseWithPromptMarks = promptMarks
+    ? {
+        ...exercise,
+        promptMarks
+      }
+    : exercise;
+
   if (exercise.number === 7) {
     return {
-      ...exercise,
+      ...exerciseWithPromptMarks,
       visual: {
         kind: 'svg',
         content: buildReactivo7SequenceSvg()
@@ -401,7 +433,7 @@ function applyExerciseOverrides(exercise) {
 
   if (exercise.number === 8) {
     return {
-      ...exercise,
+      ...exerciseWithPromptMarks,
       options: exercise.options.map((option) => {
         const image = REACTIVO_8_OPTION_IMAGES[option.label];
         if (!image) return option;
@@ -424,7 +456,7 @@ function applyExerciseOverrides(exercise) {
 
   if (exercise.number === 11) {
     return {
-      ...exercise,
+      ...exerciseWithPromptMarks,
       visual: {
         kind: 'image',
         src: REACTIVO_11_PROMPT_IMAGE.src,
@@ -435,7 +467,7 @@ function applyExerciseOverrides(exercise) {
 
   if (exercise.number === 12) {
     return {
-      ...exercise,
+      ...exerciseWithPromptMarks,
       visual: {
         kind: 'image',
         src: REACTIVO_12_PROMPT_IMAGE.src,
@@ -446,7 +478,7 @@ function applyExerciseOverrides(exercise) {
 
   if (exercise.number === 13) {
     return {
-      ...exercise,
+      ...exerciseWithPromptMarks,
       visual: {
         kind: 'image',
         src: REACTIVO_13_PROMPT_IMAGE.src,
@@ -457,7 +489,7 @@ function applyExerciseOverrides(exercise) {
 
   if (exercise.number === 14) {
     return {
-      ...exercise,
+      ...exerciseWithPromptMarks,
       visual: {
         kind: 'image',
         src: REACTIVO_14_PROMPT_IMAGE.src,
@@ -468,7 +500,7 @@ function applyExerciseOverrides(exercise) {
 
   if (exercise.number === 15) {
     return {
-      ...exercise,
+      ...exerciseWithPromptMarks,
       visual: {
         kind: 'image',
         src: REACTIVO_15_PROMPT_IMAGE.src,
@@ -479,7 +511,7 @@ function applyExerciseOverrides(exercise) {
 
   if (exercise.number === 16) {
     return {
-      ...exercise,
+      ...exerciseWithPromptMarks,
       visual: {
         kind: 'image',
         src: REACTIVO_16_PROMPT_IMAGE.src,
@@ -490,7 +522,7 @@ function applyExerciseOverrides(exercise) {
 
   if (exercise.number === 44) {
     return {
-      ...exercise,
+      ...exerciseWithPromptMarks,
       visual: {
         kind: 'image',
         src: REACTIVO_44_PROMPT_IMAGE.src,
@@ -501,7 +533,7 @@ function applyExerciseOverrides(exercise) {
 
   if (exercise.number === 74) {
     return {
-      ...exercise,
+      ...exerciseWithPromptMarks,
       visual: {
         kind: 'image',
         src: REACTIVO_74_PROMPT_IMAGE.src,
@@ -510,7 +542,7 @@ function applyExerciseOverrides(exercise) {
     };
   }
 
-  return exercise;
+  return exerciseWithPromptMarks;
 }
 
 function collectAreaHeaders(text) {

@@ -295,6 +295,60 @@ async function runReactivo7FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo7-mobile.png'), fullPage: true });
 }
 
+async function runPromptMarkChecks(page) {
+  log('Validando subrayados y resaltados en reactivos de Español y Habilidad verbal.');
+
+  const expectedMarks = [
+    { number: 32, underline: ['por eso'], highlight: [] },
+    { number: 33, underline: [], highlight: ['Primero', 'después', 'finalmente'] },
+    { number: 34, underline: [], highlight: ['sin embargo'] },
+    { number: 37, underline: ['vieja', 'altos', 'angostas', 'silencioso'], highlight: [] },
+    { number: 84, underline: [], highlight: ['LEALTAD – VIRTUD'] },
+    { number: 85, underline: [], highlight: ['HUMO – FUEGO'] },
+    { number: 86, underline: [], highlight: ['OVEJA – REBAÑO'] },
+    { number: 87, underline: [], highlight: ['APROBÓ'] },
+    { number: 88, underline: [], highlight: ['FRECUENTE'] },
+    { number: 89, underline: [], highlight: ['AUSTERIDAD'] },
+    { number: 91, underline: [], highlight: ['AMBIGUO'] },
+    { number: 92, underline: [], highlight: ['ASOMBRO'] }
+  ];
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await startExam(page);
+  await advanceToExercise(page, expectedMarks[0].number);
+
+  let currentNumber = expectedMarks[0].number;
+  for (const expected of expectedMarks) {
+    for (let exerciseNumber = currentNumber; exerciseNumber < expected.number; exerciseNumber += 1) {
+      const exercise = await getExerciseData(page, exerciseNumber - 1);
+      await clickOption(page, exercise.id, exercise.correctOption);
+    }
+    currentNumber = expected.number;
+    await page.locator(`#reactivo-${expected.number}`).waitFor();
+
+    const report = await page.evaluate((number) => {
+      const card = document.querySelector(`#reactivo-${number}`);
+      const promptPanel = card?.querySelector('.prompt-panel');
+      const underline = promptPanel ? Array.from(promptPanel.querySelectorAll('.prompt-mark-underline')).map((node) => node.textContent.trim()) : [];
+      const highlight = promptPanel ? Array.from(promptPanel.querySelectorAll('.prompt-mark-highlight')).map((node) => node.textContent.trim()) : [];
+      return {
+        underline,
+        highlight,
+        optionMarkCount: card ? card.querySelectorAll('.option-list .prompt-mark').length : 0
+      };
+    }, expected.number);
+
+    assert.deepEqual(report.underline, expected.underline, `El reactivo ${expected.number} no tiene los subrayados esperados.`);
+    assert.deepEqual(report.highlight, expected.highlight, `El reactivo ${expected.number} no tiene los resaltados esperados.`);
+    assert.equal(report.optionMarkCount, 0, `Las opciones del reactivo ${expected.number} no deben recibir marcas del planteamiento.`);
+    await checkNoHorizontalOverflow(page, `marcas del reactivo ${expected.number} en móvil`);
+
+    if (expected.number === 32 || expected.number === 84 || expected.number === 92) {
+      await page.screenshot({ path: path.join(OUT_DIR, `qa-reactivo${expected.number}-marcas-mobile.png`), fullPage: true });
+    }
+  }
+}
+
 async function runReactivo8FigureChecks(page) {
   log('Validando que el reactivo 8 muestre figuras reales en el planteamiento y las opciones.');
 
@@ -893,6 +947,7 @@ async function main() {
     await runFlowChecks(page);
     await runResponsiveChecks(page);
     await runReactivo7FigureChecks(page);
+    await runPromptMarkChecks(page);
     await runReactivo8FigureChecks(page);
     await runReactivo11FigureChecks(page);
     await runReactivo12FigureChecks(page);

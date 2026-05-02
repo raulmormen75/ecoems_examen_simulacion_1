@@ -94,7 +94,49 @@
       .replace(/'/g, '&#39;');
   }
 
-  function textToParagraphs(value) {
+  function renderMarkedText(value, marks = []) {
+    const text = String(value ?? '');
+    const ranges = [];
+
+    for (const mark of marks) {
+      const needle = String(mark.text || '');
+      if (!needle) continue;
+      let fromIndex = 0;
+      let index = text.indexOf(needle, fromIndex);
+      while (index >= 0) {
+        ranges.push({
+          start: index,
+          end: index + needle.length,
+          style: mark.style === 'underline' ? 'underline' : 'highlight'
+        });
+        fromIndex = index + needle.length;
+        index = text.indexOf(needle, fromIndex);
+      }
+    }
+
+    const cleanRanges = ranges
+      .sort((left, right) => left.start - right.start || right.end - left.end)
+      .reduce((accepted, range) => {
+        const previous = accepted[accepted.length - 1];
+        if (previous && range.start < previous.end) return accepted;
+        accepted.push(range);
+        return accepted;
+      }, []);
+
+    if (!cleanRanges.length) return esc(text);
+
+    let cursor = 0;
+    let html = '';
+    for (const range of cleanRanges) {
+      html += esc(text.slice(cursor, range.start));
+      html += `<span class="prompt-mark prompt-mark-${range.style}">${esc(text.slice(range.start, range.end))}</span>`;
+      cursor = range.end;
+    }
+    html += esc(text.slice(cursor));
+    return html;
+  }
+
+  function textToParagraphs(value, marks = []) {
     const blocks = String(value || '')
       .split(/\n{2,}/)
       .map((block) => block.trim())
@@ -105,7 +147,7 @@
     return blocks
       .map((block) => {
         const lines = block.split('\n').map((line) => line.trim()).filter(Boolean);
-        return `<div class="prompt-text">${lines.map((line) => `<p>${esc(line)}</p>`).join('')}</div>`;
+        return `<div class="prompt-text">${lines.map((line) => `<p>${renderMarkedText(line, marks)}</p>`).join('')}</div>`;
       })
       .join('');
   }
@@ -438,7 +480,7 @@
         </header>
         <div class="card-body">
           <section class="prompt-panel">
-            ${textToParagraphs(exercise.prompt)}
+            ${textToParagraphs(exercise.prompt, exercise.promptMarks)}
             ${renderVisual(exercise.visual)}
           </section>
           <section class="option-list">
@@ -499,7 +541,7 @@
         expanded
           ? `<div class="card-body">
               <section class="prompt-panel">
-                ${textToParagraphs(exercise.prompt)}
+                ${textToParagraphs(exercise.prompt, exercise.promptMarks)}
                 ${renderVisual(exercise.visual)}
               </section>
               <section class="option-list">${optionMarkup}</section>

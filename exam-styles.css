@@ -878,6 +878,27 @@ main{
   color:var(--ink);
 }
 
+.prompt-mark{
+  display:inline;
+  box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;
+  font-weight:800;
+}
+
+.prompt-mark-underline{
+  text-decoration-line:underline;
+  text-decoration-thickness:.16em;
+  text-underline-offset:.18em;
+  text-decoration-color:rgba(28,30,90,.72);
+}
+
+.prompt-mark-highlight{
+  padding:.03em .22em;
+  border-radius:6px;
+  background:rgba(44,229,30,.18);
+  color:var(--n2);
+}
+
 .visual-panel{
   padding:16px;
   border-radius:20px;

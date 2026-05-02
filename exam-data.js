@@ -1762,7 +1762,13 @@ window.IFR_APP_DATA = {
       },
       "sourceOrder": 32,
       "rangeStart": 29,
-      "rangeEnd": 40
+      "rangeEnd": 40,
+      "promptMarks": [
+        {
+          "text": "por eso",
+          "style": "underline"
+        }
+      ]
     },
     {
       "id": "reactivo-33",
@@ -1814,7 +1820,21 @@ window.IFR_APP_DATA = {
       },
       "sourceOrder": 33,
       "rangeStart": 29,
-      "rangeEnd": 40
+      "rangeEnd": 40,
+      "promptMarks": [
+        {
+          "text": "Primero",
+          "style": "highlight"
+        },
+        {
+          "text": "después",
+          "style": "highlight"
+        },
+        {
+          "text": "finalmente",
+          "style": "highlight"
+        }
+      ]
     },
     {
       "id": "reactivo-34",
@@ -1866,7 +1886,13 @@ window.IFR_APP_DATA = {
       },
       "sourceOrder": 34,
       "rangeStart": 29,
-      "rangeEnd": 40
+      "rangeEnd": 40,
+      "promptMarks": [
+        {
+          "text": "sin embargo",
+          "style": "highlight"
+        }
+      ]
     },
     {
       "id": "reactivo-35",
@@ -2022,7 +2048,25 @@ window.IFR_APP_DATA = {
       },
       "sourceOrder": 37,
       "rangeStart": 29,
-      "rangeEnd": 40
+      "rangeEnd": 40,
+      "promptMarks": [
+        {
+          "text": "vieja",
+          "style": "underline"
+        },
+        {
+          "text": "altos",
+          "style": "underline"
+        },
+        {
+          "text": "angostas",
+          "style": "underline"
+        },
+        {
+          "text": "silencioso",
+          "style": "underline"
+        }
+      ]
     },
     {
       "id": "reactivo-38",
@@ -4468,7 +4512,13 @@ window.IFR_APP_DATA = {
       },
       "sourceOrder": 84,
       "rangeStart": 77,
-      "rangeEnd": 92
+      "rangeEnd": 92,
+      "promptMarks": [
+        {
+          "text": "LEALTAD – VIRTUD",
+          "style": "highlight"
+        }
+      ]
     },
     {
       "id": "reactivo-85",
@@ -4520,7 +4570,13 @@ window.IFR_APP_DATA = {
       },
       "sourceOrder": 85,
       "rangeStart": 77,
-      "rangeEnd": 92
+      "rangeEnd": 92,
+      "promptMarks": [
+        {
+          "text": "HUMO – FUEGO",
+          "style": "highlight"
+        }
+      ]
     },
     {
       "id": "reactivo-86",
@@ -4572,7 +4628,13 @@ window.IFR_APP_DATA = {
       },
       "sourceOrder": 86,
       "rangeStart": 77,
-      "rangeEnd": 92
+      "rangeEnd": 92,
+      "promptMarks": [
+        {
+          "text": "OVEJA – REBAÑO",
+          "style": "highlight"
+        }
+      ]
     },
     {
       "id": "reactivo-87",
@@ -4624,7 +4686,13 @@ window.IFR_APP_DATA = {
       },
       "sourceOrder": 87,
       "rangeStart": 77,
-      "rangeEnd": 92
+      "rangeEnd": 92,
+      "promptMarks": [
+        {
+          "text": "APROBÓ",
+          "style": "highlight"
+        }
+      ]
     },
     {
       "id": "reactivo-88",
@@ -4676,7 +4744,13 @@ window.IFR_APP_DATA = {
       },
       "sourceOrder": 88,
       "rangeStart": 77,
-      "rangeEnd": 92
+      "rangeEnd": 92,
+      "promptMarks": [
+        {
+          "text": "FRECUENTE",
+          "style": "highlight"
+        }
+      ]
     },
     {
       "id": "reactivo-89",
@@ -4728,7 +4802,13 @@ window.IFR_APP_DATA = {
       },
       "sourceOrder": 89,
       "rangeStart": 77,
-      "rangeEnd": 92
+      "rangeEnd": 92,
+      "promptMarks": [
+        {
+          "text": "AUSTERIDAD",
+          "style": "highlight"
+        }
+      ]
     },
     {
       "id": "reactivo-90",
@@ -4832,7 +4912,13 @@ window.IFR_APP_DATA = {
       },
       "sourceOrder": 91,
       "rangeStart": 77,
-      "rangeEnd": 92
+      "rangeEnd": 92,
+      "promptMarks": [
+        {
+          "text": "AMBIGUO",
+          "style": "highlight"
+        }
+      ]
     },
     {
       "id": "reactivo-92",
@@ -4884,7 +4970,13 @@ window.IFR_APP_DATA = {
       },
       "sourceOrder": 92,
       "rangeStart": 77,
-      "rangeEnd": 92
+      "rangeEnd": 92,
+      "promptMarks": [
+        {
+          "text": "ASOMBRO",
+          "style": "highlight"
+        }
+      ]
     },
     {
       "id": "reactivo-93",
