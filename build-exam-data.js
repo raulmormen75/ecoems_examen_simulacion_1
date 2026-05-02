@@ -586,6 +586,7 @@ function parseReactivoBlock(lines, areasByName) {
 
   const areaLineIndex = findLineIndex(bodyLines, (line) => /^Área temática:\s*/.test(line));
   const blockLineIndex = findLineIndex(bodyLines, (line) => /^Bloque que corresponde al área temática:\s*/.test(line));
+  const textBaseIndex = findLineIndex(bodyLines, (line) => /^Texto base:\s*$/i.test(line.trim()));
   const promptIndex = bodyLines.indexOf(FIELD_LABELS.prompt);
   const optionsIndex = bodyLines.indexOf(FIELD_LABELS.options);
   const hintIndex = bodyLines.indexOf(FIELD_LABELS.hint);
@@ -599,7 +600,13 @@ function parseReactivoBlock(lines, areasByName) {
 
   const areaName = bodyLines[areaLineIndex].replace(/^Área temática:\s*/, '').trim();
   const block = bodyLines[blockLineIndex].replace(/^Bloque que corresponde al área temática:\s*/, '').trim();
-  const promptLines = sliceBetween(bodyLines, promptIndex + 1, optionsIndex);
+  const textBaseLines = textBaseIndex >= 0 && textBaseIndex < promptIndex
+    ? sliceBetween(bodyLines, textBaseIndex + 1, promptIndex)
+    : [];
+  const promptLines = [
+    ...(textBaseLines.length ? ['Texto base:', ...textBaseLines, ''] : []),
+    ...sliceBetween(bodyLines, promptIndex + 1, optionsIndex)
+  ];
   const optionLines = sliceBetween(bodyLines, optionsIndex + 1, hintIndex);
   const hintLines = sliceBetween(bodyLines, hintIndex + 1, correctIndex);
   const correctAnswerLines = sliceBetween(bodyLines, correctIndex + 1, correctArgIndex);

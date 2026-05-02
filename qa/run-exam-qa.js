@@ -349,6 +349,49 @@ async function runPromptMarkChecks(page) {
   }
 }
 
+async function runReactivo80TextBaseChecks(page) {
+  log('Validando que el reactivo 80 muestre el texto base completo antes de la pregunta.');
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await startExam(page);
+  await advanceToExercise(page, 80);
+  await page.locator('#reactivo-80').waitFor();
+
+  const report = await page.evaluate(() => {
+    const card = document.querySelector('#reactivo-80');
+    const promptText = card?.querySelector('.prompt-panel')?.innerText || '';
+    const optionTexts = card ? Array.from(card.querySelectorAll('.option-list .option-copy')).map((option) => option.innerText.trim()) : [];
+    return {
+      hasTextBaseLabel: promptText.includes('Texto base:'),
+      hasOpeningSentence: promptText.includes('Las profundidades marinas siguen siendo una de las regiones menos conocidas del planeta.'),
+      hasSecondParagraph: promptText.includes('Sin embargo, la investigación del fondo marino aún enfrenta grandes obstáculos.'),
+      hasQuestion: promptText.includes('¿Cuál es el tema central del texto?'),
+      questionAfterTextBase: promptText.indexOf('¿Cuál es el tema central del texto?') > promptText.indexOf('Las profundidades marinas siguen siendo'),
+      optionTexts,
+      hasHorizontalOverflow: document.documentElement.scrollWidth > window.innerWidth
+    };
+  });
+
+  assert.equal(report.hasTextBaseLabel, true, 'El reactivo 80 debe mostrar la etiqueta Texto base.');
+  assert.equal(report.hasOpeningSentence, true, 'El reactivo 80 no muestra el inicio del texto base.');
+  assert.equal(report.hasSecondParagraph, true, 'El reactivo 80 no muestra el segundo párrafo del texto base.');
+  assert.equal(report.hasQuestion, true, 'El reactivo 80 debe conservar la pregunta.');
+  assert.equal(report.questionAfterTextBase, true, 'La pregunta del reactivo 80 debe aparecer después del texto base.');
+  assert.deepEqual(
+    report.optionTexts,
+    [
+      'La pesca comercial en mares profundos',
+      'La exploración científica de las profundidades marinas',
+      'Los viajes turísticos en submarinos',
+      'La historia completa de todos los océanos',
+      'La contaminación de los puertos industriales'
+    ],
+    'Las opciones del reactivo 80 no deben modificarse.'
+  );
+  assert.equal(report.hasHorizontalOverflow, false, 'El reactivo 80 no debe generar desborde horizontal en móvil.');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo80-texto-base-mobile.png'), fullPage: true });
+}
+
 async function runReactivo8FigureChecks(page) {
   log('Validando que el reactivo 8 muestre figuras reales en el planteamiento y las opciones.');
 
@@ -948,6 +991,7 @@ async function main() {
     await runResponsiveChecks(page);
     await runReactivo7FigureChecks(page);
     await runPromptMarkChecks(page);
+    await runReactivo80TextBaseChecks(page);
     await runReactivo8FigureChecks(page);
     await runReactivo11FigureChecks(page);
     await runReactivo12FigureChecks(page);

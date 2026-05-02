@@ -4260,7 +4260,7 @@ window.IFR_APP_DATA = {
       "areaId": "habilidad-verbal",
       "areaName": "Habilidad verbal",
       "block": "Comprensión lectora, tema",
-      "prompt": "¿Cuál es el tema central del texto?",
+      "prompt": "Texto base:\nLas profundidades marinas siguen siendo una de las regiones menos conocidas del planeta. Aunque los océanos cubren gran parte de la superficie terrestre, durante siglos la exploración humana se limitó a sus capas más cercanas. En las últimas décadas, el desarrollo de submarinos, sensores y robots de alta presión ha permitido obtener imágenes, muestras y registros que antes eran imposibles. Gracias a ello, hoy se conocen mejor algunas fosas oceánicas, volcanes submarinos y comunidades de organismos que viven sin luz solar.\n\nSin embargo, la investigación del fondo marino aún enfrenta grandes obstáculos. La presión extrema, la oscuridad permanente y el alto costo de las expediciones limitan el estudio directo de muchas zonas. Por esa razón, todavía no se sabe con precisión cuántas especies habitan en las mayores profundidades ni qué procesos químicos ocurren en todos esos ambientes. Algunos especialistas consideran posible que en esos lugares existan organismos aún desconocidos, capaces de aportar información valiosa sobre el origen de la vida o sobre nuevas sustancias útiles para la medicina.\n\n¿Cuál es el tema central del texto?",
       "options": [
         {
           "label": "a",
