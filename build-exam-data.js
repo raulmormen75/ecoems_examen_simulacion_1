@@ -198,6 +198,59 @@ function sliceBetween(lines, startIndex, endIndex) {
   return trimBlock(lines.slice(startIndex, endIndex));
 }
 
+function findReactivoTrailingSectionIndex(lines, startIndex) {
+  return findLineIndex(lines, (line, index) => {
+    if (index < startIndex) return false;
+    const value = line.trim();
+    return (
+      value === '---' ||
+      /^TEXTO BASE PARA LOS REACTIVOS\b/i.test(value) ||
+      /^ÁREA TEMÁTICA:\s*/.test(value)
+    );
+  });
+}
+
+function parseSharedTextBaseHeader(line) {
+  return line.trim().match(/^TEXTO BASE PARA LOS REACTIVOS\s+(\d+)\s+AL\s+(\d+)$/i);
+}
+
+function isSharedTextBaseBoundary(line) {
+  const value = line.trim();
+  return (
+    value === '---' ||
+    /^REACTIVO\s+\d+$/.test(value) ||
+    /^ÁREA TEMÁTICA:\s*/.test(value) ||
+    Boolean(parseSharedTextBaseHeader(value))
+  );
+}
+
+function collectSharedTextBases(lines) {
+  const textBasesByReactivo = new Map();
+
+  lines.forEach((line, index) => {
+    const match = parseSharedTextBaseHeader(line);
+    if (!match) return;
+
+    const rangeStart = Number(match[1]);
+    const rangeEnd = Number(match[2]);
+    let endIndex = lines.length;
+
+    for (let cursor = index + 1; cursor < lines.length; cursor += 1) {
+      if (isSharedTextBaseBoundary(lines[cursor])) {
+        endIndex = cursor;
+        break;
+      }
+    }
+
+    const textBaseLines = sliceBetween(lines, index + 1, endIndex);
+    for (let number = rangeStart; number <= rangeEnd; number += 1) {
+      textBasesByReactivo.set(number, textBaseLines);
+    }
+  });
+
+  return textBasesByReactivo;
+}
+
 function parseLabeledItems(lines) {
   const items = [];
   let current = null;
@@ -564,7 +617,7 @@ function collectAreaHeaders(text) {
   return areas;
 }
 
-function parseReactivoBlock(lines, areasByName) {
+function parseReactivoBlock(lines, areasByName, sharedTextBaseLines = []) {
   const numberMatch = lines[0].match(/^REACTIVO\s+(\d+)$/);
   if (!numberMatch) {
     throw new Error(`No se pudo leer el número del bloque: ${lines[0]}`);
@@ -602,7 +655,7 @@ function parseReactivoBlock(lines, areasByName) {
   const block = bodyLines[blockLineIndex].replace(/^Bloque que corresponde al área temática:\s*/, '').trim();
   const textBaseLines = textBaseIndex >= 0 && textBaseIndex < promptIndex
     ? sliceBetween(bodyLines, textBaseIndex + 1, promptIndex)
-    : [];
+    : sharedTextBaseLines;
   const promptLines = [
     ...(textBaseLines.length ? ['Texto base:', ...textBaseLines, ''] : []),
     ...sliceBetween(bodyLines, promptIndex + 1, optionsIndex)
@@ -611,7 +664,12 @@ function parseReactivoBlock(lines, areasByName) {
   const hintLines = sliceBetween(bodyLines, hintIndex + 1, correctIndex);
   const correctAnswerLines = sliceBetween(bodyLines, correctIndex + 1, correctArgIndex);
   const correctArgumentLines = sliceBetween(bodyLines, correctArgIndex + 1, incorrectArgsIndex);
-  const incorrectArgumentLines = sliceBetween(bodyLines, incorrectArgsIndex + 1, bodyLines.length);
+  const trailingSectionIndex = findReactivoTrailingSectionIndex(bodyLines, incorrectArgsIndex + 1);
+  const incorrectArgumentLines = sliceBetween(
+    bodyLines,
+    incorrectArgsIndex + 1,
+    trailingSectionIndex >= 0 ? trailingSectionIndex : bodyLines.length
+  );
 
   const promptParts = splitPromptAndVisual(promptLines);
   const options = parseLabeledItems(optionLines).map((option) => ({
@@ -662,6 +720,7 @@ function main() {
   const areas = collectAreaHeaders(text);
   const areasByName = new Map(areas.map((area) => [area.id, area]));
   const lines = text.split('\n');
+  const sharedTextBases = collectSharedTextBases(lines);
   const starts = [];
 
   lines.forEach((line, index) => {
@@ -672,7 +731,8 @@ function main() {
 
   const exercises = starts.map((startIndex, index) => {
     const endIndex = index + 1 < starts.length ? starts[index + 1] : lines.length;
-    return parseReactivoBlock(lines.slice(startIndex, endIndex), areasByName);
+    const number = Number(lines[startIndex].trim().match(/^REACTIVO\s+(\d+)$/)[1]);
+    return parseReactivoBlock(lines.slice(startIndex, endIndex), areasByName, sharedTextBases.get(number));
   }).map(applyExerciseOverrides);
 
   const areaCountMap = exercises.reduce((accumulator, exercise) => {

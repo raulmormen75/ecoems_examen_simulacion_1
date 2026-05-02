@@ -4104,7 +4104,7 @@ window.IFR_APP_DATA = {
       "areaId": "habilidad-verbal",
       "areaName": "Habilidad verbal",
       "block": "Comprensión lectora, sentido global",
-      "prompt": "Según el sentido global del texto, los avances en la exploración de las profundidades marinas han sido",
+      "prompt": "Texto base:\nLas profundidades marinas siguen siendo una de las regiones menos conocidas del planeta. Aunque los océanos cubren gran parte de la superficie terrestre, durante siglos la exploración humana se limitó a sus capas más cercanas. En las últimas décadas, el desarrollo de submarinos, sensores y robots de alta presión ha permitido obtener imágenes, muestras y registros que antes eran imposibles. Gracias a ello, hoy se conocen mejor algunas fosas oceánicas, volcanes submarinos y comunidades de organismos que viven sin luz solar.\n\nSin embargo, la investigación del fondo marino aún enfrenta grandes obstáculos. La presión extrema, la oscuridad permanente y el alto costo de las expediciones limitan el estudio directo de muchas zonas. Por esa razón, todavía no se sabe con precisión cuántas especies habitan en las mayores profundidades ni qué procesos químicos ocurren en todos esos ambientes. Algunos especialistas consideran posible que en esos lugares existan organismos aún desconocidos, capaces de aportar información valiosa sobre el origen de la vida o sobre nuevas sustancias útiles para la medicina.\n\nSegún el sentido global del texto, los avances en la exploración de las profundidades marinas han sido",
       "options": [
         {
           "label": "a",
@@ -4156,7 +4156,7 @@ window.IFR_APP_DATA = {
       "areaId": "habilidad-verbal",
       "areaName": "Habilidad verbal",
       "block": "Comprensión lectora, idea secundaria",
-      "prompt": "Las profundidades marinas siguen guardando muchos misterios para el ser humano debido principalmente a",
+      "prompt": "Texto base:\nLas profundidades marinas siguen siendo una de las regiones menos conocidas del planeta. Aunque los océanos cubren gran parte de la superficie terrestre, durante siglos la exploración humana se limitó a sus capas más cercanas. En las últimas décadas, el desarrollo de submarinos, sensores y robots de alta presión ha permitido obtener imágenes, muestras y registros que antes eran imposibles. Gracias a ello, hoy se conocen mejor algunas fosas oceánicas, volcanes submarinos y comunidades de organismos que viven sin luz solar.\n\nSin embargo, la investigación del fondo marino aún enfrenta grandes obstáculos. La presión extrema, la oscuridad permanente y el alto costo de las expediciones limitan el estudio directo de muchas zonas. Por esa razón, todavía no se sabe con precisión cuántas especies habitan en las mayores profundidades ni qué procesos químicos ocurren en todos esos ambientes. Algunos especialistas consideran posible que en esos lugares existan organismos aún desconocidos, capaces de aportar información valiosa sobre el origen de la vida o sobre nuevas sustancias útiles para la medicina.\n\nLas profundidades marinas siguen guardando muchos misterios para el ser humano debido principalmente a",
       "options": [
         {
           "label": "a",
@@ -4208,7 +4208,7 @@ window.IFR_APP_DATA = {
       "areaId": "habilidad-verbal",
       "areaName": "Habilidad verbal",
       "block": "Comprensión lectora, hipótesis",
-      "prompt": "¿Cuál de los siguientes enunciados funciona como una hipótesis dentro del texto?",
+      "prompt": "Texto base:\nLas profundidades marinas siguen siendo una de las regiones menos conocidas del planeta. Aunque los océanos cubren gran parte de la superficie terrestre, durante siglos la exploración humana se limitó a sus capas más cercanas. En las últimas décadas, el desarrollo de submarinos, sensores y robots de alta presión ha permitido obtener imágenes, muestras y registros que antes eran imposibles. Gracias a ello, hoy se conocen mejor algunas fosas oceánicas, volcanes submarinos y comunidades de organismos que viven sin luz solar.\n\nSin embargo, la investigación del fondo marino aún enfrenta grandes obstáculos. La presión extrema, la oscuridad permanente y el alto costo de las expediciones limitan el estudio directo de muchas zonas. Por esa razón, todavía no se sabe con precisión cuántas especies habitan en las mayores profundidades ni qué procesos químicos ocurren en todos esos ambientes. Algunos especialistas consideran posible que en esos lugares existan organismos aún desconocidos, capaces de aportar información valiosa sobre el origen de la vida o sobre nuevas sustancias útiles para la medicina.\n\n¿Cuál de los siguientes enunciados funciona como una hipótesis dentro del texto?",
       "options": [
         {
           "label": "a",
@@ -4296,7 +4296,7 @@ window.IFR_APP_DATA = {
         "a": "La pesca comercial en mares profundos: no es el asunto principal del texto.",
         "c": "Los viajes turísticos en submarinos: no se menciona turismo.",
         "d": "La historia completa de todos los océanos: el texto no pretende abarcar todo eso.",
-        "e": "La contaminación de los puertos industriales: ese tema no aparece en la lectura.\n\nTEXTO BASE PARA LOS REACTIVOS 81 AL 83\n\nEl cuervo y el gorrión\n\nEn un verano muy seco, un cuervo y un gorrión encontraron una jarra con un poco de agua en el fondo. El gorrión, desesperado, intentó volcarla de inmediato, pero solo consiguió moverla un poco y derramar unas gotas. El cuervo observó con calma, recogió pequeñas piedras y comenzó a dejarlas caer dentro de la jarra. Poco a poco, el nivel del agua subió hasta que pudo beber. El gorrión, avergonzado, preguntó cómo lo había logrado. El cuervo respondió: «Quien se deja dominar por la prisa pierde lo que la paciencia y la reflexión pueden alcanzar»."
+        "e": "La contaminación de los puertos industriales: ese tema no aparece en la lectura."
       },
       "visual": {
         "kind": "none",
@@ -4312,7 +4312,7 @@ window.IFR_APP_DATA = {
       "areaId": "habilidad-verbal",
       "areaName": "Habilidad verbal",
       "block": "Lectura aplicada, comprensión de fábula",
-      "prompt": "En la narración, el gorrión no logró beber agua porque",
+      "prompt": "Texto base:\nEl cuervo y el gorrión\n\nEn un verano muy seco, un cuervo y un gorrión encontraron una jarra con un poco de agua en el fondo. El gorrión, desesperado, intentó volcarla de inmediato, pero solo consiguió moverla un poco y derramar unas gotas. El cuervo observó con calma, recogió pequeñas piedras y comenzó a dejarlas caer dentro de la jarra. Poco a poco, el nivel del agua subió hasta que pudo beber. El gorrión, avergonzado, preguntó cómo lo había logrado. El cuervo respondió: «Quien se deja dominar por la prisa pierde lo que la paciencia y la reflexión pueden alcanzar».\n\nEn la narración, el gorrión no logró beber agua porque",
       "options": [
         {
           "label": "a",
@@ -4364,7 +4364,7 @@ window.IFR_APP_DATA = {
       "areaId": "habilidad-verbal",
       "areaName": "Habilidad verbal",
       "block": "Lectura aplicada, tipo de texto",
-      "prompt": "Los animales hablan en el texto porque se trata de una",
+      "prompt": "Texto base:\nEl cuervo y el gorrión\n\nEn un verano muy seco, un cuervo y un gorrión encontraron una jarra con un poco de agua en el fondo. El gorrión, desesperado, intentó volcarla de inmediato, pero solo consiguió moverla un poco y derramar unas gotas. El cuervo observó con calma, recogió pequeñas piedras y comenzó a dejarlas caer dentro de la jarra. Poco a poco, el nivel del agua subió hasta que pudo beber. El gorrión, avergonzado, preguntó cómo lo había logrado. El cuervo respondió: «Quien se deja dominar por la prisa pierde lo que la paciencia y la reflexión pueden alcanzar».\n\nLos animales hablan en el texto porque se trata de una",
       "options": [
         {
           "label": "a",
@@ -4416,7 +4416,7 @@ window.IFR_APP_DATA = {
       "areaId": "habilidad-verbal",
       "areaName": "Habilidad verbal",
       "block": "Lectura aplicada, moraleja",
-      "prompt": "La moraleja del texto es que",
+      "prompt": "Texto base:\nEl cuervo y el gorrión\n\nEn un verano muy seco, un cuervo y un gorrión encontraron una jarra con un poco de agua en el fondo. El gorrión, desesperado, intentó volcarla de inmediato, pero solo consiguió moverla un poco y derramar unas gotas. El cuervo observó con calma, recogió pequeñas piedras y comenzó a dejarlas caer dentro de la jarra. Poco a poco, el nivel del agua subió hasta que pudo beber. El gorrión, avergonzado, preguntó cómo lo había logrado. El cuervo respondió: «Quien se deja dominar por la prisa pierde lo que la paciencia y la reflexión pueden alcanzar».\n\nLa moraleja del texto es que",
       "options": [
         {
           "label": "a",

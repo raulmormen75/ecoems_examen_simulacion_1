@@ -361,12 +361,16 @@ async function runReactivo80TextBaseChecks(page) {
     const card = document.querySelector('#reactivo-80');
     const promptText = card?.querySelector('.prompt-panel')?.innerText || '';
     const optionTexts = card ? Array.from(card.querySelectorAll('.option-list .option-copy')).map((option) => option.innerText.trim()) : [];
+    const exercise = window.IFR_APP_DATA.exercises.find((item) => item.number === 80);
+    const incorrectArgumentText = Object.values(exercise?.incorrectArgumentsByOption || {}).join('\n');
     return {
       hasTextBaseLabel: promptText.includes('Texto base:'),
       hasOpeningSentence: promptText.includes('Las profundidades marinas siguen siendo una de las regiones menos conocidas del planeta.'),
       hasSecondParagraph: promptText.includes('Sin embargo, la investigación del fondo marino aún enfrenta grandes obstáculos.'),
       hasQuestion: promptText.includes('¿Cuál es el tema central del texto?'),
       questionAfterTextBase: promptText.indexOf('¿Cuál es el tema central del texto?') > promptText.indexOf('Las profundidades marinas siguen siendo'),
+      hasSharedRangeHeaderInPrompt: promptText.includes('TEXTO BASE PARA LOS REACTIVOS'),
+      hasSharedRangeHeaderInArguments: incorrectArgumentText.includes('TEXTO BASE PARA LOS REACTIVOS'),
       optionTexts,
       hasHorizontalOverflow: document.documentElement.scrollWidth > window.innerWidth
     };
@@ -377,6 +381,8 @@ async function runReactivo80TextBaseChecks(page) {
   assert.equal(report.hasSecondParagraph, true, 'El reactivo 80 no muestra el segundo párrafo del texto base.');
   assert.equal(report.hasQuestion, true, 'El reactivo 80 debe conservar la pregunta.');
   assert.equal(report.questionAfterTextBase, true, 'La pregunta del reactivo 80 debe aparecer después del texto base.');
+  assert.equal(report.hasSharedRangeHeaderInPrompt, false, 'El reactivo 80 no debe mostrar encabezados internos del TXT.');
+  assert.equal(report.hasSharedRangeHeaderInArguments, false, 'Los argumentos del reactivo 80 no deben arrastrar el texto base de otros reactivos.');
   assert.deepEqual(
     report.optionTexts,
     [
@@ -390,6 +396,131 @@ async function runReactivo80TextBaseChecks(page) {
   );
   assert.equal(report.hasHorizontalOverflow, false, 'El reactivo 80 no debe generar desborde horizontal en móvil.');
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo80-texto-base-mobile.png'), fullPage: true });
+}
+
+async function runSharedTextBaseChecks(page) {
+  log('Validando textos base compartidos en los reactivos 77 al 83.');
+
+  const expectedByReactivo = [
+    {
+      number: 77,
+      requiredText: [
+        'Texto base:',
+        'Las profundidades marinas siguen siendo una de las regiones menos conocidas del planeta.',
+        'Sin embargo, la investigación del fondo marino aún enfrenta grandes obstáculos.',
+        'Según el sentido global del texto, los avances en la exploración de las profundidades marinas han sido'
+      ],
+      firstText: 'Las profundidades marinas siguen siendo',
+      question: 'Según el sentido global del texto'
+    },
+    {
+      number: 78,
+      requiredText: [
+        'Texto base:',
+        'Las profundidades marinas siguen siendo una de las regiones menos conocidas del planeta.',
+        'Sin embargo, la investigación del fondo marino aún enfrenta grandes obstáculos.',
+        'Las profundidades marinas siguen guardando muchos misterios'
+      ],
+      firstText: 'Las profundidades marinas siguen siendo',
+      question: 'Las profundidades marinas siguen guardando muchos misterios'
+    },
+    {
+      number: 79,
+      requiredText: [
+        'Texto base:',
+        'Las profundidades marinas siguen siendo una de las regiones menos conocidas del planeta.',
+        'Sin embargo, la investigación del fondo marino aún enfrenta grandes obstáculos.',
+        '¿Cuál de los siguientes enunciados funciona como una hipótesis dentro del texto?'
+      ],
+      firstText: 'Las profundidades marinas siguen siendo',
+      question: '¿Cuál de los siguientes enunciados funciona como una hipótesis dentro del texto?'
+    },
+    {
+      number: 80,
+      requiredText: [
+        'Texto base:',
+        'Las profundidades marinas siguen siendo una de las regiones menos conocidas del planeta.',
+        'Sin embargo, la investigación del fondo marino aún enfrenta grandes obstáculos.',
+        '¿Cuál es el tema central del texto?'
+      ],
+      firstText: 'Las profundidades marinas siguen siendo',
+      question: '¿Cuál es el tema central del texto?'
+    },
+    {
+      number: 81,
+      requiredText: [
+        'Texto base:',
+        'El cuervo y el gorrión',
+        'En un verano muy seco, un cuervo y un gorrión encontraron una jarra con un poco de agua en el fondo.',
+        'En la narración, el gorrión no logró beber agua porque'
+      ],
+      firstText: 'El cuervo y el gorrión',
+      question: 'En la narración, el gorrión no logró beber agua porque'
+    },
+    {
+      number: 82,
+      requiredText: [
+        'Texto base:',
+        'El cuervo y el gorrión',
+        'En un verano muy seco, un cuervo y un gorrión encontraron una jarra con un poco de agua en el fondo.',
+        'Los animales hablan en el texto porque se trata de una'
+      ],
+      firstText: 'El cuervo y el gorrión',
+      question: 'Los animales hablan en el texto porque se trata de una'
+    },
+    {
+      number: 83,
+      requiredText: [
+        'Texto base:',
+        'El cuervo y el gorrión',
+        'En un verano muy seco, un cuervo y un gorrión encontraron una jarra con un poco de agua en el fondo.',
+        'La moraleja del texto es que'
+      ],
+      firstText: 'El cuervo y el gorrión',
+      question: 'La moraleja del texto es que'
+    }
+  ];
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await startExam(page);
+  await advanceToExercise(page, 77);
+
+  for (const expected of expectedByReactivo) {
+    await page.locator(`#reactivo-${expected.number}`).waitFor();
+
+    const report = await page.evaluate((number) => {
+      const card = document.querySelector(`#reactivo-${number}`);
+      const promptText = card?.querySelector('.prompt-panel')?.innerText || '';
+      const exercise = window.IFR_APP_DATA.exercises.find((item) => item.number === number);
+      const incorrectArgumentText = Object.values(exercise?.incorrectArgumentsByOption || {}).join('\n');
+      return {
+        promptText,
+        hasSharedRangeHeaderInPrompt: promptText.includes('TEXTO BASE PARA LOS REACTIVOS'),
+        hasSharedRangeHeaderInArguments: incorrectArgumentText.includes('TEXTO BASE PARA LOS REACTIVOS'),
+        hasHorizontalOverflow: document.documentElement.scrollWidth > window.innerWidth
+      };
+    }, expected.number);
+
+    for (const text of expected.requiredText) {
+      assert.ok(report.promptText.includes(text), `El reactivo ${expected.number} no muestra: ${text}`);
+    }
+    assert.ok(
+      report.promptText.indexOf(expected.question) > report.promptText.indexOf(expected.firstText),
+      `La pregunta del reactivo ${expected.number} debe aparecer después de su texto base.`
+    );
+    assert.equal(report.hasSharedRangeHeaderInPrompt, false, `El reactivo ${expected.number} no debe mostrar encabezados internos del TXT.`);
+    assert.equal(report.hasSharedRangeHeaderInArguments, false, `Los argumentos del reactivo ${expected.number} no deben arrastrar textos base compartidos.`);
+    assert.equal(report.hasHorizontalOverflow, false, `El reactivo ${expected.number} no debe generar desborde horizontal en móvil.`);
+
+    if (expected.number === 81 || expected.number === 83) {
+      await page.screenshot({ path: path.join(OUT_DIR, `qa-reactivo${expected.number}-texto-base-mobile.png`), fullPage: true });
+    }
+
+    if (expected.number < 83) {
+      const exercise = await getExerciseData(page, expected.number - 1);
+      await clickOption(page, exercise.id, exercise.correctOption);
+    }
+  }
 }
 
 async function runReactivo8FigureChecks(page) {
@@ -992,6 +1123,7 @@ async function main() {
     await runReactivo7FigureChecks(page);
     await runPromptMarkChecks(page);
     await runReactivo80TextBaseChecks(page);
+    await runSharedTextBaseChecks(page);
     await runReactivo8FigureChecks(page);
     await runReactivo11FigureChecks(page);
     await runReactivo12FigureChecks(page);
