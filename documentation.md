@@ -9,6 +9,7 @@ Simular la experiencia completa del examen ECOEMS con identidad IFR, cronómetro
 - Parser de datos implementado en `build-exam-data.js`.
 - Datos generados en `exam-data.js`.
 - Interfaz del simulador implementada en `index.html`, `exam-styles.css` y `exam-app.js`.
+- Panel `Resultado final` implementado como cierre persistente con métricas, bloques por reforzar y descarga PNG.
 - Validación realizada en navegador real con flujo de inicio, respuestas correctas e incorrectas, cierre por tiempo y revisión móvil.
 
 ## Cómo correr la app
@@ -25,4 +26,6 @@ Simular la experiencia completa del examen ECOEMS con identidad IFR, cronómetro
 - Verificar que el siguiente reactivo se desbloquee.
 - Revisar figuras y tablas en reactivos con contenido preformateado.
 - Forzar término del examen y revisar modales.
+- Confirmar que el panel `Resultado final` aparece por término y por tiempo agotado.
+- Descargar el panel final en PNG y revisar que el archivo no esté vacío.
 - Confirmar que al refrescar se reinicia el intento.

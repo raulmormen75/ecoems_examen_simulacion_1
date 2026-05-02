@@ -5,7 +5,8 @@
 1. Normalizar `Examen simulación 1.txt` a `window.IFR_APP_DATA`.
 2. Construir la shell IFR del simulador con cronómetro, métricas y secuencia vertical.
 3. Implementar cierre por tiempo, cierre por término y repaso inteligente.
-4. Verificar flujo real en navegador de escritorio y móvil.
+4. Integrar panel persistente `Resultado final` con métricas, bloques por reforzar y descarga PNG.
+5. Verificar flujo real en navegador de escritorio y móvil.
 
 ## Acceptance Criteria
 
@@ -16,6 +17,8 @@
 - Las métricas se actualizan en vivo.
 - La retroalimentación correcta e incorrecta coincide con la especificación aprobada.
 - El cierre muestra resumen y repaso inteligente.
+- El panel `Resultado final` aparece tanto por término como por tiempo agotado.
+- La descarga PNG conserva el contenido del panel final.
 - La revisión final es solo de lectura.
 - La interfaz conserva identidad IFR, escudo visible y `Plus Jakarta Sans`.
 

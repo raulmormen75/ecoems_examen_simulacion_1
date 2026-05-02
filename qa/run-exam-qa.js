@@ -152,6 +152,21 @@ async function showFloatingReview(page, optionLabel) {
   return first;
 }
 
+async function expectResultDownload(page, label) {
+  const button = page.getByRole('button', { name: 'Descargar mis resultados' });
+  await button.waitFor();
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    button.click()
+  ]);
+  const filename = download.suggestedFilename();
+  assert.ok(filename.endsWith('.png'), `La descarga de ${label} no produjo un archivo PNG: ${filename}.`);
+  const targetPath = path.join(OUT_DIR, `resultado-final-${label}.png`);
+  await download.saveAs(targetPath);
+  const stats = fs.statSync(targetPath);
+  assert.ok(stats.size > 1000, `La descarga PNG de ${label} quedó vacía o demasiado pequeña.`);
+}
+
 async function runFlowChecks(page) {
   log('Validando conteo, bloqueo secuencial y cierre del examen.');
   await page.setViewportSize({ width: 1440, height: 1080 });
@@ -194,15 +209,18 @@ async function runFlowChecks(page) {
     window.__IFR_EXAM_DEBUG__.finishExam('finished');
   });
 
-  await page.getByRole('heading', { name: 'Examen concluido' }).waitFor();
+  await page.getByRole('heading', { name: 'Resultado final' }).waitFor();
   await page.getByText('✓. Opción correcta').first().waitFor();
-  const incorrectSummary = page.locator('.summary-card').filter({ hasText: 'Reactivos incorrectos' }).locator('strong');
+  const finalPanel = page.locator('#resultado-final');
+  const incorrectSummary = finalPanel.locator('.final-metric-card.incorrect strong');
   assert.equal((await incorrectSummary.innerText()).trim(), '1', 'El resumen final no conservó el error previo.');
-
-  await page.getByRole('button', { name: 'Ver repaso recomendado' }).click();
-  await page.getByRole('heading', { name: 'Qué áreas y bloques conviene repasar' }).waitFor();
-  const reviewCount = await page.locator('.review-card').count();
+  await finalPanel.getByText('Bloques temáticos que debes reforzar 🤓:').waitFor();
+  const reviewCount = await finalPanel.locator('.reinforcement-group').count();
   assert.ok(reviewCount >= 1, 'Se esperaba al menos un bloque recomendado para repaso tras el error inicial.');
+  const firstWrongSummary = await finalPanel.locator('.reinforcement-reactivos li').first().innerText();
+  assert.ok(firstWrongSummary.includes('Reactivo 1.'), 'El primer error no quedó registrado en la lista de refuerzo.');
+  assert.ok(firstWrongSummary.length < 190, 'El resumen del reactivo incorrecto quedó demasiado largo.');
+  await expectResultDownload(page, 'termino');
 
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-desktop-finished.png'), fullPage: true });
 }
@@ -755,18 +773,24 @@ async function runTimeoutChecks(page) {
   await page.setViewportSize({ width: 390, height: 844 });
   await startExam(page);
   const first = await getExerciseData(page, 0);
-  await clickOption(page, first.id, first.correctOption);
+  const wrongOption = first.options.find((option) => option !== first.correctOption);
+  assert.ok(wrongOption, 'No se encontró una opción incorrecta para validar cierre por tiempo.');
+  await clickOption(page, first.id, wrongOption);
 
   await page.evaluate(() => {
     window.__IFR_EXAM_DEBUG__.finishExam('time_expired');
   });
 
-  await page.getByRole('heading', { name: 'Tiempo límite alcanzado' }).waitFor();
+  await page.getByRole('heading', { name: 'Resultado final' }).waitFor();
   assert.equal(await page.locator('.floating-review').count(), 0, 'El recordatorio flotante debía cerrarse al agotar el tiempo.');
-  await page.getByText('Reactivos pendientes al momento del cierre').waitFor();
+  const finalPanel = page.locator('#resultado-final');
+  assert.equal((await finalPanel.locator('.final-metric-card.answered strong').innerText()).trim(), '1', 'El cierre por tiempo no conservó los reactivos contestados.');
+  assert.equal((await finalPanel.locator('.final-metric-card.incorrect strong').innerText()).trim(), '1', 'El cierre por tiempo no conservó el error registrado.');
+  await finalPanel.locator('.reinforcement-group').first().waitFor();
   const unansweredCards = page.getByRole('heading', { name: 'Reactivo no respondido' });
   await unansweredCards.first().waitFor();
   assert.ok(await unansweredCards.count() > 0, 'Se esperaba al menos un reactivo marcado como no respondido tras agotar el tiempo.');
+  await expectResultDownload(page, 'tiempo');
   await checkNoHorizontalOverflow(page, 'cierre móvil por tiempo');
 }
 
@@ -781,7 +805,8 @@ async function main() {
   });
 
   const context = await browser.newContext({
-    viewport: { width: 1440, height: 1080 }
+    viewport: { width: 1440, height: 1080 },
+    acceptDownloads: true
   });
   const page = await context.newPage();
 
