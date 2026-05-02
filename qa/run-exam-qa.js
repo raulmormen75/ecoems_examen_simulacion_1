@@ -794,6 +794,29 @@ async function runTimeoutChecks(page) {
   await checkNoHorizontalOverflow(page, 'cierre móvil por tiempo');
 }
 
+async function runNaturalCompletionChecks(page) {
+  log('Validando cierre natural al contestar todos los reactivos.');
+
+  await page.setViewportSize({ width: 1280, height: 960 });
+  await startExam(page);
+  const total = await page.evaluate(() => window.IFR_APP_DATA.exercises.length);
+
+  for (let index = 0; index < total; index += 1) {
+    const exercise = await getExerciseData(page, index);
+    await page.locator(`[data-action="answer"][data-id="${exercise.id}"]`).first().waitFor();
+    await clickOption(page, exercise.id, exercise.correctOption);
+  }
+
+  await page.getByRole('heading', { name: 'Resultado final' }).waitFor();
+  const finalPanel = page.locator('#resultado-final');
+  assert.equal((await finalPanel.locator('.final-metric-card.answered strong').innerText()).trim(), String(total), 'El cierre natural no registró todos los reactivos contestados.');
+  assert.equal((await finalPanel.locator('.final-metric-card.correct strong').innerText()).trim(), String(total), 'El cierre natural no conservó todos los aciertos.');
+  assert.equal((await finalPanel.locator('.final-metric-card.incorrect strong').innerText()).trim(), '0', 'El cierre natural marcó errores inexistentes.');
+  await finalPanel.getByText('No se registraron reactivos incorrectos.').waitFor();
+  await checkNoHorizontalOverflow(page, 'cierre natural completo');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-natural-completion.png'), fullPage: true });
+}
+
 async function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
   const consoleErrors = [];
@@ -833,6 +856,7 @@ async function main() {
     await runReactivo74FigureChecks(page);
     await runInstructionRemovalRangeChecks(page, 17, 43);
     await runInstructionRemovalRangeChecks(page, 45, 73);
+    await runNaturalCompletionChecks(page);
     await runTimeoutChecks(page);
 
     assert.deepEqual(pageErrors, [], `Se detectaron errores de página: ${pageErrors.join(' | ')}`);
