@@ -248,6 +248,53 @@ async function runResponsiveChecks(page) {
   }
 }
 
+async function runReactivo7FigureChecks(page) {
+  log('Validando que el reactivo 7 alinee sus tres figuras en móvil.');
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await startExam(page);
+  await advanceToExercise(page, 7);
+  await page.locator('#reactivo-7 .visual-panel-svg svg').waitFor();
+
+  const layout = await page.evaluate(() => {
+    const card = document.querySelector('#reactivo-7');
+    const panel = card?.querySelector('.visual-panel-svg');
+    const svg = panel?.querySelector('svg');
+    const labels = svg ? Array.from(svg.querySelectorAll('text')).map((text) => text.textContent.trim()) : [];
+    const labelBoxes = svg ? Array.from(svg.querySelectorAll('text')).map((text) => {
+      const box = text.getBoundingClientRect();
+      return { left: box.left, top: box.top };
+    }) : [];
+    const svgRect = svg?.getBoundingClientRect();
+    const panelRect = panel?.getBoundingClientRect();
+    const circles = svg ? Array.from(svg.querySelectorAll('circle')) : [];
+
+    return {
+      hasSvg: Boolean(svg),
+      hasPreformattedVisual: Boolean(card?.querySelector('.visual-panel pre')),
+      labels,
+      circleCount: circles.length,
+      filledCircleCount: circles.filter((circle) => circle.getAttribute('fill') === '#1C1E5A').length,
+      optionPreCount: card ? card.querySelectorAll('.option-pre').length : 0,
+      labelsIncrease: labelBoxes.length === 3 && labelBoxes[0].left < labelBoxes[1].left && labelBoxes[1].left < labelBoxes[2].left,
+      labelsAligned: labelBoxes.length === 3 && Math.max(...labelBoxes.map((box) => box.top)) - Math.min(...labelBoxes.map((box) => box.top)) < 2,
+      svgFitsPanel: Boolean(svgRect && panelRect && svgRect.left >= panelRect.left - 1 && svgRect.right <= panelRect.right + 1)
+    };
+  });
+
+  assert.equal(layout.hasSvg, true, 'El reactivo 7 debe mostrar la serie como SVG escalable.');
+  assert.equal(layout.hasPreformattedVisual, false, 'El reactivo 7 no debe usar el bloque preformateado que se desacomoda en móvil.');
+  assert.deepEqual(layout.labels, ['Figura 1', 'Figura 2', 'Figura 3'], 'Las tres figuras del reactivo 7 deben conservar su etiqueta.');
+  assert.equal(layout.circleCount, 12, 'El reactivo 7 debe mostrar tres grupos de cuatro círculos.');
+  assert.equal(layout.filledCircleCount, 3, 'Cada figura del reactivo 7 debe conservar un solo círculo lleno.');
+  assert.equal(layout.optionPreCount, 5, 'Las opciones del reactivo 7 no deben modificarse.');
+  assert.equal(layout.labelsIncrease, true, 'Las etiquetas de las figuras del reactivo 7 deben ordenarse de izquierda a derecha.');
+  assert.equal(layout.labelsAligned, true, 'Las etiquetas de las figuras del reactivo 7 deben quedar alineadas en la misma fila.');
+  assert.equal(layout.svgFitsPanel, true, 'El SVG del reactivo 7 debe caber dentro del panel visual en móvil.');
+  await checkNoHorizontalOverflow(page, 'reactivo 7 en móvil');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo7-mobile.png'), fullPage: true });
+}
+
 async function runReactivo8FigureChecks(page) {
   log('Validando que el reactivo 8 muestre figuras reales en el planteamiento y las opciones.');
 
@@ -845,6 +892,7 @@ async function main() {
   try {
     await runFlowChecks(page);
     await runResponsiveChecks(page);
+    await runReactivo7FigureChecks(page);
     await runReactivo8FigureChecks(page);
     await runReactivo11FigureChecks(page);
     await runReactivo12FigureChecks(page);

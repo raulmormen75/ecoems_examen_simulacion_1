@@ -82,6 +82,57 @@ const REACTIVO_74_PROMPT_IMAGE = {
   alt: 'Diagrama con dos rectas paralelas horizontales cortadas por una transversal inclinada. En la intersección superior los ángulos están numerados 1 arriba izquierda, 2 arriba derecha, 3 abajo derecha y 4 abajo izquierda. En la intersección inferior están numerados 5 arriba izquierda, 6 arriba derecha, 7 abajo derecha y 8 abajo izquierda.'
 };
 
+function buildReactivo7SequenceSvg() {
+  const figures = [
+    {
+      title: 'Figura 1',
+      dots: [
+        [0, 0, true],
+        [1, 0, false],
+        [0, 1, false],
+        [1, 1, false]
+      ]
+    },
+    {
+      title: 'Figura 2',
+      dots: [
+        [0, 0, false],
+        [1, 0, true],
+        [0, 1, false],
+        [1, 1, false]
+      ]
+    },
+    {
+      title: 'Figura 3',
+      dots: [
+        [0, 0, false],
+        [1, 0, false],
+        [0, 1, true],
+        [1, 1, false]
+      ]
+    }
+  ];
+
+  const groups = figures.map((figure, index) => {
+    const originX = 50 + index * 185;
+    const dots = figure.dots.map(([column, row, filled]) => {
+      const cx = originX + 24 + column * 42;
+      const cy = 92 + row * 42;
+      return `<circle cx="${cx}" cy="${cy}" r="10" fill="${filled ? '#1C1E5A' : '#FFFFFF'}" stroke="#1C1E5A" stroke-width="3"/>`;
+    }).join('');
+
+    return `<g>
+      <text x="${originX}" y="42" fill="#1C1E5A" font-size="24" font-weight="700">${figure.title}</text>
+      ${dots}
+    </g>`;
+  }).join('');
+
+  return `<svg viewBox="0 0 600 165" role="img" aria-label="Serie de tres figuras con cuatro círculos cada una. En la Figura 1 el círculo lleno está arriba a la izquierda; en la Figura 2 está arriba a la derecha; en la Figura 3 está abajo a la izquierda." xmlns="http://www.w3.org/2000/svg">
+    <rect x="1" y="1" width="598" height="163" rx="18" fill="#FFFFFF" stroke="rgba(28,30,90,.14)" stroke-width="2"/>
+    ${groups}
+  </svg>`;
+}
+
 function slugify(value) {
   return String(value || '')
     .normalize('NFD')
@@ -338,6 +389,16 @@ function buildReactivo8OptionSvg({ squareCount, markerShape, markerPosition }) {
 }
 
 function applyExerciseOverrides(exercise) {
+  if (exercise.number === 7) {
+    return {
+      ...exercise,
+      visual: {
+        kind: 'svg',
+        content: buildReactivo7SequenceSvg()
+      }
+    };
+  }
+
   if (exercise.number === 8) {
     return {
       ...exercise,
