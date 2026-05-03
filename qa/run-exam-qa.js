@@ -171,6 +171,17 @@ async function expectResultDownload(page, label) {
   }
   assert.ok(topButtonBox.y < bottomButtonBox.y, `El boton superior no aparece antes que el inferior en ${label}.`);
 
+  await page.evaluate(() => {
+    window.__IFR_CAPTURED_CANVAS_TEXTS__ = [];
+    if (!window.__IFR_ORIGINAL_FILL_TEXT__) {
+      window.__IFR_ORIGINAL_FILL_TEXT__ = CanvasRenderingContext2D.prototype.fillText;
+      CanvasRenderingContext2D.prototype.fillText = function captureResultCanvasText(text, ...args) {
+        window.__IFR_CAPTURED_CANVAS_TEXTS__.push(String(text));
+        return window.__IFR_ORIGINAL_FILL_TEXT__.call(this, text, ...args);
+      };
+    }
+  });
+
   const [download] = await Promise.all([
     page.waitForEvent('download'),
     buttons.first().click()
@@ -181,6 +192,8 @@ async function expectResultDownload(page, label) {
   await download.saveAs(targetPath);
   const stats = fs.statSync(targetPath);
   assert.ok(stats.size > 1000, `La descarga PNG de ${label} quedo vacia o demasiado pequena.`);
+  const capturedCanvasTexts = await page.evaluate(() => window.__IFR_CAPTURED_CANVAS_TEXTS__ || []);
+  assert.equal(capturedCanvasTexts.includes('Descargar mis resultados'), false, `El PNG de ${label} no debe incluir el boton de descarga.`);
 
   const [bottomDownload] = await Promise.all([
     page.waitForEvent('download'),

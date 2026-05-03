@@ -1226,9 +1226,7 @@
     const rightX = contentX + contentWidth - rightWidth;
     setCanvasFont(context, 15, 800);
     const rightLines = wrapCanvasText(context, modeText, rightWidth);
-    const buttonWidth = 246;
-    const buttonHeight = 50;
-    const headerHeight = Math.max(124, rightLines.length * 24 + buttonHeight + 34);
+    const headerHeight = Math.max(124, rightLines.length * 24 + 20);
 
     if (draw) {
       drawCanvasPill(context, modeLabel, contentX, y, {
@@ -1242,11 +1240,6 @@
       context.textBaseline = 'top';
       context.fillText('Resultado final', contentX, y + 46);
       drawWrappedText(context, modeText, rightX, y + 14, rightWidth, 24, colors.muted, 15, 650);
-      fillRoundRect(context, rightX + rightWidth - buttonWidth, y + headerHeight - buttonHeight, buttonWidth, buttonHeight, buttonHeight / 2, colors.navy, null);
-      setCanvasFont(context, 16, 800);
-      context.fillStyle = colors.white;
-      context.textBaseline = 'middle';
-      context.fillText('Descargar mis resultados', rightX + rightWidth - buttonWidth + 24, y + headerHeight - buttonHeight / 2 + .5);
     }
     y += headerHeight + 26;
 
@@ -1352,14 +1345,7 @@
       });
     }
 
-    if (draw) {
-      fillRoundRect(context, contentX + contentWidth - buttonWidth, y, buttonWidth, buttonHeight, buttonHeight / 2, colors.navy, null);
-      setCanvasFont(context, 16, 800);
-      context.fillStyle = colors.white;
-      context.textBaseline = 'middle';
-      context.fillText('Descargar mis resultados', contentX + contentWidth - buttonWidth + 24, y + buttonHeight / 2 + .5);
-    }
-    y += buttonHeight + pad + outer;
+    y += pad + outer;
 
     return Math.ceil(y);
   }
