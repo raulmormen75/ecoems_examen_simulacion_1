@@ -878,6 +878,23 @@ main{
   color:var(--ink);
 }
 
+.reading-capsule{
+  display:grid;
+  gap:12px;
+  padding:16px 18px;
+  border:2px solid rgba(28,30,90,.72);
+  border-radius:8px;
+  background:#EEF4FF;
+  color:var(--n1);
+  box-shadow:0 10px 22px rgba(28,30,90,.08);
+  overflow-wrap:break-word;
+}
+
+.reading-capsule-text p{
+  color:var(--n1);
+  font-weight:600;
+}
+
 .prompt-mark{
   display:inline;
   box-decoration-break:clone;

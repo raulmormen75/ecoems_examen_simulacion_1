@@ -136,7 +136,28 @@
     return html;
   }
 
-  function textToParagraphs(value, marks = []) {
+  const READING_CAPSULES_BY_REACTIVO = new Map([
+    [31, [{ start: 1, end: 1 }]],
+    [32, [{ start: 1, end: 1 }]],
+    [33, [{ start: 1, end: 1 }]],
+    [34, [{ start: 1, end: 1 }]],
+    [37, [{ start: 1, end: 1 }]],
+    [38, [{ start: 1, end: 1 }]],
+    [77, [{ start: 0, end: 1 }]],
+    [78, [{ start: 0, end: 1 }]],
+    [79, [{ start: 0, end: 1 }]],
+    [80, [{ start: 0, end: 1 }]],
+    [81, [{ start: 0, end: 1 }]],
+    [82, [{ start: 0, end: 1 }]],
+    [83, [{ start: 0, end: 1 }]]
+  ]);
+
+  function renderPromptBlock(block, marks = [], className = 'prompt-text') {
+    const lines = block.split('\n').map((line) => line.trim()).filter(Boolean);
+    return `<div class="${className}">${lines.map((line) => `<p>${renderMarkedText(line, marks)}</p>`).join('')}</div>`;
+  }
+
+  function textToParagraphs(value, marks = [], exerciseNumber = null) {
     const blocks = String(value || '')
       .split(/\n{2,}/)
       .map((block) => block.trim())
@@ -144,12 +165,23 @@
 
     if (!blocks.length) return '';
 
-    return blocks
-      .map((block) => {
-        const lines = block.split('\n').map((line) => line.trim()).filter(Boolean);
-        return `<div class="prompt-text">${lines.map((line) => `<p>${renderMarkedText(line, marks)}</p>`).join('')}</div>`;
-      })
-      .join('');
+    const capsuleRules = READING_CAPSULES_BY_REACTIVO.get(Number(exerciseNumber)) || [];
+    const rulesByStart = new Map(capsuleRules.map((rule) => [rule.start, rule]));
+    const html = [];
+
+    for (let index = 0; index < blocks.length; index += 1) {
+      const rule = rulesByStart.get(index);
+      if (rule) {
+        const capsuleBlocks = blocks.slice(rule.start, rule.end + 1);
+        html.push(`<div class="reading-capsule" data-reading-capsule="reactivo-${esc(exerciseNumber)}">${capsuleBlocks.map((block) => renderPromptBlock(block, marks, 'prompt-text reading-capsule-text')).join('')}</div>`);
+        index = rule.end;
+        continue;
+      }
+
+      html.push(renderPromptBlock(blocks[index], marks));
+    }
+
+    return html.join('');
   }
 
   function formatTime(totalSeconds) {
@@ -480,7 +512,7 @@
         </header>
         <div class="card-body">
           <section class="prompt-panel">
-            ${textToParagraphs(exercise.prompt, exercise.promptMarks)}
+            ${textToParagraphs(exercise.prompt, exercise.promptMarks, exercise.number)}
             ${renderVisual(exercise.visual)}
           </section>
           <section class="option-list">
@@ -541,7 +573,7 @@
         expanded
           ? `<div class="card-body">
               <section class="prompt-panel">
-                ${textToParagraphs(exercise.prompt, exercise.promptMarks)}
+                ${textToParagraphs(exercise.prompt, exercise.promptMarks, exercise.number)}
                 ${renderVisual(exercise.visual)}
               </section>
               <section class="option-list">${optionMarkup}</section>

@@ -421,6 +421,174 @@ async function runReactivo80TextBaseChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo80-texto-base-mobile.png'), fullPage: true });
 }
 
+async function runReadingCapsuleChecks(page) {
+  log('Validando cápsulas IFR para fragmentos y textos base en Español y Habilidad verbal.');
+
+  const expectedCapsules = [
+    {
+      number: 31,
+      capsuleIncludes: ['Muchos estudiantes desarrollan hábitos de estudio poco eficaces.'],
+      questionIncludes: 'En el texto, el recurso empleado para desarrollar el tema es'
+    },
+    {
+      number: 32,
+      capsuleIncludes: ['Muchos ríos están contaminados', 'por eso'],
+      questionIncludes: 'La expresión subrayada cumple la función de',
+      underline: ['por eso'],
+      highlight: []
+    },
+    {
+      number: 33,
+      capsuleIncludes: ['Primero sonó la alarma', 'después los alumnos salieron', 'finalmente se concentraron'],
+      questionIncludes: 'Las palabras destacadas son nexos que',
+      underline: [],
+      highlight: ['Primero', 'después', 'finalmente']
+    },
+    {
+      number: 34,
+      capsuleIncludes: ['El uso de bicicletas ha crecido', 'sin embargo'],
+      questionIncludes: 'La expresión destacada funciona principalmente para',
+      underline: [],
+      highlight: ['sin embargo']
+    },
+    {
+      number: 37,
+      capsuleIncludes: ['La vieja casona tenía muros altos', 'ventanas angostas', 'patio silencioso'],
+      questionIncludes: 'Las palabras subrayadas pertenecen a la categoría de',
+      underline: ['vieja', 'altos', 'angostas', 'silencioso'],
+      highlight: []
+    },
+    {
+      number: 38,
+      capsuleIncludes: ['A las seis de la tarde, Julia cerró la tienda'],
+      questionIncludes: 'El fragmento pertenece a una narración porque'
+    },
+    {
+      number: 77,
+      capsuleIncludes: ['Texto base:', 'Las profundidades marinas siguen siendo', 'Sin embargo, la investigación del fondo marino'],
+      questionIncludes: 'Según el sentido global del texto'
+    },
+    {
+      number: 78,
+      capsuleIncludes: ['Texto base:', 'Las profundidades marinas siguen siendo', 'Sin embargo, la investigación del fondo marino'],
+      questionIncludes: 'Las profundidades marinas siguen guardando muchos misterios'
+    },
+    {
+      number: 79,
+      capsuleIncludes: ['Texto base:', 'Las profundidades marinas siguen siendo', 'Sin embargo, la investigación del fondo marino'],
+      questionIncludes: '¿Cuál de los siguientes enunciados funciona como una hipótesis dentro del texto?'
+    },
+    {
+      number: 80,
+      capsuleIncludes: ['Texto base:', 'Las profundidades marinas siguen siendo', 'Sin embargo, la investigación del fondo marino'],
+      questionIncludes: '¿Cuál es el tema central del texto?'
+    },
+    {
+      number: 81,
+      capsuleIncludes: ['Texto base:', 'El cuervo y el gorrión', 'En un verano muy seco, un cuervo y un gorrión'],
+      questionIncludes: 'En la narración, el gorrión no logró beber agua porque'
+    },
+    {
+      number: 82,
+      capsuleIncludes: ['Texto base:', 'El cuervo y el gorrión', 'En un verano muy seco, un cuervo y un gorrión'],
+      questionIncludes: 'Los animales hablan en el texto porque se trata de una'
+    },
+    {
+      number: 83,
+      capsuleIncludes: ['Texto base:', 'El cuervo y el gorrión', 'En un verano muy seco, un cuervo y un gorrión'],
+      questionIncludes: 'La moraleja del texto es que'
+    }
+  ];
+
+  for (const viewport of [
+    { name: 'desktop', width: 1440, height: 1080 },
+    { name: 'mobile', width: 390, height: 844 }
+  ]) {
+    await page.setViewportSize({ width: viewport.width, height: viewport.height });
+    await startExam(page);
+    await advanceToExercise(page, expectedCapsules[0].number);
+
+    let currentNumber = expectedCapsules[0].number;
+    for (const expected of expectedCapsules) {
+      for (let exerciseNumber = currentNumber; exerciseNumber < expected.number; exerciseNumber += 1) {
+        const exercise = await getExerciseData(page, exerciseNumber - 1);
+        await clickOption(page, exercise.id, exercise.correctOption);
+      }
+      currentNumber = expected.number;
+      await page.locator(`#reactivo-${expected.number}`).waitFor();
+
+      const report = await page.evaluate((number) => {
+        const card = document.querySelector(`#reactivo-${number}`);
+        const capsule = card?.querySelector(`.reading-capsule[data-reading-capsule="reactivo-${number}"]`);
+        const capsuleStyles = capsule ? window.getComputedStyle(capsule) : null;
+        const paragraphStyles = capsule ? Array.from(capsule.querySelectorAll('p')).map((paragraph) => window.getComputedStyle(paragraph).color) : [];
+        const promptText = card?.querySelector('.prompt-panel')?.innerText || '';
+        const capsuleText = capsule?.innerText || '';
+        const promptPanelRect = card?.querySelector('.prompt-panel')?.getBoundingClientRect();
+        const capsuleRect = capsule?.getBoundingClientRect();
+        return {
+          capsuleCount: card ? card.querySelectorAll('.prompt-panel .reading-capsule').length : 0,
+          optionCapsuleCount: card ? card.querySelectorAll('.option-list .reading-capsule').length : 0,
+          feedbackCapsuleCount: card ? card.querySelectorAll('.feedback-panel .reading-capsule').length : 0,
+          capsuleParagraphCount: capsule ? capsule.querySelectorAll('.reading-capsule-text p').length : 0,
+          capsuleText,
+          promptText,
+          display: capsuleStyles?.display || '',
+          borderTopWidth: capsuleStyles?.borderTopWidth || '',
+          borderTopColor: capsuleStyles?.borderTopColor || '',
+          backgroundColor: capsuleStyles?.backgroundColor || '',
+          borderRadius: capsuleStyles?.borderTopLeftRadius || '',
+          capsuleColor: capsuleStyles?.color || '',
+          overflowWrap: capsuleStyles?.overflowWrap || '',
+          paragraphColors: paragraphStyles,
+          underline: capsule ? Array.from(capsule.querySelectorAll('.prompt-mark-underline')).map((node) => node.textContent.trim()) : [],
+          highlight: capsule ? Array.from(capsule.querySelectorAll('.prompt-mark-highlight')).map((node) => node.textContent.trim()) : [],
+          capsuleInsidePrompt: Boolean(capsule && card?.querySelector('.prompt-panel')?.contains(capsule)),
+          capsuleFitsPrompt: Boolean(
+            promptPanelRect &&
+            capsuleRect &&
+            capsuleRect.left >= promptPanelRect.left - 1 &&
+            capsuleRect.right <= promptPanelRect.right + 1
+          ),
+          hasHorizontalOverflow: document.documentElement.scrollWidth > window.innerWidth
+        };
+      }, expected.number);
+
+      assert.equal(report.capsuleCount, 1, `El reactivo ${expected.number} debe tener una sola cápsula de lectura en ${viewport.name}.`);
+      assert.equal(report.optionCapsuleCount, 0, `Las opciones del reactivo ${expected.number} no deben tener cápsulas en ${viewport.name}.`);
+      assert.equal(report.feedbackCapsuleCount, 0, `La retroalimentación del reactivo ${expected.number} no debe tener cápsulas en ${viewport.name}.`);
+      assert.ok(report.capsuleParagraphCount >= 1, `La cápsula del reactivo ${expected.number} debe contener párrafos en ${viewport.name}.`);
+      assert.equal(report.capsuleInsidePrompt, true, `La cápsula del reactivo ${expected.number} debe estar dentro del planteamiento en ${viewport.name}.`);
+      for (const text of expected.capsuleIncludes) {
+        assert.ok(report.capsuleText.includes(text), `La cápsula del reactivo ${expected.number} no muestra en ${viewport.name}: ${text}`);
+      }
+      assert.ok(report.promptText.includes(expected.questionIncludes), `El reactivo ${expected.number} no conserva la pregunta esperada en ${viewport.name}.`);
+      assert.equal(report.capsuleText.includes(expected.questionIncludes), false, `La pregunta del reactivo ${expected.number} no debe quedar dentro de la cápsula en ${viewport.name}.`);
+      assert.equal(report.display, 'grid', `La cápsula del reactivo ${expected.number} debe renderizarse como bloque en ${viewport.name}.`);
+      assert.equal(report.borderTopWidth, '2px', `La cápsula del reactivo ${expected.number} debe tener borde visible de 2px en ${viewport.name}.`);
+      assert.ok(report.borderTopColor.includes('28, 30, 90'), `La cápsula del reactivo ${expected.number} debe usar borde azul IFR en ${viewport.name}.`);
+      assert.equal(report.backgroundColor, 'rgb(238, 244, 255)', `La cápsula del reactivo ${expected.number} debe usar fondo azul claro en ${viewport.name}.`);
+      assert.equal(report.capsuleColor, 'rgb(28, 30, 90)', `La cápsula del reactivo ${expected.number} debe usar texto azul IFR en ${viewport.name}.`);
+      assert.ok(report.paragraphColors.every((color) => color === 'rgb(28, 30, 90)'), `Los párrafos de la cápsula del reactivo ${expected.number} deben mantener texto azul IFR en ${viewport.name}.`);
+      assert.ok(Number.parseFloat(report.borderRadius) <= 8, `La cápsula del reactivo ${expected.number} debe mantenerse rectangular en ${viewport.name}.`);
+      assert.equal(report.overflowWrap, 'break-word', `La cápsula del reactivo ${expected.number} debe proteger contra desbordes en ${viewport.name}.`);
+      assert.equal(report.capsuleFitsPrompt, true, `La cápsula del reactivo ${expected.number} debe caber dentro del planteamiento en ${viewport.name}.`);
+      assert.equal(report.hasHorizontalOverflow, false, `La cápsula del reactivo ${expected.number} no debe generar desborde horizontal en ${viewport.name}.`);
+
+      if (expected.underline) {
+        assert.deepEqual(report.underline, expected.underline, `La cápsula del reactivo ${expected.number} no conserva los subrayados en ${viewport.name}.`);
+      }
+      if (expected.highlight) {
+        assert.deepEqual(report.highlight, expected.highlight, `La cápsula del reactivo ${expected.number} no conserva los resaltados en ${viewport.name}.`);
+      }
+
+      if ((viewport.name === 'desktop' && [31, 77].includes(expected.number)) || (viewport.name === 'mobile' && [38, 80, 81, 83].includes(expected.number))) {
+        await page.screenshot({ path: path.join(OUT_DIR, `qa-reactivo${expected.number}-capsula-${viewport.name}.png`), fullPage: true });
+      }
+    }
+  }
+}
+
 async function runSharedTextBaseChecks(page) {
   log('Validando textos base compartidos en los reactivos 77 al 83.');
 
@@ -1145,6 +1313,7 @@ async function main() {
     await runResponsiveChecks(page);
     await runReactivo7FigureChecks(page);
     await runPromptMarkChecks(page);
+    await runReadingCapsuleChecks(page);
     await runReactivo80TextBaseChecks(page);
     await runSharedTextBaseChecks(page);
     await runReactivo8FigureChecks(page);
