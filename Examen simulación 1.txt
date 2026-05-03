@@ -2897,6 +2897,7 @@ REACTIVO 94
 Área temática: Geografía
 Bloque que corresponde al área temática: Coordenadas geográficas
 Planteamiento del problema:
+Observa el mapa y localiza el punto marcado.
 Un punto del planeta se localiza a 20° al norte del ecuador y a 40° al oeste del meridiano de Greenwich. ¿Cuál es su coordenada correcta?
 
 Opciones:
@@ -2907,7 +2908,7 @@ d) 20° N, 40° E
 e) 40° S, 20° E
 
 Pista sin ofrecer la respuesta:
-La latitud se mide al norte o al sur del ecuador; la longitud al este o al oeste del meridiano de Greenwich.
+Primero identifica la latitud con relación al ecuador; después identifica la longitud con relación al meridiano de Greenwich.
 
 Respuesta correcta:
 a) 20° N, 40° O

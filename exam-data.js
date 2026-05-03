@@ -5036,7 +5036,7 @@ window.IFR_APP_DATA = {
       "areaId": "geografia",
       "areaName": "Geografía",
       "block": "Coordenadas geográficas",
-      "prompt": "Un punto del planeta se localiza a 20° al norte del ecuador y a 40° al oeste del meridiano de Greenwich. ¿Cuál es su coordenada correcta?",
+      "prompt": "Observa el mapa y localiza el punto marcado.\nUn punto del planeta se localiza a 20° al norte del ecuador y a 40° al oeste del meridiano de Greenwich. ¿Cuál es su coordenada correcta?",
       "options": [
         {
           "label": "a",
@@ -5066,7 +5066,7 @@ window.IFR_APP_DATA = {
       ],
       "correctOption": "a",
       "correctOptionText": "20° N, 40° O",
-      "hint": "La latitud se mide al norte o al sur del ecuador; la longitud al este o al oeste del meridiano de Greenwich.",
+      "hint": "Primero identifica la latitud con relación al ecuador; después identifica la longitud con relación al meridiano de Greenwich.",
       "correctArgument": "El punto está al norte del ecuador, por eso su latitud es 20° N. Además, está al oeste del meridiano de Greenwich, así que su longitud es 40° O.",
       "incorrectArgumentsByOption": {
         "b": "20° S, 40° O: cambia la latitud de norte a sur.",
