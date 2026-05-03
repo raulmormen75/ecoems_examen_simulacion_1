@@ -934,6 +934,11 @@ main{
   height:auto;
 }
 
+#reactivo-94 .visual-panel-image img{
+  width:min(100%,680px);
+  margin:0 auto;
+}
+
 .visual-panel pre,
 .option-pre{
   margin:0;

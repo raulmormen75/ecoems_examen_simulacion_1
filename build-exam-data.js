@@ -82,6 +82,11 @@ const REACTIVO_74_PROMPT_IMAGE = {
   alt: 'Diagrama con dos rectas paralelas horizontales cortadas por una transversal inclinada. En la intersección superior los ángulos están numerados 1 arriba izquierda, 2 arriba derecha, 3 abajo derecha y 4 abajo izquierda. En la intersección inferior están numerados 5 arriba izquierda, 6 arriba derecha, 7 abajo derecha y 8 abajo izquierda.'
 };
 
+const REACTIVO_94_PROMPT_IMAGE = {
+  src: 'assets/reactivo-94/prompt/reactivo-94-coordenadas-geograficas.png',
+  alt: 'Mapa mundial con retícula de coordenadas geográficas. Incluye referencias de norte, sur, este, oeste, ecuador y meridiano de Greenwich. Los ejes muestran valores de latitud y longitud; un punto verde marca la ubicación solicitada sin escribir la coordenada como respuesta.'
+};
+
 const PROMPT_MARKS_BY_REACTIVO = {
   32: [{ text: 'por eso', style: 'underline' }],
   33: [
@@ -591,6 +596,17 @@ function applyExerciseOverrides(exercise) {
         kind: 'image',
         src: REACTIVO_74_PROMPT_IMAGE.src,
         alt: REACTIVO_74_PROMPT_IMAGE.alt
+      }
+    };
+  }
+
+  if (exercise.number === 94) {
+    return {
+      ...exerciseWithPromptMarks,
+      visual: {
+        kind: 'image',
+        src: REACTIVO_94_PROMPT_IMAGE.src,
+        alt: REACTIVO_94_PROMPT_IMAGE.alt
       }
     };
   }

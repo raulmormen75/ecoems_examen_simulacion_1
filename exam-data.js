@@ -5075,8 +5075,9 @@ window.IFR_APP_DATA = {
         "e": "40° S, 20° E: altera tanto dirección como medida de las coordenadas."
       },
       "visual": {
-        "kind": "none",
-        "content": ""
+        "kind": "image",
+        "src": "assets/reactivo-94/prompt/reactivo-94-coordenadas-geograficas.png",
+        "alt": "Mapa mundial con retícula de coordenadas geográficas. Incluye referencias de norte, sur, este, oeste, ecuador y meridiano de Greenwich. Los ejes muestran valores de latitud y longitud; un punto verde marca la ubicación solicitada sin escribir la coordenada como respuesta."
       },
       "sourceOrder": 94,
       "rangeStart": 93,

@@ -59,7 +59,13 @@ async function getExerciseData(page, index) {
 }
 
 async function clickOption(page, exerciseId, optionLabel) {
-  await page.locator(`[data-action="answer"][data-id="${exerciseId}"][data-option="${optionLabel}"]`).click();
+  const option = page.locator(`[data-action="answer"][data-id="${exerciseId}"][data-option="${optionLabel}"]`);
+  await option.scrollIntoViewIfNeeded();
+  try {
+    await option.click({ timeout: 5000 });
+  } catch (error) {
+    await option.click({ force: true });
+  }
 }
 
 async function advanceToExercise(page, targetNumber) {
