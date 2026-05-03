@@ -741,11 +741,14 @@
           <span class="pill final-mode">${esc(modeLabel)}</span>
           <h2 id="resultadoFinalTitle">Resultado final</h2>
         </div>
-        <p>${esc(modeText)}</p>
+        <div class="final-result-head-actions">
+          <p>${esc(modeText)}</p>
+          <button class="download-results-btn" type="button" data-action="download-results">Descargar mis resultados</button>
+        </div>
       </div>
       ${renderFinalMetrics(summary)}
       ${renderReinforcementList(summary)}
-      <div class="final-actions">
+      <div class="final-actions final-actions-bottom">
         <button class="download-results-btn" type="button" data-action="download-results">Descargar mis resultados</button>
       </div>
     </section>`;
@@ -1191,7 +1194,9 @@
     const rightX = contentX + contentWidth - rightWidth;
     setCanvasFont(context, 15, 800);
     const rightLines = wrapCanvasText(context, modeText, rightWidth);
-    const headerHeight = Math.max(96, rightLines.length * 24 + 20);
+    const buttonWidth = 246;
+    const buttonHeight = 50;
+    const headerHeight = Math.max(124, rightLines.length * 24 + buttonHeight + 34);
 
     if (draw) {
       drawCanvasPill(context, modeLabel, contentX, y, {
@@ -1205,6 +1210,11 @@
       context.textBaseline = 'top';
       context.fillText('Resultado final', contentX, y + 46);
       drawWrappedText(context, modeText, rightX, y + 14, rightWidth, 24, colors.muted, 15, 650);
+      fillRoundRect(context, rightX + rightWidth - buttonWidth, y + headerHeight - buttonHeight, buttonWidth, buttonHeight, buttonHeight / 2, colors.navy, null);
+      setCanvasFont(context, 16, 800);
+      context.fillStyle = colors.white;
+      context.textBaseline = 'middle';
+      context.fillText('Descargar mis resultados', rightX + rightWidth - buttonWidth + 24, y + headerHeight - buttonHeight / 2 + .5);
     }
     y += headerHeight + 26;
 
@@ -1310,8 +1320,6 @@
       });
     }
 
-    const buttonWidth = 246;
-    const buttonHeight = 50;
     if (draw) {
       fillRoundRect(context, contentX + contentWidth - buttonWidth, y, buttonWidth, buttonHeight, buttonHeight / 2, colors.navy, null);
       setCanvasFont(context, 16, 800);
@@ -1328,13 +1336,13 @@
     const panel = byId('resultado-final');
     if (!panel || !STATE.summary) return;
 
-    const button = panel.querySelector('[data-action="download-results"]');
-    const originalButtonText = button ? button.textContent : '';
+    const buttons = Array.from(panel.querySelectorAll('[data-action="download-results"]'));
+    const originalButtonTexts = buttons.map((button) => button.textContent);
 
-    if (button) {
+    buttons.forEach((button) => {
       button.disabled = true;
       button.textContent = 'Preparando descarga...';
-    }
+    });
 
     try {
       if (document.fonts && document.fonts.ready) {
@@ -1367,17 +1375,17 @@
       window.setTimeout(() => URL.revokeObjectURL(pngUrl), 1000);
     } catch (error) {
       console.error('No se pudo descargar el resultado final.', error);
-      if (button) {
+      buttons.forEach((button) => {
         button.disabled = false;
         button.textContent = 'Intenta descargar de nuevo';
-      }
+      });
       return;
     }
 
-    if (button) {
+    buttons.forEach((button, index) => {
       button.disabled = false;
-      button.textContent = originalButtonText;
-    }
+      button.textContent = originalButtonTexts[index];
+    });
   }
 
   function handleClick(event) {

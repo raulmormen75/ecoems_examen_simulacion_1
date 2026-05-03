@@ -153,18 +153,41 @@ async function showFloatingReview(page, optionLabel) {
 }
 
 async function expectResultDownload(page, label) {
-  const button = page.getByRole('button', { name: 'Descargar mis resultados' });
-  await button.waitFor();
+  const buttons = page.getByRole('button', { name: 'Descargar mis resultados' });
+  await buttons.first().waitFor();
+  const buttonCount = await buttons.count();
+  assert.equal(buttonCount, 2, `Se esperaban dos botones de descarga en ${label}.`);
+
+  const topButtonBox = await page.locator('#resultado-final .final-result-head-actions [data-action="download-results"]').boundingBox();
+  const bottomButtonBox = await page.locator('#resultado-final .final-actions-bottom [data-action="download-results"]').boundingBox();
+  const panelBox = await page.locator('#resultado-final').boundingBox();
+  assert.ok(topButtonBox && bottomButtonBox && panelBox, `No se pudieron medir ambos botones en ${label}.`);
+  if (panelBox.width > 700) {
+    assert.ok(topButtonBox.x >= panelBox.x + panelBox.width / 2, `El boton superior no quedo orientado a la derecha en ${label}.`);
+    assert.ok(bottomButtonBox.x >= panelBox.x + panelBox.width / 2, `El boton inferior no quedo orientado a la derecha en ${label}.`);
+  } else {
+    assert.ok(topButtonBox.width >= panelBox.width * .72, `El boton superior movil no quedo con presencia suficiente en ${label}.`);
+    assert.ok(bottomButtonBox.width >= panelBox.width * .72, `El boton inferior movil no quedo con presencia suficiente en ${label}.`);
+  }
+  assert.ok(topButtonBox.y < bottomButtonBox.y, `El boton superior no aparece antes que el inferior en ${label}.`);
+
   const [download] = await Promise.all([
     page.waitForEvent('download'),
-    button.click()
+    buttons.first().click()
   ]);
   const filename = download.suggestedFilename();
   assert.ok(filename.endsWith('.png'), `La descarga de ${label} no produjo un archivo PNG: ${filename}.`);
   const targetPath = path.join(OUT_DIR, `resultado-final-${label}.png`);
   await download.saveAs(targetPath);
   const stats = fs.statSync(targetPath);
-  assert.ok(stats.size > 1000, `La descarga PNG de ${label} quedó vacía o demasiado pequeña.`);
+  assert.ok(stats.size > 1000, `La descarga PNG de ${label} quedo vacia o demasiado pequena.`);
+
+  const [bottomDownload] = await Promise.all([
+    page.waitForEvent('download'),
+    buttons.nth(1).click()
+  ]);
+  assert.ok(bottomDownload.suggestedFilename().endsWith('.png'), `La descarga inferior de ${label} no produjo PNG.`);
+  await bottomDownload.saveAs(path.join(OUT_DIR, `resultado-final-${label}-inferior.png`));
 }
 
 async function runFlowChecks(page) {
