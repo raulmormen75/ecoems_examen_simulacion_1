@@ -1191,6 +1191,165 @@ async function runReactivo74FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo74-mobile.png'), fullPage: true });
 }
 
+async function runReactivo94FigureChecks(page) {
+  log('Validando que el reactivo 94 muestre el mapa de coordenadas geográficas en el planteamiento.');
+
+  await page.setViewportSize({ width: 1440, height: 1080 });
+  await startExam(page);
+  await advanceToExercise(page, 94);
+  await page.locator('#reactivo-94').waitFor();
+  await waitForLoadedImages(page, '#reactivo-94 .visual-panel img', 1, 'planteamiento del reactivo 94 en escritorio');
+
+  const imageReport = await page.evaluate(() => {
+    const card = document.querySelector('#reactivo-94');
+    const promptImage = card?.querySelector('.prompt-panel .visual-panel img');
+    const optionImages = card ? Array.from(card.querySelectorAll('.option-list img')) : [];
+    const promptPanel = card?.querySelector('.prompt-panel');
+    const optionList = card?.querySelector('.option-list');
+    return promptImage
+      ? {
+          src: promptImage.getAttribute('src'),
+          alt: promptImage.getAttribute('alt'),
+          naturalWidth: promptImage.naturalWidth,
+          naturalHeight: promptImage.naturalHeight,
+          optionImageCount: optionImages.length,
+          imageBeforeOptions: Boolean(promptPanel && optionList && (promptPanel.compareDocumentPosition(optionList) & Node.DOCUMENT_POSITION_FOLLOWING))
+        }
+      : null;
+  });
+
+  assert.ok(imageReport, 'No se detectó la imagen principal del reactivo 94.');
+  assert.ok(imageReport.src.includes('reactivo-94-coordenadas-geograficas.png'), 'La imagen principal del reactivo 94 no corresponde al asset esperado.');
+  assert.equal(
+    imageReport.alt,
+    'Mapa mundial con retícula de coordenadas geográficas. Incluye referencias de norte, sur, este, oeste, ecuador y meridiano de Greenwich. Los ejes muestran valores de latitud y longitud; un punto verde marca la ubicación solicitada sin escribir la coordenada como respuesta.',
+    'El texto alternativo del reactivo 94 no describe el apoyo visual esperado.'
+  );
+  assert.ok(imageReport.naturalWidth > 0 && imageReport.naturalHeight > 0, 'La imagen principal del reactivo 94 no cargó correctamente.');
+  assert.equal(imageReport.optionImageCount, 0, 'La imagen del reactivo 94 no debe insertarse dentro de las opciones.');
+  assert.equal(imageReport.imageBeforeOptions, true, 'La imagen del reactivo 94 debe aparecer en el planteamiento antes de las opciones.');
+  await checkNoHorizontalOverflow(page, 'reactivo 94 en escritorio');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo94-desktop.png'), fullPage: true });
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(APP_URL, { waitUntil: 'networkidle' });
+  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await advanceToExercise(page, 94);
+  await waitForLoadedImages(page, '#reactivo-94 .visual-panel img', 1, 'planteamiento del reactivo 94 en móvil');
+  const mobileOptionImages = await page.locator('#reactivo-94 .option-list img').count();
+  assert.equal(mobileOptionImages, 0, 'Las opciones del reactivo 94 no deben contener imágenes en móvil.');
+  await checkNoHorizontalOverflow(page, 'reactivo 94 en móvil');
+  await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo94-mobile.png'), fullPage: true });
+}
+
+const TABLE_VISUAL_EXPECTATIONS = [
+  {
+    number: 72,
+    snippets: ['Producto', 'Lunes', 'Martes', 'Miércoles', 'Cuadernos', 'Plumas', 'Colores']
+  },
+  {
+    number: 106,
+    snippets: ['Tiempo (s):', 'Distancia (m):', '0  10  20  30']
+  },
+  {
+    number: 107,
+    snippets: ['Tiempo (h):', 'Velocidad (km/h):', '0  60  60  30   0']
+  }
+];
+
+async function answerThroughExercise(page, fromNumber, targetNumber) {
+  for (let number = fromNumber; number < targetNumber; number += 1) {
+    const exercise = await getExerciseData(page, number - 1);
+    await page.locator(`[data-action="answer"][data-id="${exercise.id}"]`).first().waitFor();
+    await clickOption(page, exercise.id, exercise.correctOption);
+  }
+}
+
+async function checkTableVisual(page, expectation, label, shouldScroll) {
+  const selector = `#reactivo-${expectation.number} .prompt-panel .visual-panel-preformatted`;
+  await page.locator(selector).waitFor();
+
+  const report = await page.evaluate(({ number, snippets, expectScroll }) => {
+    const card = document.querySelector(`#reactivo-${number}`);
+    const promptPanel = card?.querySelector('.prompt-panel');
+    const panel = promptPanel?.querySelector('.visual-panel-preformatted');
+    const pre = panel?.querySelector('pre');
+    const promptRect = promptPanel?.getBoundingClientRect();
+    const panelRect = panel?.getBoundingClientRect();
+
+    if (!card || !promptPanel || !panel || !pre || !promptRect || !panelRect) {
+      return { hasElements: false };
+    }
+
+    panel.scrollLeft = 90;
+    const styles = getComputedStyle(panel);
+    const preStyles = getComputedStyle(pre);
+    const text = pre.textContent || '';
+
+    return {
+      hasElements: true,
+      includesSnippets: snippets.every((snippet) => text.includes(snippet)),
+      pageOverflow: document.documentElement.scrollWidth > window.innerWidth,
+      panelFitsViewport: panelRect.left >= -1 && panelRect.right <= window.innerWidth + 1,
+      panelFitsPrompt: panelRect.left >= promptRect.left - 1 && panelRect.right <= promptRect.right + 1,
+      panelOverflowX: styles.overflowX,
+      panelCanScroll: panel.scrollWidth > panel.clientWidth,
+      panelScrollMoved: expectScroll ? panel.scrollLeft > 0 : true,
+      preWhiteSpace: preStyles.whiteSpace,
+      preWidth: pre.getBoundingClientRect().width,
+      panelWidth: panelRect.width
+    };
+  }, { number: expectation.number, snippets: expectation.snippets, expectScroll: shouldScroll });
+
+  assert.equal(report.hasElements, true, `No se encontro la tabla preformateada del reactivo ${expectation.number} en ${label}.`);
+  assert.equal(report.includesSnippets, true, `La tabla del reactivo ${expectation.number} no conserva el contenido esperado en ${label}.`);
+  assert.equal(report.pageOverflow, false, `La tabla del reactivo ${expectation.number} provoco desborde horizontal de pagina en ${label}.`);
+  assert.equal(report.panelFitsViewport, true, `El panel de tabla del reactivo ${expectation.number} se salio del viewport en ${label}.`);
+  assert.equal(report.panelFitsPrompt, true, `El panel de tabla del reactivo ${expectation.number} se salio del planteamiento en ${label}.`);
+  assert.ok(['auto', 'scroll'].includes(report.panelOverflowX), `El panel del reactivo ${expectation.number} no permite desplazamiento horizontal interno en ${label}.`);
+  assert.equal(report.preWhiteSpace, 'pre', `La tabla del reactivo ${expectation.number} no conserva columnas con white-space: pre en ${label}.`);
+
+  if (shouldScroll) {
+    assert.equal(report.panelCanScroll, true, `La tabla del reactivo ${expectation.number} no genera scroll interno en ${label}.`);
+    assert.equal(report.panelScrollMoved, true, `La tabla del reactivo ${expectation.number} no respondio al desplazamiento horizontal en ${label}.`);
+    assert.ok(report.preWidth > report.panelWidth, `La tabla del reactivo ${expectation.number} no tiene mas ancho interno que su panel en ${label}.`);
+  }
+}
+
+async function runTableScrollChecks(page) {
+  log('Validando desplazamiento horizontal interno de tablas en reactivos 72, 106 y 107.');
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await startExam(page);
+  await answerThroughExercise(page, 1, 72);
+
+  let currentNumber = 72;
+  for (const expectation of TABLE_VISUAL_EXPECTATIONS) {
+    await answerThroughExercise(page, currentNumber, expectation.number);
+    await page.locator(`#reactivo-${expectation.number}`).waitFor();
+    await checkTableVisual(page, expectation, 'movil activo', true);
+    await page.screenshot({ path: path.join(OUT_DIR, `qa-reactivo${expectation.number}-table-mobile.png`), fullPage: true });
+
+    const exercise = await getExerciseData(page, expectation.number - 1);
+    await clickOption(page, exercise.id, exercise.correctOption);
+    await page.locator(`#reactivo-${expectation.number} .card-toggle`).click();
+    await checkTableVisual(page, expectation, 'movil en revision', true);
+    currentNumber = expectation.number + 1;
+  }
+
+  await page.setViewportSize({ width: 1440, height: 1080 });
+  await startExam(page);
+  await answerThroughExercise(page, 1, 72);
+  currentNumber = 72;
+  for (const expectation of TABLE_VISUAL_EXPECTATIONS) {
+    await answerThroughExercise(page, currentNumber, expectation.number);
+    await page.locator(`#reactivo-${expectation.number}`).waitFor();
+    await checkTableVisual(page, expectation, 'escritorio activo', false);
+    await page.screenshot({ path: path.join(OUT_DIR, `qa-reactivo${expectation.number}-table-desktop.png`), fullPage: true });
+    currentNumber = expectation.number;
+  }
+}
+
 async function checkRemovedInstructionOnCurrentExercise(page, targetNumber) {
   const removedText = 'Lee el planteamiento, revisa el apoyo visual si aparece y selecciona una sola opción.';
   const exerciseId = `reactivo-${targetNumber}`;
@@ -1338,6 +1497,8 @@ async function main() {
     await runReactivo16FigureChecks(page);
     await runReactivo44FigureChecks(page);
     await runReactivo74FigureChecks(page);
+    await runReactivo94FigureChecks(page);
+    await runTableScrollChecks(page);
     await runInstructionRemovalRangeChecks(page, 17, 43);
     await runInstructionRemovalRangeChecks(page, 45, 73);
     await runNaturalCompletionChecks(page);

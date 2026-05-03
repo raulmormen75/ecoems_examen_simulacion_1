@@ -353,7 +353,7 @@
     }
 
     if (visual.kind === 'preformatted') {
-      return `<div class="visual-panel"><pre>${esc(visual.content)}</pre></div>`;
+      return `<div class="visual-panel visual-panel-preformatted" role="region" aria-label="Tabla con desplazamiento horizontal" tabindex="0"><pre>${esc(visual.content)}</pre></div>`;
     }
 
     return '';

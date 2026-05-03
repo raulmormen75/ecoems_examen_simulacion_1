@@ -937,11 +937,44 @@ main{
 .visual-panel pre,
 .option-pre{
   margin:0;
-  white-space:pre-wrap;
   font-family:"Cascadia Mono","Consolas","Courier New",monospace;
   font-size:.95rem;
   line-height:1.55;
   color:var(--n2);
+}
+
+.visual-panel-preformatted{
+  max-width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(28,30,90,.45) rgba(28,30,90,.08);
+}
+
+.visual-panel-preformatted::-webkit-scrollbar{
+  height:10px;
+}
+
+.visual-panel-preformatted::-webkit-scrollbar-track{
+  background:rgba(28,30,90,.08);
+  border-radius:999px;
+}
+
+.visual-panel-preformatted::-webkit-scrollbar-thumb{
+  background:rgba(28,30,90,.42);
+  border-radius:999px;
+}
+
+.visual-panel-preformatted pre{
+  width:max-content;
+  min-width:520px;
+  white-space:pre;
+  padding-bottom:6px;
+}
+
+.option-pre{
+  white-space:pre-wrap;
 }
 
 .option-list{
