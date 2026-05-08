@@ -13,7 +13,7 @@
 - El contenido textual fuente salvo normalización técnica.
 - El orden original de los 128 reactivos.
 - La identidad IFR y el escudo institucional.
-- La regla de reinicio total al refrescar.
+- La persistencia local del avance al refrescar.
 
 ## Cadencia de validación
 

@@ -69,7 +69,7 @@ La versión 1 ya cuenta con una estructura funcional completa:
 - Panel persistente `Resultado final`.
 - Lista de bloques temáticos por reforzar.
 - Descarga del resultado final en PNG.
-- Reinicio total al refrescar la página.
+- Persistencia local del avance al refrescar la página.
 - Ajustes responsivos para escritorio, tableta y móvil.
 
 La segunda versión no debe romper esta base funcional. Si se cambia contenido, estructura o interacción, debe mantenerse el mismo nivel de control del intento.

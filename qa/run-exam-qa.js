@@ -30,7 +30,7 @@ function findPlaywrightModule() {
 const playwrightModulePath = findPlaywrightModule();
 const { chromium } = require(playwrightModulePath);
 
-const APP_URL = 'http://127.0.0.1:8765/index.html';
+const APP_URL = process.env.IFR_APP_URL || 'http://127.0.0.1:8765/index.html';
 const OUT_DIR = path.join(process.cwd(), 'test-results');
 
 function log(message) {
@@ -76,8 +76,14 @@ async function advanceToExercise(page, targetNumber) {
   }
 }
 
-async function startExam(page) {
+async function resetApp(page) {
   await page.goto(APP_URL, { waitUntil: 'networkidle' });
+  await page.evaluate(() => window.localStorage.clear());
+  await page.reload({ waitUntil: 'networkidle' });
+}
+
+async function startExam(page) {
+  await resetApp(page);
   await page.getByRole('button', { name: 'Iniciar examen' }).click();
   await page.getByRole('heading', { name: 'Resuelve este reactivo para continuar' }).waitFor();
 }
@@ -267,6 +273,51 @@ async function runFlowChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-desktop-finished.png'), fullPage: true });
 }
 
+async function runProgressPersistenceChecks(page) {
+  log('Validando que la recarga conserve el avance y que no aparezca el panel de advertencia.');
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(APP_URL, { waitUntil: 'networkidle' });
+  await page.evaluate(() => window.localStorage.clear());
+  await page.reload({ waitUntil: 'networkidle' });
+
+  assert.equal(await page.getByText('No refresques la página.').count(), 0, 'No debe mostrarse el panel de advertencia por recarga.');
+  assert.equal(await page.getByText('todo el avance se reinicia').count(), 0, 'No debe mostrarse texto que indique pérdida de avance por recarga.');
+
+  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await page.getByRole('heading', { name: 'Resuelve este reactivo para continuar' }).waitFor();
+  await page.getByText('Tu avance se guarda automáticamente en este dispositivo.').waitFor();
+
+  const first = await getExerciseData(page, 0);
+  const wrongOption = first.options.find((option) => option !== first.correctOption);
+  assert.ok(wrongOption, 'No se encontró opción incorrecta para probar persistencia.');
+  await clickOption(page, first.id, wrongOption);
+
+  const second = await getExerciseData(page, 1);
+  await clickOption(page, second.id, second.correctOption);
+
+  const beforeReload = await page.evaluate(() => window.__IFR_EXAM_DEBUG__.getState());
+  assert.equal(beforeReload.status, 'running', 'La evaluación debe seguir en curso antes de recargar.');
+  assert.equal(beforeReload.activeIndex, 2, 'El tercer reactivo debe quedar activo antes de recargar.');
+  assert.equal(Object.keys(beforeReload.answersById).length, 2, 'Deben guardarse dos respuestas antes de recargar.');
+
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.getByRole('heading', { name: 'Resuelve este reactivo para continuar' }).waitFor();
+
+  const afterReload = await page.evaluate(() => window.__IFR_EXAM_DEBUG__.getState());
+  assert.equal(afterReload.status, 'running', 'La evaluación debe restaurarse en curso después de recargar.');
+  assert.equal(afterReload.activeIndex, 2, 'La recarga debe conservar el reactivo activo.');
+  assert.equal(Object.keys(afterReload.answersById).length, 2, 'La recarga debe conservar las respuestas previas.');
+  assert.equal(afterReload.answersById[first.id].selectedOption, wrongOption, 'La recarga debe conservar la respuesta incorrecta elegida.');
+  assert.equal(afterReload.answersById[second.id].selectedOption, second.correctOption, 'La recarga debe conservar la respuesta correcta elegida.');
+  assert.ok(afterReload.remainingSeconds <= beforeReload.remainingSeconds, 'El cronómetro restaurado no debe aumentar tras recargar.');
+  assert.ok(afterReload.remainingSeconds >= beforeReload.remainingSeconds - 10, 'La recarga descontó más tiempo del esperado.');
+  await expectText(page, '#answeredValue', '2');
+  await expectText(page, '#incorrectValue', '1');
+  await page.getByText('Si recargas la página, podrás continuar desde este dispositivo.').waitFor();
+  await checkNoHorizontalOverflow(page, 'persistencia tras recarga en móvil');
+}
+
 async function runResponsiveChecks(page) {
   log('Validando formato del botón opcional en escritorio, tableta y móvil.');
 
@@ -278,7 +329,7 @@ async function runResponsiveChecks(page) {
 
   for (const viewport of viewports) {
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
-    await page.goto(APP_URL, { waitUntil: 'networkidle' });
+    await resetApp(page);
     await checkNoHorizontalOverflow(page, `portada ${viewport.label}`);
     await page.getByRole('button', { name: 'Iniciar examen' }).click();
     await page.getByRole('heading', { name: 'Resuelve este reactivo para continuar' }).waitFor();
@@ -789,8 +840,7 @@ async function runReactivo8FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo8-desktop.png'), fullPage: true });
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(APP_URL, { waitUntil: 'networkidle' });
-  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await startExam(page);
   await advanceToExercise(page, 8);
   await page.locator('#reactivo-8 .option-visual img').first().waitFor();
   await waitForLoadedImages(page, '#reactivo-8 .visual-panel img', 1, 'planteamiento del reactivo 8 en móvil');
@@ -832,8 +882,7 @@ async function runReactivo11FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo11-desktop.png'), fullPage: true });
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(APP_URL, { waitUntil: 'networkidle' });
-  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await startExam(page);
   await advanceToExercise(page, 11);
   await waitForLoadedImages(page, '#reactivo-11 .visual-panel img', 1, 'planteamiento del reactivo 11 en móvil');
   await checkNoHorizontalOverflow(page, 'reactivo 11 en móvil');
@@ -881,8 +930,7 @@ async function runReactivo12FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo12-desktop.png'), fullPage: true });
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(APP_URL, { waitUntil: 'networkidle' });
-  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await startExam(page);
   await advanceToExercise(page, 12);
   await waitForLoadedImages(page, '#reactivo-12 .visual-panel img', 1, 'planteamiento del reactivo 12 en móvil');
   const mobileOptionImages = await page.locator('#reactivo-12 .option-list img').count();
@@ -932,8 +980,7 @@ async function runReactivo13FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo13-desktop.png'), fullPage: true });
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(APP_URL, { waitUntil: 'networkidle' });
-  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await startExam(page);
   await advanceToExercise(page, 13);
   await waitForLoadedImages(page, '#reactivo-13 .visual-panel img', 1, 'planteamiento del reactivo 13 en móvil');
   const mobileOptionImages = await page.locator('#reactivo-13 .option-list img').count();
@@ -983,8 +1030,7 @@ async function runReactivo14FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo14-desktop.png'), fullPage: true });
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(APP_URL, { waitUntil: 'networkidle' });
-  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await startExam(page);
   await advanceToExercise(page, 14);
   await waitForLoadedImages(page, '#reactivo-14 .visual-panel img', 1, 'planteamiento del reactivo 14 en móvil');
   const mobileOptionImages = await page.locator('#reactivo-14 .option-list img').count();
@@ -1034,8 +1080,7 @@ async function runReactivo15FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo15-desktop.png'), fullPage: true });
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(APP_URL, { waitUntil: 'networkidle' });
-  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await startExam(page);
   await advanceToExercise(page, 15);
   await waitForLoadedImages(page, '#reactivo-15 .visual-panel img', 1, 'planteamiento del reactivo 15 en móvil');
   const mobileOptionImages = await page.locator('#reactivo-15 .option-list img').count();
@@ -1085,8 +1130,7 @@ async function runReactivo16FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo16-desktop.png'), fullPage: true });
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(APP_URL, { waitUntil: 'networkidle' });
-  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await startExam(page);
   await advanceToExercise(page, 16);
   await waitForLoadedImages(page, '#reactivo-16 .visual-panel img', 1, 'planteamiento del reactivo 16 en móvil');
   const mobileOptionImages = await page.locator('#reactivo-16 .option-list img').count();
@@ -1136,8 +1180,7 @@ async function runReactivo44FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo44-desktop.png'), fullPage: true });
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(APP_URL, { waitUntil: 'networkidle' });
-  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await startExam(page);
   await advanceToExercise(page, 44);
   await waitForLoadedImages(page, '#reactivo-44 .visual-panel img', 1, 'planteamiento del reactivo 44 en móvil');
   const mobileOptionImages = await page.locator('#reactivo-44 .option-list img').count();
@@ -1187,8 +1230,7 @@ async function runReactivo74FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo74-desktop.png'), fullPage: true });
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(APP_URL, { waitUntil: 'networkidle' });
-  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await startExam(page);
   await advanceToExercise(page, 74);
   await waitForLoadedImages(page, '#reactivo-74 .visual-panel img', 1, 'planteamiento del reactivo 74 en móvil');
   const mobileOptionImages = await page.locator('#reactivo-74 .option-list img').count();
@@ -1238,8 +1280,7 @@ async function runReactivo94FigureChecks(page) {
   await page.screenshot({ path: path.join(OUT_DIR, 'qa-reactivo94-desktop.png'), fullPage: true });
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(APP_URL, { waitUntil: 'networkidle' });
-  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await startExam(page);
   await advanceToExercise(page, 94);
   await waitForLoadedImages(page, '#reactivo-94 .visual-panel img', 1, 'planteamiento del reactivo 94 en móvil');
   const mobileOptionImages = await page.locator('#reactivo-94 .option-list img').count();
@@ -1395,8 +1436,7 @@ async function runInstructionRemovalRangeChecks(page, startNumber, endNumber) {
   }
 
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(APP_URL, { waitUntil: 'networkidle' });
-  await page.getByRole('button', { name: 'Iniciar examen' }).click();
+  await startExam(page);
   await advanceToExercise(page, startNumber);
   for (let targetNumber = startNumber; targetNumber <= endNumber; targetNumber += 1) {
     await checkRemovedInstructionOnCurrentExercise(page, targetNumber);
@@ -1487,6 +1527,7 @@ async function main() {
   });
 
   try {
+    await runProgressPersistenceChecks(page);
     await runFlowChecks(page);
     await runResponsiveChecks(page);
     await runReactivo7FigureChecks(page);

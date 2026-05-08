@@ -5,6 +5,14 @@
   const TOTAL = EXERCISES.length;
   const DURATION = DATA.meta.durationSeconds || 10800;
   const EXERCISE_INDEX = new Map(EXERCISES.map((exercise, index) => [exercise.id, index]));
+  const STORAGE_KEY = 'ifr-ecoems-examen-simulacion-1-progress-v1';
+  const STORAGE_SIGNATURE = [
+    DATA.meta && DATA.meta.totalExercises,
+    TOTAL,
+    DURATION,
+    EXERCISES[0] && EXERCISES[0].id,
+    EXERCISES[TOTAL - 1] && EXERCISES[TOTAL - 1].id
+  ].join(':');
 
   const STATE = {
     status: 'idle',
@@ -200,6 +208,167 @@
     return status === 'finished' || status === 'time_expired';
   }
 
+  function canUseStorage() {
+    try {
+      return Boolean(window.localStorage);
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function cleanBooleanMap(value) {
+    const output = Object.create(null);
+    if (!value || typeof value !== 'object') return output;
+
+    for (const exercise of EXERCISES) {
+      if (value[exercise.id] === true) {
+        output[exercise.id] = true;
+      }
+    }
+
+    return output;
+  }
+
+  function cleanAnswers(value) {
+    const output = Object.create(null);
+    if (!value || typeof value !== 'object') return output;
+
+    for (const exercise of EXERCISES) {
+      const answer = value[exercise.id];
+      if (!answer || typeof answer !== 'object') continue;
+      const selectedOption = String(answer.selectedOption || '').toLowerCase();
+      const isValidOption = exercise.options.some((option) => option.label === selectedOption);
+      if (!isValidOption) continue;
+
+      output[exercise.id] = {
+        selectedOption,
+        isCorrect: selectedOption === exercise.correctOption
+      };
+    }
+
+    return output;
+  }
+
+  function cleanReinforcementLog(value, answersById) {
+    const output = [];
+    const seen = new Set();
+    const source = Array.isArray(value) ? value : [];
+
+    for (const exerciseId of source) {
+      const answer = answersById[exerciseId];
+      if (!answer || answer.isCorrect || seen.has(exerciseId)) continue;
+      output.push(exerciseId);
+      seen.add(exerciseId);
+    }
+
+    for (const exercise of EXERCISES) {
+      const answer = answersById[exercise.id];
+      if (!answer || answer.isCorrect || seen.has(exercise.id)) continue;
+      output.push(exercise.id);
+      seen.add(exercise.id);
+    }
+
+    return output;
+  }
+
+  function getFirstUnansweredIndex(answersById) {
+    const index = EXERCISES.findIndex((exercise) => !answersById[exercise.id]);
+    return index < 0 ? TOTAL : index;
+  }
+
+  function saveExamProgress() {
+    if (!canUseStorage()) return;
+
+    try {
+      if (STATE.status === 'idle') {
+        window.localStorage.removeItem(STORAGE_KEY);
+        return;
+      }
+
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        version: 1,
+        signature: STORAGE_SIGNATURE,
+        savedAt: Date.now(),
+        status: STATE.status,
+        activeIndex: STATE.activeIndex,
+        remainingSeconds: STATE.remainingSeconds,
+        answersById: STATE.answersById,
+        reinforcementLog: STATE.reinforcementLog,
+        hintsOpen: STATE.hintsOpen,
+        expandedAnswered: STATE.expandedAnswered,
+        floatingReviewId: STATE.floatingReviewId
+      }));
+    } catch (error) {
+      // La evaluación debe seguir funcionando aunque el almacenamiento local no esté disponible.
+    }
+  }
+
+  function restoreExamProgress() {
+    if (!canUseStorage()) return false;
+
+    try {
+      const raw = window.localStorage.getItem(STORAGE_KEY);
+      if (!raw) return false;
+
+      const payload = JSON.parse(raw);
+      const validStatuses = new Set(['running', 'finished', 'time_expired']);
+      if (
+        !payload ||
+        payload.version !== 1 ||
+        payload.signature !== STORAGE_SIGNATURE ||
+        !validStatuses.has(payload.status)
+      ) {
+        window.localStorage.removeItem(STORAGE_KEY);
+        return false;
+      }
+
+      const answersById = cleanAnswers(payload.answersById);
+      const firstUnansweredIndex = getFirstUnansweredIndex(answersById);
+      let status = payload.status;
+      let activeIndex = Math.min(Math.max(Number(payload.activeIndex) || 0, 0), Math.max(TOTAL - 1, 0));
+      let remainingSeconds = Math.min(Math.max(Number(payload.remainingSeconds) || 0, 0), DURATION);
+
+      if (status === 'running') {
+        const elapsedSeconds = Math.max(0, Math.floor((Date.now() - Number(payload.savedAt || Date.now())) / 1000));
+        remainingSeconds = Math.max(0, remainingSeconds - elapsedSeconds);
+
+        if (firstUnansweredIndex >= TOTAL) {
+          status = 'finished';
+        } else if (remainingSeconds <= 0) {
+          status = 'time_expired';
+        } else if (activeIndex < firstUnansweredIndex || answersById[EXERCISES[activeIndex]?.id]) {
+          activeIndex = firstUnansweredIndex;
+        }
+      }
+
+      STATE.status = status;
+      STATE.activeIndex = Math.min(activeIndex, Math.max(TOTAL - 1, 0));
+      STATE.remainingSeconds = remainingSeconds;
+      STATE.answersById = answersById;
+      STATE.reinforcementLog = cleanReinforcementLog(payload.reinforcementLog, answersById);
+      STATE.hintsOpen = status === 'running' ? cleanBooleanMap(payload.hintsOpen) : Object.create(null);
+      STATE.expandedAnswered = cleanBooleanMap(payload.expandedAnswered);
+      STATE.floatingReviewId =
+        status === 'running' && payload.floatingReviewId && answersById[payload.floatingReviewId]
+          ? payload.floatingReviewId
+          : null;
+      STATE.summary = isClosedStatus(status) ? buildSummary(status) : null;
+      STATE.modalStep = null;
+
+      if (status === 'running') {
+        startTimer();
+      } else {
+        clearTimer();
+      }
+
+      saveExamProgress();
+      return true;
+    } catch (error) {
+      window.localStorage.removeItem(STORAGE_KEY);
+      return false;
+    }
+  }
+
   function getMetrics() {
     const answers = Object.values(STATE.answersById);
     const answered = answers.length;
@@ -262,7 +431,7 @@
     }
 
     if (STATE.status === 'running') {
-      nodes.timerNote.textContent = 'No refresques ni cierres la pestaña durante la evaluación.';
+      nodes.timerNote.textContent = 'Tu avance se guarda automáticamente en este dispositivo.';
       return;
     }
 
@@ -289,7 +458,7 @@
     nodes.startExam.textContent = STATE.status === 'running' ? 'Examen en curso' : 'Examen concluido';
 
     if (STATE.status === 'running') {
-      nodes.startState.textContent = 'La evaluación está activa. Si refrescas esta página, el examen se reinicia completo.';
+      nodes.startState.textContent = 'La evaluación está activa. Si recargas la página, podrás continuar desde este dispositivo.';
       return;
     }
 
@@ -975,11 +1144,6 @@
     }
   }
 
-  function syncBeforeUnloadWarning() {
-    if (!isRunning()) return '';
-    return 'Si refrescas esta página, el examen se reinicia y perderás todo el avance.';
-  }
-
   function startTimer() {
     clearTimer();
     STATE.timerId = window.setInterval(() => {
@@ -993,6 +1157,7 @@
         return;
       }
 
+      saveExamProgress();
       renderTopMetrics();
     }, 1000);
   }
@@ -1022,6 +1187,10 @@
     STATE.floatingReviewId = null;
     STATE.summary = null;
     STATE.modalStep = null;
+    STATE.answersById = Object.create(null);
+    STATE.hintsOpen = Object.create(null);
+    STATE.expandedAnswered = Object.create(null);
+    saveExamProgress();
     startTimer();
     render();
     scrollToExercise(EXERCISES[0].id);
@@ -1034,6 +1203,7 @@
     STATE.floatingReviewId = null;
     STATE.summary = buildSummary(mode);
     STATE.modalStep = null;
+    saveExamProgress();
     render();
     scrollToFinalResult();
   }
@@ -1065,6 +1235,7 @@
 
     STATE.floatingReviewId = exerciseId;
     STATE.activeIndex = index + 1;
+    saveExamProgress();
     render();
     scrollToExercise(EXERCISES[STATE.activeIndex].id);
   }
@@ -1073,6 +1244,7 @@
     if (!isRunning()) return;
     if (EXERCISES[STATE.activeIndex].id !== exerciseId) return;
     STATE.hintsOpen[exerciseId] = !STATE.hintsOpen[exerciseId];
+    saveExamProgress();
     render();
   }
 
@@ -1084,6 +1256,7 @@
     if (nextExpanded && STATE.floatingReviewId === exerciseId) {
       STATE.floatingReviewId = null;
     }
+    saveExamProgress();
     render();
   }
 
@@ -1092,6 +1265,7 @@
     if (!answer) return;
     STATE.expandedAnswered[exerciseId] = true;
     STATE.floatingReviewId = null;
+    saveExamProgress();
     render();
     scrollToExercise(exerciseId);
   }
@@ -1099,18 +1273,21 @@
   function dismissFloatingReview(exerciseId) {
     if (STATE.floatingReviewId !== exerciseId) return;
     STATE.floatingReviewId = null;
+    saveExamProgress();
     render();
   }
 
   function handleModalAction(action) {
     if (action === 'modal-review') {
       STATE.modalStep = 'review';
+      saveExamProgress();
       renderModal();
       return;
     }
 
     if (action === 'modal-close') {
       STATE.modalStep = null;
+      saveExamProgress();
       renderModal();
     }
   }
@@ -1447,13 +1624,6 @@
     }
   }
 
-  window.addEventListener('beforeunload', (event) => {
-    const message = syncBeforeUnloadWarning();
-    if (!message) return;
-    event.preventDefault();
-    event.returnValue = message;
-  });
-
   window.addEventListener('scroll', queueTopStateSync, { passive: true });
   window.addEventListener('resize', queueTopStateSync);
   document.addEventListener('click', handleClick);
@@ -1465,6 +1635,7 @@
       finishExam,
       setRemainingSeconds(value) {
         STATE.remainingSeconds = Math.max(0, Number(value) || 0);
+        saveExamProgress();
         renderTopMetrics();
       },
       downloadResultsPng,
@@ -1479,5 +1650,6 @@
     };
   }
 
+  restoreExamProgress();
   render();
 })();
