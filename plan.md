@@ -6,7 +6,8 @@
 2. Construir la shell IFR del simulador con cronómetro, métricas y secuencia vertical.
 3. Implementar cierre por tiempo, cierre por término y repaso inteligente.
 4. Integrar panel persistente `Resultado final` con métricas, bloques por reforzar y descarga PNG.
-5. Verificar flujo real en navegador de escritorio y móvil.
+5. Integrar recarga segura del intento al refrescar, con decisión explícita para continuar o reiniciar.
+6. Verificar flujo real en navegador de escritorio y móvil.
 
 ## Acceptance Criteria
 
@@ -20,6 +21,11 @@
 - El panel `Resultado final` aparece tanto por término como por tiempo agotado.
 - La descarga PNG conserva el contenido del panel final.
 - La revisión final es solo de lectura.
+- La recarga con progreso guardado muestra la modal `🔄 Hay un avance guardado`.
+- `🔄 Continuar sin reiniciar` restaura estado, reactivo activo, respuestas, métricas, cronómetro y revisión.
+- `🧹 Reiniciar desde cero` borra el progreso guardado y vuelve a portada limpia.
+- El progreso viejo, corrupto o incompatible se descarta sin romper la app.
+- El cronómetro usa `deadlineAt` y bloquea respuestas después del vencimiento real.
 - La interfaz conserva identidad IFR, escudo visible y `Plus Jakarta Sans`.
 
 ## Validación
@@ -28,6 +34,7 @@
 - Revisión de conteos y campos estructurados.
 - Navegación real con servidor local.
 - Pruebas en escritorio y móvil con navegador automatizado.
+- QA automatizada de persistencia, modal accesible, storage corrupto y deadline real.
 
 ## Regla de control
 

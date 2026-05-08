@@ -32,6 +32,9 @@ const { chromium } = require(playwrightModulePath);
 
 const APP_URL = process.env.IFR_APP_URL || 'http://127.0.0.1:8765/index.html';
 const OUT_DIR = path.join(process.cwd(), 'test-results');
+const APP_FILE = path.join(process.cwd(), 'exam-app.js');
+const HTML_FILE = path.join(process.cwd(), 'index.html');
+const PROGRESS_STORAGE_KEY = 'ifr:ecoems:simulacion-1:progress:v1';
 
 function log(message) {
   console.log(`[qa] ${message}`);
@@ -91,6 +94,45 @@ async function startExam(page) {
 async function checkNoHorizontalOverflow(page, label) {
   const hasOverflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
   assert.equal(hasOverflow, false, `Se detectó desborde horizontal en ${label}.`);
+}
+
+function validateProgressPersistenceControls() {
+  const appSource = fs.readFileSync(APP_FILE, 'utf8');
+  const htmlSource = fs.readFileSync(HTML_FILE, 'utf8');
+
+  const requiredAppFragments = [
+    ['llave de almacenamiento de simulación 1', PROGRESS_STORAGE_KEY],
+    ['versión de esquema de progreso', 'STORAGE_VERSION'],
+    ['firma completa del contenido', 'createContentFingerprint'],
+    ['hash estable del contenido', 'stableHash'],
+    ['fecha límite del cronómetro persistida', 'deadlineAt'],
+    ['sincronización del cronómetro contra tiempo real', 'syncRemainingTime'],
+    ['cálculo de tiempo restante por fecha límite', 'remainingSecondsUntil'],
+    ['guardado automático de progreso', 'persistProgress'],
+    ['lectura de avance guardado', 'readSavedProgress'],
+    ['sanitización de avance guardado', 'sanitizeSavedProgress'],
+    ['modal de avance guardado', 'renderResumeChoiceModal'],
+    ['acción para continuar sin reiniciar', 'restore-progress'],
+    ['acción para reiniciar desde cero', 'reset-progress'],
+    ['guardado al salir o refrescar', "window.addEventListener('pagehide'"],
+    ['guardado al suspender pestaña', "document.addEventListener('visibilitychange'"],
+    ['trampa de foco en modal', 'handleModalKeydown'],
+    ['API local para leer avance guardado', 'readSavedProgress']
+  ];
+
+  for (const [label, fragment] of requiredAppFragments) {
+    assert.ok(appSource.includes(fragment), `Persistencia de progreso: falta ${label}.`);
+  }
+
+  assert.ok(/🔄\s*Continuar sin reiniciar/.test(appSource), 'Persistencia de progreso: falta botón con emoji para continuar sin reiniciar.');
+  assert.ok(/🧹\s*Reiniciar desde cero/.test(appSource), 'Persistencia de progreso: falta botón con emoji para reiniciar desde cero.');
+  assert.ok(/Hay un avance guardado/.test(appSource), 'Persistencia de progreso: falta título de la notificación de recarga.');
+  assert.ok(!/beforeunload/.test(appSource), 'Persistencia de progreso: no debe depender de beforeunload para una decisión personalizada.');
+  assert.ok(htmlSource.includes('Recarga segura'), 'La barra del examen debe comunicar la recarga segura.');
+  assert.ok(htmlSource.includes('role="dialog"'), 'El modal debe conservar role="dialog".');
+  assert.ok(htmlSource.includes('aria-modal="true"'), 'El modal debe conservar aria-modal="true".');
+
+  log('QA estática de persistencia: storage, fingerprint, deadline, modal accesible y eventos de salida presentes.');
 }
 
 async function waitForFloatingReview(page) {
@@ -274,7 +316,7 @@ async function runFlowChecks(page) {
 }
 
 async function runProgressPersistenceChecks(page) {
-  log('Validando que la recarga conserve el avance y que no aparezca el panel de advertencia.');
+  log('Validando recarga segura: modal, continuar, reiniciar y storage corrupto.');
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(APP_URL, { waitUntil: 'networkidle' });
@@ -300,8 +342,47 @@ async function runProgressPersistenceChecks(page) {
   assert.equal(beforeReload.status, 'running', 'La evaluación debe seguir en curso antes de recargar.');
   assert.equal(beforeReload.activeIndex, 2, 'El tercer reactivo debe quedar activo antes de recargar.');
   assert.equal(Object.keys(beforeReload.answersById).length, 2, 'Deben guardarse dos respuestas antes de recargar.');
+  assert.ok(beforeReload.deadlineAt > Date.now(), 'El intento debe persistir una fecha límite real.');
 
   await page.reload({ waitUntil: 'networkidle' });
+  const resumeDialog = page.getByRole('dialog', { name: '🔄 Hay un avance guardado' });
+  await resumeDialog.waitFor();
+  await resumeDialog.getByText('Encontramos un intento anterior de esta evaluación.').waitFor();
+  await resumeDialog.getByText('Examen en curso').waitFor();
+  await resumeDialog.getByText('Contestados', { exact: true }).waitFor();
+  await resumeDialog.getByText('Tiempo', { exact: true }).waitFor();
+  await resumeDialog.getByRole('button', { name: '🔄 Continuar sin reiniciar' }).waitFor();
+  await resumeDialog.getByRole('button', { name: '🧹 Reiniciar desde cero' }).waitFor();
+
+  const focusedAction = await page.evaluate(() => document.activeElement?.textContent?.trim());
+  assert.equal(focusedAction, '🔄 Continuar sin reiniciar', 'El foco inicial debe quedar en Continuar sin reiniciar.');
+  const focusVisibility = await page.evaluate(() => {
+    const active = document.activeElement;
+    const modal = document.querySelector('#modalCard');
+    if (!active || !modal) return false;
+    const activeRect = active.getBoundingClientRect();
+    const modalRect = modal.getBoundingClientRect();
+    return activeRect.top >= modalRect.top &&
+      activeRect.bottom <= modalRect.bottom &&
+      activeRect.top >= 0 &&
+      activeRect.bottom <= window.innerHeight;
+  });
+  assert.equal(focusVisibility, true, 'El botón enfocado debe quedar visible dentro del modal en móvil.');
+
+  await page.keyboard.press('Tab');
+  assert.equal(
+    await page.evaluate(() => document.activeElement?.textContent?.trim()),
+    '🧹 Reiniciar desde cero',
+    'Tab debe avanzar al botón de reinicio dentro del modal.'
+  );
+  await page.keyboard.press('Tab');
+  assert.equal(
+    await page.evaluate(() => document.activeElement?.textContent?.trim()),
+    '🔄 Continuar sin reiniciar',
+    'La trampa de foco debe regresar al botón principal.'
+  );
+  await checkNoHorizontalOverflow(page, 'modal de recarga segura en móvil');
+  await page.getByRole('button', { name: '🔄 Continuar sin reiniciar' }).click();
   await page.getByRole('heading', { name: 'Resuelve este reactivo para continuar' }).waitFor();
 
   const afterReload = await page.evaluate(() => window.__IFR_EXAM_DEBUG__.getState());
@@ -316,6 +397,52 @@ async function runProgressPersistenceChecks(page) {
   await expectText(page, '#incorrectValue', '1');
   await page.getByText('Si recargas la página, podrás continuar desde este dispositivo.').waitFor();
   await checkNoHorizontalOverflow(page, 'persistencia tras recarga en móvil');
+
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.getByRole('dialog', { name: '🔄 Hay un avance guardado' }).waitFor();
+  await page.getByRole('button', { name: '🧹 Reiniciar desde cero' }).click();
+  await expectText(page, '#answeredValue', '0');
+  await expectText(page, '#correctValue', '0');
+  await expectText(page, '#incorrectValue', '0');
+  await expectText(page, '#timerValue', '03:00:00');
+  await page.getByRole('button', { name: 'Iniciar examen' }).waitFor();
+  assert.equal(
+    await page.evaluate((key) => window.localStorage.getItem(key), PROGRESS_STORAGE_KEY),
+    null,
+    'Reiniciar desde cero debe borrar el progreso guardado.'
+  );
+
+  await page.evaluate((key) => window.localStorage.setItem(key, '{avance corrupto'), PROGRESS_STORAGE_KEY);
+  await page.reload({ waitUntil: 'networkidle' });
+  assert.equal(await page.getByRole('dialog', { name: '🔄 Hay un avance guardado' }).count(), 0, 'El storage corrupto debe descartarse sin abrir modal.');
+  await page.getByRole('button', { name: 'Iniciar examen' }).waitFor();
+  assert.equal(
+    await page.evaluate((key) => window.localStorage.getItem(key), PROGRESS_STORAGE_KEY),
+    null,
+    'El storage corrupto debe eliminarse.'
+  );
+}
+
+async function runDeadlineAnswerGateChecks(page) {
+  log('Validando que el cronómetro cierre por deadline real antes de aceptar respuestas.');
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await startExam(page);
+  const first = await getExerciseData(page, 0);
+  await page.evaluate(({ exerciseId, optionLabel }) => {
+    window.__IFR_EXAM_DEBUG__.setRemainingSeconds(0);
+    document
+      .querySelector(`[data-action="answer"][data-id="${exerciseId}"][data-option="${optionLabel}"]`)
+      .click();
+  }, { exerciseId: first.id, optionLabel: first.correctOption });
+
+  await page.getByRole('heading', { name: 'Resultado final' }).waitFor();
+  const state = await page.evaluate(() => window.__IFR_EXAM_DEBUG__.getState());
+  assert.equal(state.status, 'time_expired', 'El intento debe cerrar por tiempo agotado cuando el deadline ya venció.');
+  assert.equal(Object.keys(state.answersById).length, 0, 'No debe aceptar una respuesta después de vencer el deadline.');
+  await expectText(page, '#answeredValue', '0');
+  await expectText(page, '#timerValue', '00:00:00');
+  await checkNoHorizontalOverflow(page, 'deadline vencido antes de responder');
 }
 
 async function runResponsiveChecks(page) {
@@ -1503,6 +1630,7 @@ async function runNaturalCompletionChecks(page) {
 
 async function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
+  validateProgressPersistenceControls();
   const consoleErrors = [];
   const pageErrors = [];
 
@@ -1528,6 +1656,7 @@ async function main() {
 
   try {
     await runProgressPersistenceChecks(page);
+    await runDeadlineAnswerGateChecks(page);
     await runFlowChecks(page);
     await runResponsiveChecks(page);
     await runReactivo7FigureChecks(page);
